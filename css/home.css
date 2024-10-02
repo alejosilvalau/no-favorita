@@ -1,0 +1,88 @@
+/* .carousel-item img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 500px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  border-style: none;
+  border-color: transparent;
+  background-color: black;
+  max-width: 100px;
+} */
+
+h5,
+p {
+  color: black;
+}
+
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 920px;
+}
+
+.video-title {
+  font-family: nimbus-sans-tw01con, nimbus-sans-tw05con, sans-serif;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 78px; 
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.card {
+  border-style: solid;
+  border-color: black;
+  transition: transform 0.2s;
+  height: 250px;
+  /* Altura fija para todas las cartas */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Espacio entre el título y el texto */
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.card-text {
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  background-color: #6a11cb;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4c057e;
+}
+
+.carousel {
+  z-index: 1;
+  /* Asegúrate de que este número sea menor que el z-index de tu navbar */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Esto empuja el título arriba y el texto abajo */
+  height: 100%;
+  /* Asegura que el card-body ocupe todo el espacio disponible en .card */
+}
