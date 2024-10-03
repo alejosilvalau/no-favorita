@@ -76,7 +76,7 @@ if ($resultadoEliminar) {
   <div class="container d-flex flex-column justify-content-center align-items-center">
     <h2 class="marcas-title">CONOCÉ NUESTRAS MARCAS</h2>
     <hr>
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-wrap justify-content-center align-items-center">
       <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_b16d8e7e694342f9b2904b14bf439790~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_b16d8e7e694342f9b2904b14bf439790~mv2.png" alt="logo webfav1_Mesa de trabajo 1" data-ssr-src-done="true" fetchpriority="high">
       <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_ce9e8f05a667485fba0b36a0794bfe94~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_ce9e8f05a667485fba0b36a0794bfe94~mv2.png" alt="logo webfav1-28" data-ssr-src-done="true" fetchpriority="high">
       <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_dd5cf6254ffc4689aa1371f9719dc8db~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_dd5cf6254ffc4689aa1371f9719dc8db~mv2.png" alt="logo webfav1-29" data-ssr-src-done="true" fetchpriority="high">
