@@ -47,37 +47,6 @@ if ($resultadoEliminar) {
     </a>
   </div>
 </div>
-
-
-
-<!-- <div id="carouselExampleCaptions" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="../assets/foto4.jpg" class="d-block w-100" alt="imagen_shopping_1">
-      <div class="carousel-caption d-none d-md-block">
-        <p></p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="../assets/Foto3.jpg" class="d-block w-100" alt="imagen_shopping_2">
-      <div class="carousel-caption d-none d-md-block">
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="../assets/foto6.jpg" class="d-block w-100" alt="imagen_shopping_3">
-      <div class="carousel-caption d-none d-md-block">
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden"></span>
-  </button>
-</div> -->
 <div class="d-flex justify-content-center mt-5">
   <div class="container" id="novedades">
     <h2 class="services-title text-center">Novedades</h2>
@@ -103,6 +72,15 @@ if ($resultadoEliminar) {
     </div>
   </div>
 </div>
+<div class="marcas">
+  <div class="container d-flex flex-column justify-content-center align-items-center">
+    <h2 class="marcas-title">CONOCÉ NUESTRAS MARCAS</h2>
+    <hr>
+    <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_dd5cf6254ffc4689aa1371f9719dc8db~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_dd5cf6254ffc4689aa1371f9719dc8db~mv2.png" alt="logo webfav1-29" style="width: 186px; height: 191px; object-fit: cover; object-position: 50% 50%;" data-ssr-src-done="true" fetchpriority="high">
+  </div>
+
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <?php
 include("../includes/footer.php");

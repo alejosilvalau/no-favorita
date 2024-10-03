@@ -1,3 +1,8 @@
+:root {
+  --color-principal: #111E3F;
+  --fuente: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
+}
+
 /* .carousel-item img {
   max-width: 100%;
   width: auto;
@@ -75,7 +80,7 @@ p {
 
 .video-title {
   position: relative;
-  font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
+  font-family: var(--fuente);
   color: white;
   font-weight: 700;
   font-size: 98px;
@@ -119,12 +124,43 @@ p {
   }
 }
 
-
-
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 50px auto;
 }
+
+hr {
+  border: 1px solid white;
+  width: 100%;
+}
+
+.marcas {
+  background-color: var(--color-principal);
+  color: white;
+  padding: 50px 0;
+
+}
+
+.marcas-title {
+  font-family: var(--fuente);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 56px;
+  margin-bottom: 40px;
+}
+
+.marcas-logos {
+  transition: background-color 0.2s ease-in;
+  -webkit-transition: background-color 0.2s ease-in;
+  -moz-transition: background-color 0.2s ease-in;
+  -ms-transition: background-color 0.2s ease-in;
+  -o-transition: background-color 0.2s ease-in;
+}
+
+.marcas-logos:hover {
+  background-color: rgba(255, 255, 255, 0.868);
+}
+
 
 .card {
   border-style: solid;
