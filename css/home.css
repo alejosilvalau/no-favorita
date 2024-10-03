@@ -13,6 +13,11 @@
   max-width: 100px;
 } */
 
+body {
+  overflow-x: hidden;
+
+}
+
 h5,
 p {
   color: black;
@@ -35,18 +40,20 @@ p {
   z-index: -1;
   object-fit: cover;
   pointer-events: none;
-
+  filter: brightness(0.3);
+  -webkit-filter: brightness(0.3);
 }
 
 .video-title {
   position: relative;
-  font-family: nimbus-sans-tw01con, nimbus-sans-tw05con, sans-serif;
+  font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
   color: white;
   font-weight: 700;
-  font-size: 70px;
+  font-size: 98px;
   line-height: 78px; 
-  top: -100px;
+  top: -60px;
   z-index: 2;
+  line-height: 85px;
 }
 
 .container {

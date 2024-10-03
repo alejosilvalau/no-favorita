@@ -16,9 +16,9 @@
 
 .navbar-nav .nav-link {
   color: var(--color-secundario);
-  font-family: nimbus-sans-tw01con, nimbus-sans-tw05con, sans-serif;
-  font-weight: 500;
-  font-size: 16px;
+  font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
+  font-weight: 400;
+  font-size: 19px;
   line-height: 27px;
   
 }
