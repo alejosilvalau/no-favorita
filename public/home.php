@@ -35,17 +35,17 @@ if ($resultadoEliminar) {
 ?>
 
 <div class="video">
-
-
-
   <iframe class="video-embed" src="https://player.vimeo.com/video/1015628916?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autoplay=1&amp;loop=1&amp;autopause=0&amp;muted=1&amp;controls=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="no-favorita-video"></iframe>
   <script src="https://player.vimeo.com/api/player.js"></script>
-
-
-  <h1 class="text-center video-title">
-    Volvé a vivir <br />
-    el centro de Rosario
-  </h1>
+  <div class="video-text">
+    <h1 class="text-center video-title">
+      Volvé a vivir <br />
+      el centro de Rosario
+    </h1>
+    <a href="#novedades" class="video-button" alt="circled-chevron-down">
+      <img width="50" height="50" src="../assets/arrow-down.png" alt="circled-chevron-down" />
+    </a>
+  </div>
 </div>
 
 
@@ -79,7 +79,7 @@ if ($resultadoEliminar) {
   </button>
 </div> -->
 <div class="d-flex justify-content-center mt-5">
-  <div class="container">
+  <div class="container" id="novedades">
     <h2 class="services-title text-center">Novedades</h2>
     <div class="row justify-content-center">
       <?php

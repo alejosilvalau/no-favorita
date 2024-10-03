@@ -3,15 +3,24 @@
   --color-secundario: #FFF;
 }
 
+body {
+  overflow-x: hidden;
+
+}
+
 .navbar {
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--color-principal);
+  z-index: 999;
+
   width: 100vw;
   @media (width >= 992px) {
     height: 107px;
   }
+
 }
 
 .navbar-nav .nav-link {
