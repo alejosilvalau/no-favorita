@@ -155,6 +155,11 @@ hr {
   -moz-transition: background-color 0.2s ease-in;
   -ms-transition: background-color 0.2s ease-in;
   -o-transition: background-color 0.2s ease-in;
+
+  width: 186px; 
+  height: 191px; 
+  object-fit: cover; 
+  object-position: 50% 50%;
 }
 
 .marcas-logos:hover {

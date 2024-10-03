@@ -76,7 +76,20 @@ if ($resultadoEliminar) {
   <div class="container d-flex flex-column justify-content-center align-items-center">
     <h2 class="marcas-title">CONOCÉ NUESTRAS MARCAS</h2>
     <hr>
-    <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_dd5cf6254ffc4689aa1371f9719dc8db~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_dd5cf6254ffc4689aa1371f9719dc8db~mv2.png" alt="logo webfav1-29" style="width: 186px; height: 191px; object-fit: cover; object-position: 50% 50%;" data-ssr-src-done="true" fetchpriority="high">
+    <div class="d-flex flex-column">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_b16d8e7e694342f9b2904b14bf439790~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_b16d8e7e694342f9b2904b14bf439790~mv2.png" alt="logo webfav1_Mesa de trabajo 1" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_ce9e8f05a667485fba0b36a0794bfe94~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_ce9e8f05a667485fba0b36a0794bfe94~mv2.png" alt="logo webfav1-28" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_dd5cf6254ffc4689aa1371f9719dc8db~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_dd5cf6254ffc4689aa1371f9719dc8db~mv2.png" alt="logo webfav1-29" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_67367b2ec9d2499ea07db1421ce925cd~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_67367b2ec9d2499ea07db1421ce925cd~mv2.png" alt="logo webfav1-27" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_268f2a905b494d5aaff2638b4174fe1e~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_268f2a905b494d5aaff2638b4174fe1e~mv2.png" alt="logo webfav1-32" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_08e80c7a97764ccf86409b20788dd288~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_08e80c7a97764ccf86409b20788dd288~mv2.png" alt="logo webfav1-03" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_beecfd73b3dc4731a61597eb8fa77207~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_beecfd73b3dc4731a61597eb8fa77207~mv2.png" alt="logo webfav1-18" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_af5ae3bc2f8e4f8892ca846ff789aaf1~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_af5ae3bc2f8e4f8892ca846ff789aaf1~mv2.png" alt="logo webfav1-19" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_f82054ef56c740b580a71ab8833812ea~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_f82054ef56c740b580a71ab8833812ea~mv2.png" alt="logofav web 2" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_a19443d019ef43a6a48a424cd8dfeba4~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_a19443d019ef43a6a48a424cd8dfeba4~mv2.png" alt="logo webfav1-22" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_9f2f96844ca54f9bae60b03d002477a4~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_9f2f96844ca54f9bae60b03d002477a4~mv2.png" alt="logo webfav1-30" data-ssr-src-done="true" fetchpriority="high">
+      <img class="marcas-logos" src="https://static.wixstatic.com/media/290684_db011b37896a4ce5874245b1d575d98e~mv2.png/v1/fill/w_186,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/290684_db011b37896a4ce5874245b1d575d98e~mv2.png" alt="logo webfav1-26" data-ssr-src-done="true" fetchpriority="high">
+    </div>
   </div>
 
 </div>
