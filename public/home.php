@@ -35,7 +35,13 @@ if ($resultadoEliminar) {
 ?>
 
 <div class="video">
-  <!-- <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/VnQrNaNDhZE?controls=0&start=54&end=515&loop=1&playlist=VnQrNaNDhZE&mute=1&autoplay=1&modestbranding=1&showinfo=0&iv_load_policy=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe> -->
+
+
+
+  <iframe class="video-embed" src="https://player.vimeo.com/video/1015628916?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autoplay=1&amp;loop=1&amp;autopause=0&amp;muted=1&amp;controls=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="no-favorita-video"></iframe>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+
+
   <h1 class="text-center video-title">
     Volvé a vivir <br />
     el centro de Rosario

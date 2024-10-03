@@ -22,14 +22,31 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   height: 920px;
+
+}
+
+.video-embed {
+  position: absolute;
+  top: -40px;
+  width: 110vw;
+  height: 110vh;
+  z-index: -1;
+  object-fit: cover;
+  pointer-events: none;
+
 }
 
 .video-title {
+  position: relative;
   font-family: nimbus-sans-tw01con, nimbus-sans-tw05con, sans-serif;
+  color: white;
   font-weight: 700;
   font-size: 70px;
   line-height: 78px; 
+  top: -100px;
+  z-index: 2;
 }
 
 .container {
