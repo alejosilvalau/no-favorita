@@ -1,0 +1,36 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.card {
+  border-style: solid;
+  border-color: black;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-text {
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  background-color: #6a11cb;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4c057e;
+}

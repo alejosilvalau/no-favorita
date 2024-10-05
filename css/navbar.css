@@ -5,16 +5,17 @@
 
 body {
   overflow-x: hidden;
+}
 
+.navbar, .navbar * {
+  z-index: 999;
 }
 
 .navbar {
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--color-principal);
-  z-index: 999;
 
   width: 100vw;
   @media (width >= 992px) {
@@ -63,7 +64,12 @@ body {
   color: black;
 }
 
-/*.navbar-collapse.show {
+.navbar-collapse {
+  
+  z-index: 999;
+}
+
+/* .navbar-collapse.show {
   border-left: 1px solid black;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
