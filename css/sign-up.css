@@ -1,6 +1,6 @@
      body {
-       background: linear-gradient(to right, #6a11cb, #2575fc);
-       color: white;
+       background: white
+       
      }
 
      .container {
@@ -52,3 +52,16 @@
       background-color: #dc3545; 
       border: 1px solid #c82333; 
     }*/
+
+
+    .alert.success {
+      background-color: #28a745;
+      color: #fff;
+      border: 1px solid #00b300;
+    }
+
+    .alert.danger {
+      background-color: #dc3545;
+      color: #fff;
+      border: 1px solid #ff0000;
+    }

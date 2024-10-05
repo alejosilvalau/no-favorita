@@ -1,6 +1,6 @@
 <?php
 $page = 'locales';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 // Configuración de paginación
 $registrosPorPagina = 5;
@@ -41,28 +41,28 @@ $resultado = mysqli_query($link, $busca_locales);
           <select class="form-control" name="rubro" id="rubro">
             <option value="">Todos</option>
             <option value="Indumentaria" <?php if ($rubro == 'Indumentaria')
-              echo 'selected'; ?>>Indumentaria</option>
+                                            echo 'selected'; ?>>Indumentaria</option>
             <option value="Comida" <?php if ($rubro == 'Comida')
-              echo 'selected'; ?>>Comida</option>
+                                      echo 'selected'; ?>>Comida</option>
             <option value="Óptica" <?php if ($rubro == 'Óptica')
-              echo 'selected'; ?>>Óptica</option>
+                                      echo 'selected'; ?>>Óptica</option>
             <option value="Perfumería" <?php if ($rubro == 'Perfumería')
-              echo 'selected'; ?>>Perfumería</option>
+                                          echo 'selected'; ?>>Perfumería</option>
             <option value="Cine" <?php if ($rubro == 'Cine')
-              echo 'selected'; ?>>Cine</option>
+                                    echo 'selected'; ?>>Cine</option>
             <option value="Entretenimiento" <?php if ($rubro == 'Entretenimiento')
-              echo 'selected'; ?>>Entretenimiento
+                                              echo 'selected'; ?>>Entretenimiento
             </option>
             <option value="Computacion" <?php if ($rubro == 'Computación')
-              echo 'selected'; ?>>Computación
+                                          echo 'selected'; ?>>Computación
             </option>
             <option value="Otros" <?php if ($rubro == 'Otros')
-              echo 'selected'; ?>>Otros
+                                    echo 'selected'; ?>>Otros
             </option>
 
           </select>
         </div>
-        <button type="submit" class="btn btn-primary btn-filtrar">Filtrar</button>
+        <button type="submit" class="btn btn-filtrar">Filtrar</button>
       </form>
     </div>
     <div class="col-md-9">
@@ -115,4 +115,4 @@ $resultado = mysqli_query($link, $busca_locales);
 </div>
 
 <?php
-include ("../includes/footer.php"); ?>
+include("../includes/footer.php"); ?>

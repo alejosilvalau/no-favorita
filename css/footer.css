@@ -1,7 +1,13 @@
+:root {
+  --color-principal: #111E3F;
+}
+
 .footer {
-  background-color: #f8f9fa;
+  background-color: var(--color-principal);
+  color: white;
   padding: 40px 0;
   text-align: left;
+
 }
 
 .footer h5 {

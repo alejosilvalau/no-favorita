@@ -28,7 +28,13 @@ include("../includes/sesiones.php");
     echo '<link rel="stylesheet" href="../css/promociones.css">';
   } elseif ($page == 'alta_local' || $page == 'alta_novedades' || $page == 'eliminacion_local' || $page == 'eliminacion_novedades' || $page == 'gestionar_descuentos' || $page == 'modificacion_local' || $page == 'modificacion_novedades' || $page == 'seccion_administrador' || $page == 'validar_duenio' || $page == 'alta_descuento' || $page == 'gestion_promocion' || $page == 'gestionar_solicitud' || $page == 'modificacion_perfil') {
     echo '<link rel="stylesheet" href="../css/admin_locales.css">';
-  } ?>
+  } elseif ($page == 'login') {
+    echo '<link rel="stylesheet" href="../css/login.css">';
+  } elseif ($page == 'sign-up') {
+    echo '<link rel="stylesheet" href="../css/sign-up.css">';
+  }
+
+  ?>
 
 </head>
 

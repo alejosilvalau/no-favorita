@@ -1,4 +1,8 @@
 <?php
+
+$page = 'sign-up';
+include("../includes/navbar.php");
+
 include('../includes/sesiones.php');
 include('../includes/conexion.inc');
 
@@ -69,63 +73,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro - Total Store</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/sign-up.css">
-
-  <style>
-    .alert.success {
-      background-color: #28a745;
-      color: #fff;
-      border: 1px solid #00b300;
-    }
-
-    .alert.danger {
-      background-color: #dc3545;
-      color: #fff;
-      border: 1px solid #ff0000;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <h2 class="mt-5 text-center">Registrarse</h2>
-    <form action="sign-up.php" method="post">
-      <div class="form-group">
-        <label for="nombre">Email:</label>
-        <input type="text" class="form-control" id="nombre" name="nombreUsuario" required>
+<div class="container">
+  <h2 class="mt-5 text-center">Registrarse</h2>
+  <form action="sign-up.php" method="post">
+    <div class="form-group">
+      <label for="nombre">Email:</label>
+      <input type="text" class="form-control" id="nombre" name="nombreUsuario" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <input type="password" class="form-control" id="clave" name="claveUsuario" required>
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirmar Contraseña:</label>
+      <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+    </div>
+    <div class="form-group checkbox-container">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="aplica-dueño" name="aplica-dueño">
+        <label class="form-check-label" for="aplica-dueño">Aplicar para dueño</label>
       </div>
-      <div class="form-group">
-        <label for="password">Contraseña:</label>
-        <input type="password" class="form-control" id="clave" name="claveUsuario" required>
-      </div>
-      <div class="form-group">
-        <label for="confirm-password">Confirmar Contraseña:</label>
-        <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
-      </div>
-      <div class="form-group checkbox-container">
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="aplica-dueño" name="aplica-dueño">
-          <label class="form-check-label" for="aplica-dueño">Aplicar para dueño</label>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
-    </form>
-    <?php if (!empty($message)): ?>
-      <div class="<?php echo $alertClass; ?> text-center">
-        <?php echo $message; ?>
-      </div>
-    <?php endif; ?>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
+      <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+  </form>
+  <?php if (!empty($message)): ?>
+    <div class="<?php echo $alertClass; ?> text-center">
+      <?php echo $message; ?>
+    </div>
+  <?php endif; ?>
+</div>
+</div>
 
-</html>
+<?php include("../includes/footer.php"); ?>
