@@ -1,6 +1,6 @@
 <?php
 $page = 'alta_local';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 if ($_SESSION['tipoUsuario'] !== 'administrador') {
   header("Location: ../public/home.php");
@@ -153,7 +153,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["buscarUsuario"])) {
         </div>
       </div>
       <button type="submit" class="btn btn-primary btn-block">Agregar Local</button>
-      <a href="../public/home.php" class="btn btn-secondary btn-block mt-3">Volver al Inicio</a>
     </form>
   <?php endif; ?>
 
@@ -201,5 +200,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["buscarUsuario"])) {
 
 
 <?php
-include ("../includes/footer.php");
+include("../includes/footer.php");
 ?>

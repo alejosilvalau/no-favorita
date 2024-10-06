@@ -1,11 +1,16 @@
+:root {
+  --color-principal: #111E3F;
+  --color-secundario: #C2AA72;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  background-color: var(--color-secundario);
 }
 
 .container {
   max-width: 800px;
-  margin: 20px auto;
+  margin: 100px auto;
   padding: 20px;
   background-color: #ffffff;
   border: 1px solid #ccc;
@@ -207,4 +212,19 @@ strong {
     height: auto;
     object-fit: cover;
   }
+}
+
+.submit {
+  background-color: var(--color-principal);
+  border: none;
+  margin-bottom: 10px;
+  font-family: "avenir-lt-w01_35-light1475496", "avenir-lt-w05_35-light", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 15px;
+}
+
+.submit:hover {
+  background-color: rgba(255, 255, 255, 0.868);
+  color: var(--color-secundario);
 }

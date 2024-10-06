@@ -1,6 +1,6 @@
 <?php
 $page = 'promociones';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 // Función para obtener nombres de días
 function numerosADias($numeros)
@@ -106,6 +106,12 @@ $total_pages = ceil($total_records / $records_per_page);
 $busca_promociones .= " LIMIT $offset, $records_per_page";
 $resultado = mysqli_query($link, $busca_promociones);
 ?>
+
+<form class="form-inline my-2 my-lg-0" method="get"
+  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+  <input class="form-control mr-sm-2" type="search" name="search" placeholder="Buscar" aria-label="Buscar">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+</form>
 
 <div class="container mt-4">
   <div class="row">
@@ -290,4 +296,4 @@ $resultado = mysqli_query($link, $busca_promociones);
 </div>
 
 
-<?php include ("../includes/footer.php"); ?>
+<?php include("../includes/footer.php"); ?>

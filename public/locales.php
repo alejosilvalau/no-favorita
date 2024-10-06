@@ -31,7 +31,11 @@ $busca_locales .= " LIMIT $offset, $registrosPorPagina";
 $resultado = mysqli_query($link, $busca_locales);
 ?>
 
-
+<form class="form-inline my-2 my-lg-0" method="get"
+  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+  <input class="form-control mr-sm-2" type="search" name="search" placeholder="Buscar" aria-label="Buscar">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+</form>
 <div class="container">
   <div class="row">
     <div class="col-md-3">

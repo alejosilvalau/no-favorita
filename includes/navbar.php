@@ -46,15 +46,7 @@ include("../includes/header.php");
       <li class="nav-item">
         <a href="../public/mapa_sitio.php" class="nav-link">MAPA DEL SITIO</a>
       </li>
-      <?php if (basename($_SERVER['PHP_SELF']) == 'promociones.php' || basename($_SERVER['PHP_SELF']) == 'locales.php'): ?>
-        <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0" method="get"
-            action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Buscar" aria-label="Buscar">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-          </form>
-        </li>
-      <?php endif; ?>
+
       <?php if ($_SESSION['tipoUsuario'] == 'No registrado'): ?>
         <li class="nav-item"><a href="login.php" class="nav-link">INICIAR SESIÓN</a></li>
       <?php elseif (isset($_SESSION['tipoUsuario'])): ?>
