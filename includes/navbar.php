@@ -16,27 +16,7 @@ include("../includes/header.php");
       <li class="nav-item">
         <a class="nav-link" href="../public/home.php">INICIO</a>
       </li>
-      <?php if ($_SESSION['tipoUsuario'] == 'administrador'): ?>
-        <li class="nav-item">
-          <a class="nav-link" href="../private/seccion_administrador.php">Panel de Administrador</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../private/gestionar_descuentos.php">Gestión de descuentos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../private/validar_dueño.php">Validación de dueños</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../private/reportes.php">Reportes</a>
-        </li>
-      <?php elseif ($_SESSION['tipoUsuario'] == 'Dueño de local'): ?>
-        <li class="nav-item">
-          <a class="nav-link" href="../duenio/gestion_promocion.php">Gestionar Promociones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../private/reportes.php">Reportes</a>
-        </li>
-      <?php endif; ?>
+
       <li class="nav-item">
         <a class="nav-link" href="../public/locales.php">LOCALES</a>
       </li>
@@ -60,8 +40,9 @@ include("../includes/header.php");
               <strong><?php echo htmlspecialchars($_SESSION['nombreUsuario']); ?></strong>
             </div>
             <div class="dropdown-item">
-              Tipo de Usuario: <?php echo htmlspecialchars($_SESSION['tipoUsuario']); ?>
+              Tipo de Usuario: <strong><?php echo htmlspecialchars($_SESSION['tipoUsuario']); ?></strong>
             </div>
+            <div class="dropdown-divider"></div>
             <?php if ($_SESSION['categoriaCliente'] && (($_SESSION['tipoUsuario'] == "Cliente") || ($_SESSION['tipoUsuario'] == "Dueño de local"))): ?>
               <div class="dropdown-item">
                 Categoría: <?php echo htmlspecialchars($_SESSION['categoriaCliente']); ?>
@@ -71,6 +52,26 @@ include("../includes/header.php");
               </div>
               <div>
                 <a class="dropdown-item" href="../public/historial.php">Historial de Promociones</a>
+              </div>
+            <?php elseif ($_SESSION['tipoUsuario'] == 'administrador'): ?>
+              <div>
+                <a class="dropdown-item" href="../private/seccion_administrador.php">Panel de Administrador</a>
+              </div>
+              <div>
+                <a class="dropdown-item" href="../private/gestionar_descuentos.php">Gestión de descuentos</a>
+              </div>
+              <div>
+                <a class="dropdown-item" href="../private/validar_dueño.php">Validación de dueños</a>
+              </div>
+              <div>
+                <a class="dropdown-item" href="../private/reportes.php">Reportes</a>
+              </div>
+            <?php elseif ($_SESSION['tipoUsuario'] == 'Dueño de local'): ?>
+              <div>
+                <a class="dropdown-item" href="../duenio/gestion_promocion.php">Gestionar Promociones</a>
+              </div>
+              <div>
+                <a class="dropdown-item" href="../private/reportes.php">Reportes</a>
               </div>
             <?php endif; ?>
             <div class="dropdown-divider"></div>

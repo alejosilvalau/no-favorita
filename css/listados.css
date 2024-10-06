@@ -3,19 +3,16 @@
   --color-secundario: #C2AA72;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: var(--color-secundario);
-}
-
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 100px auto;
   padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-secundario);
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .promo-container {
@@ -27,7 +24,7 @@ body {
 }
 
 .promo-container h3 {
-  color: #4c057e;
+  color: var(--color-principal);
 }
 
 .promo-container p {
@@ -39,19 +36,22 @@ body {
   display: block;
   width: 100%;
   max-width: 200px;
-  margin: 10px auto;
-  padding: 10px 15px;
-  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 15px;
+  font-family: "avenir-lt-w01_35-light1475496", "avenir-lt-w05_35-light", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
   color: #fff;
-  background-color: #4c057e;
+  background-color: var(--color-principal);;
   border: none;
-  border-radius: 5px;
+  
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
 }
 
 .btn-seleccionar:hover {
-  background-color: #4c057e;
+  background-color: rgba(255, 255, 255, 0.868);
+  color: var(--color-secundario);
 }
 
 .btn-filtrar {
