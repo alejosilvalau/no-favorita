@@ -3,68 +3,92 @@
   --color-secundario: #C2AA72;
 }
   
-  body {
-    background: var(--color-secundario)
-  }
-
-  .container {
-    max-width: 500px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    padding: 20px;
-  }
-
-  /* .form-control {
-    background-color: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: black;
-  } */
-
-  .form-control:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: none;
-  }
-
-  .btn-primary {
-    background-color: var(--color-principal);
-    border: none;
-  }
-
-  .btn-primary:hover {
-    background-color: rgba(255, 255, 255, 0.868);
-    color: var(--color-secundario);
-  }
-
-  label {
-    font-weight: bold;
-  }
-
-  .alert {
-    color: white;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 20px;
-  }
-
-  /* .alert-success {
-  background-color: #28a745; 
-  border: 1px solid #218838; 
+body {
+  background: var(--color-secundario);
+  font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
 }
 
-.alert-danger {
-  background-color: #dc3545; 
-  border: 1px solid #c82333; 
-}*/
+.container {
+  max-width: 500px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding: 20px;
+  color: white;
+}
 
+.container > h2 {
+  font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  font-family: sans-serif;
+}
+
+.form-control:focus, .form-control:hover  {
+  box-shadow: inset 0 0 0 2px black;
+}
+
+.form-control, .submit {
+  border-radius: 0;
+}  
+
+.btn-primary {
+  background-color: var(--color-principal);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.868);
+  color: var(--color-secundario);
+}
+
+.submit {
+  background-color: var(--color-principal);
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "avenir-lt-w01_35-light1475496", "avenir-lt-w05_35-light", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 15px;
+}
+
+.submit:hover {
+  background-color: rgba(255, 255, 255, 0.868);
+  color: var(--color-secundario);
+}
+
+
+.alert {
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+}
 
 .alert.success {
   background-color: #28a745;
   color: #fff;
   border: 1px solid #00b300;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .alert.danger {
   background-color: #dc3545;
   color: #fff;
   border: 1px solid #ff0000;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }

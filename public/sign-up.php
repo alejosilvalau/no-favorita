@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <div class="container">
-  <h2 class="mt-5 text-center">Registrarse</h2>
+  <h2 class="mt-5 text-center">REGISTRARSE</h2>
   <form action="sign-up.php" method="post">
     <div class="form-group">
       <label for="nombre">Email:</label>
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="checkbox" class="form-check-input" id="aplica-dueño" name="aplica-dueño">
         <label class="form-check-label" for="aplica-dueño">Aplicar para dueño</label>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+      <button type="submit" class="btn btn-primary btn-block submit">Registrarse</button>
   </form>
   <?php if (!empty($message)): ?>
     <div class="<?php echo $alertClass; ?> text-center">
