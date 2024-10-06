@@ -9,7 +9,7 @@ if ($_SESSION['tipoUsuario'] !== 'administrador') {
 
 function subirImagen($file)
 {
-  $target_dir = '/uploads/';
+  $target_dir = '/no-favorita/uploads/';
   $target_file = $target_dir . basename($file["name"]);
   $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
