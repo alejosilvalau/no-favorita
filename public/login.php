@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 <div class="container">
-  <h2 class="mt-5 text-center">Iniciar Sesion</h2>
+  <h2 class="mt-5 text-center">INICIAR SESION</h2>
   <form action="login.php" method="POST">
     <div class="form-group">
       <label for="email">Email:</label>
@@ -61,15 +61,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <label for="password">Contraseña:</label>
       <input type="password" class="form-control" id="password" name="claveUsuario" required>
     </div>
-    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-    <div>No estás registrado? <a href="sign-up.php" style="color: yellow">Registrarse</a></div>
+    <button type="submit" class="btn btn-primary btn-block submit">Entrar</button>
+    <div>No estás registrado? <a class="registar" href="sign-up.php"">Registrarse</a></div>
   </form>
   <?php if (isset($_SESSION['message']) && $_SESSION['message_type'] == 'error'): ?>
-    <div class="alert alert-danger text-center">
-      <?php
-      echo $_SESSION['message'];
-      unset($_SESSION['message']);
-      ?>
+    <div class=" alert alert-danger text-center">
+        <?php
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+        ?>
     </div>
   <?php elseif (isset($_SESSION['message']) && $_SESSION['message_type'] == 'success'): ?>
     <div class="alert alert-success text-center">

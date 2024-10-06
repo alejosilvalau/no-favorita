@@ -15,6 +15,8 @@ include("../includes/sesiones.php");
   <link href="https://db.onlinewebfonts.com/c/3591a95e9abd510d170b0ba4077e70d3?family=Nimbus+Sans+TW01Con" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
     rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/avenir-lt-pro" rel="stylesheet">
+
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/footer.css">
 
