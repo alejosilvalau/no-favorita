@@ -61,9 +61,9 @@ include("../includes/header.php");
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            <i class="bi bi-person-circle"></i>
+            <i class="bi bi-person-circle text-white"></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <div class="dropdown-menu dropdown-menu-right dropdown" aria-labelledby="userDropdown">
             <div class="dropdown-header">
               <strong><?php echo htmlspecialchars($_SESSION['nombreUsuario']); ?></strong>
             </div>
