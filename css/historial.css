@@ -3,9 +3,6 @@
   --color-secundario: #C2AA72;
 }
 
-
-
-
 .container {
   max-width: 800px;
   margin: 20px auto;
@@ -71,4 +68,8 @@ p {
 
 strong {
   font-weight: bold;
+}
+
+.filler {
+  height: 25vh;
 }

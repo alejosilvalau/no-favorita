@@ -1,6 +1,6 @@
 <?php
 $page = 'alta_descuento';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 // Verificar que el usuario sea dueño de local
 if ($_SESSION['tipoUsuario'] !== 'Dueño de local') {
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="container">
-  <h2 class="mt-5 text-center">Alta de Promoción</h2>
+  <h2 class="mt-5 text-center">ALTA PROMOCIÓN</h2>
   <?php if ($message): ?>
     <!-- Modal de éxito -->
     <?php if ($message_type == 'success'): ?>
@@ -150,12 +150,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select>
       </div>
       <button type="submit" class="btn btn-primary btn-block">Agregar Promoción</button>
-      <a href="../public/home.php" class="btn btn-secondary btn-block mt-3">Volver al Home</a>
     </form>
   <?php endif; ?>
 </div>
 
 
 <?php
-include ("../includes/footer.php");
+include("../includes/footer.php");
 ?>

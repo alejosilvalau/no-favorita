@@ -67,11 +67,11 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
 ?>
 
 <div class="container">
-  <h2 class="mt-5 text-center">Gestión de Uso de Promociones</h2>
+  <h2 class="my-5 text-center">GESTIÓN DE PROMOCIONES</h2>
   <div class="table-container mt-50">
     <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
       <table class="table table-striped table-hover">
-        <thead class="thead-dark">
+        <thead class="">
           <tr>
             <th>Código Cliente</th>
             <th>Código Promoción</th>
@@ -105,7 +105,6 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
       </table>
     </div>
   </div>
-  <a href="../public/home.php" class="btn btn-secondary btn-block mt-3">Volver al Home</a>
 </div>
 
 <!-- Modal de éxito -->

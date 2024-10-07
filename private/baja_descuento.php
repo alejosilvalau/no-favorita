@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $page = 'baja_descuento';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 // Verificar que el usuario sea dueño de local
 if ($_SESSION['tipoUsuario'] !== 'Dueño de local') {
@@ -54,8 +54,8 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
 
 ?>
 
-<div class="container">
-  <h2 class="mt-5 text-center">Eliminación de Promociones</h2>
+<div class="container d-flex flex-column justify-content-center align-items-center">
+  <h2 class="mt-3 text-center">BAJA DE PROMOCIONES</h2>
   <div class="row mt-4">
     <div class="col-md-12 mx-auto">
       <table class="table table-striped table-responsive">
@@ -139,8 +139,6 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
           <?php endif; ?>
         </ul>
       </nav>
-
-      <a href="../public/home.php" class="btn btn-secondary btn-block mt-3">Volver al Home</a>
     </div>
   </div>
 </div>
@@ -186,5 +184,5 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
 <?php endif; ?>
 
 <?php
-include ("../includes/footer.php");
+include("../includes/footer.php");
 ?>

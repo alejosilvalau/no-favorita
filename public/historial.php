@@ -47,6 +47,9 @@ $total_promociones = mysqli_num_rows($resultado);
   mysqli_close($link);
   ?>
 </div>
-
 <?php
-include("../includes/footer.php"); ?>
+if ($total_promociones <= 0) {
+  echo "<div class='filler'></div>";
+}
+include("../includes/footer.php");
+?>

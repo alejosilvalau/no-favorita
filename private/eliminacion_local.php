@@ -1,6 +1,6 @@
 <?php
 $page = 'eliminacion_local';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 if ($_SESSION['tipoUsuario'] !== 'administrador') {
   header("Location: ../public/home.php"); // Redirigir si no es administrador
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="container">
-  <h2 class="mt-5 text-center">Eliminar Local</h2>
+  <h2 class="mt-5 text-center">BAJA LOCAL</h2>
   <form action="eliminacion_local.php" method="POST">
     <div class="form-group">
       <label for="codLocal">Código del Local:</label>
@@ -166,9 +166,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </div>
   <?php endif; ?>
-  <a href="../public/home.php" class="btn btn-secondary btn-block mt-3">Volver al Inicio</a>
+
 </div>
 
 <?php
-include ("../includes/footer.php");
+include("../includes/footer.php");
 ?>

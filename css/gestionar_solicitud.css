@@ -1,0 +1,23 @@
+:root {
+  --color-principal: #111E3F;
+  --color-secundario: #C2AA72;
+}
+
+
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.container h2 {
+  font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+}
+.container thead {
+  background-color: var(--color-principal);
+  color: white;
+  text-align: center;
+  text-anchor: start;
+}

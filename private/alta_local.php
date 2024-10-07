@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["buscarUsuario"])) {
 ?>
 
 <div class="container">
-  <h2 class="mt-5 text-center">Dar de alta un local</h2>
+  <h2 class="mt-5 text-center">ALTA LOCAL</h2>
   <!-- Formulario de búsqueda de usuario -->
   <form method="POST" action="alta_local.php">
     <div class="form-group">
@@ -149,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["buscarUsuario"])) {
         <label for="imagenLocal">Imagen del Local (no habrá cambios en el cuadro luego de su selección):</label>
         <div class="custom-file">
           <input type="file" class="custom-file-input" id="imagenLocal" name="imagenLocal">
-          <label class="custom-file-label" for="imagenLocal">Elige una imagen...</label>
+          <label class="custom-file-label " for="imagenLocal">Elige una imagen...</label>
         </div>
       </div>
       <button type="submit" class="btn btn-primary btn-block">Agregar Local</button>

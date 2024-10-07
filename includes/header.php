@@ -37,6 +37,8 @@ include("../includes/sesiones.php");
       echo '<link rel="stylesheet" href="../css/gestionar_descuentos.css">';
     } elseif ($page == 'validar_duenio') {
       echo '<link rel="stylesheet" href="../css/validar_dueño.css">';
+    } elseif ($page == 'gestionar_solicitud') {
+      echo '<link rel="stylesheet" href="../css/gestionar_solicitud.css">';
     }
       
   } elseif ($page == 'login') {
