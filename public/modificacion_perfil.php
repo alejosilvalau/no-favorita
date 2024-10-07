@@ -1,6 +1,6 @@
 <?php
 $page = 'modificacion_perfil';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 $codUsuario = $_SESSION['codUsuario'];
 $busca_usuario = "SELECT * FROM usuarios WHERE codUsuario = '$codUsuario'";
@@ -105,10 +105,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </div>
   <?php endif; ?>
-  <a href="../public/home.php" class="btn btn-secondary btn-block mt-3">Volver al Inicio</a>
 </div>
 </div>
 
 <?php
-include ("../includes/footer.php");
+include("../includes/footer.php");
 ?>

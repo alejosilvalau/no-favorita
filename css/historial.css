@@ -1,22 +1,26 @@
-.promo-container {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-top: 10px;
+:root {
+  --color-principal: #111E3F;
+  --color-secundario: #C2AA72;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-}
+
+
 
 .container {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-principal);
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+.promo-container {
+  padding: 10px;
+  margin-top: 10px;
 }
 
 .local-container {

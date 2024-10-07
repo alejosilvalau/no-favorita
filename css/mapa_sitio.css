@@ -1,0 +1,33 @@
+:root {
+  --color-principal: #111E3F;
+  --color-secundario: #C2AA72;
+}
+
+.container {
+  font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--color-secundario);
+  color: white;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.container li, .container a {
+  color: white;
+  text-decoration: underline;
+}
+
+.container a:hover {
+  color: var(--color-principal);
+}

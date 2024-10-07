@@ -51,12 +51,21 @@ h2 {
 }
 
 .btn-primary {
-  background-color: #6a11cb;
+  background-color: var(--color-secundario);
+  color: white;
   border: none;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .btn-primary:hover {
-  background-color: #4c057e;
+  background-color: black;
+
 }
 
 .submit {

@@ -43,6 +43,8 @@ include("../includes/sesiones.php");
     echo '<link rel="stylesheet" href="../css/login.css">';
   } elseif ($page == 'sign-up') {
     echo '<link rel="stylesheet" href="../css/sign-up.css">';
+  } elseif ($page == 'mapa_sitio') {
+    echo '<link rel="stylesheet" href="../css/mapa_sitio.css">';
   }
 
   ?>
