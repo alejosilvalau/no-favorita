@@ -1,12 +1,15 @@
 <?php
 $page = 'alta_novedades';
-include ("../includes/navbar.php");
+
+include("../includes/navbar.php");
+
 
 if ($_SESSION['tipoUsuario'] !== 'administrador') {
   header("Location: ../public/home.php"); // Redirigir si no es dueño de local
   exit();
 }
 
+$message_type = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $descripcion = trim($_POST["textoNovedad"]);
   $fechaD = trim($_POST["fechaDesdeNovedad"]);
@@ -47,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="container">
-  <h2 class="mt-5 text-center">Generar una novedad</h2>
+  <h2 class="mt-5 text-center">ALTA NOVEDAD</h2>
   <form action="alta_novedades.php" method="POST">
     <div class="form-group">
       <label for="textoNovedad">Descripción de la Novedad:</label>
@@ -71,8 +74,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </select>
     </div>
     <button type="submit" class="btn btn-primary btn-block">Generar Novedad</button>
-
-    <a href="../../public/home.php" class="btn btn-secondary btn-block mt-3">Volver al Inicio</a>
   </form>
 </div>
 </div>
@@ -119,4 +120,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <?php
-include ("../includes/footer.php"); ?>
+include("../includes/footer.php"); ?>

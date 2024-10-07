@@ -1,6 +1,6 @@
 <?php
 $page = 'modificacion_novedades';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 if ($_SESSION['tipoUsuario'] !== 'administrador') {
   header("Location: ../public/home.php"); // Redirigir si no es dueño de local
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <div class="container">
-  <h2 class="mt-5 text-center">Modificar una Novedad</h2>
+  <h2 class="mt-5 text-center">MODIFICAR NOVEDAD</h2>
   <form action="modificacion_novedades.php" method="POST">
     <div class="form-group">
       <label for="fechaDesdeNovedad">Fecha Desde Novedad</label>
@@ -186,9 +186,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </div>
   <?php endif; ?>
-  <a href="../../public/home.php" class="btn btn-secondary btn-block mt-3">Volver al Inicio</a>
 </div>
 
 
 <?php
-include ("../includes/footer.php"); ?>
+include("../includes/footer.php"); ?>

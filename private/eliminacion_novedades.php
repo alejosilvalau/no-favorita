@@ -1,6 +1,6 @@
 <?php
 $page = 'eliminacion_novedades';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 if ($_SESSION['tipoUsuario'] !== 'administrador') {
   header("Location: ../public/home.php"); // Redirigir si no es dueño de local
@@ -53,7 +53,7 @@ if (isset($_POST['eliminar_novedad'])) {
 
 
 <div class="container">
-  <h2 class="mt-5 text-center">Eliminar una novedad</h2>
+  <h2 class="mt-5 text-center">ELIMINAR NOVEDAD</h2>
   <form action="eliminacion_novedades.php" method="POST">
     <div class="form-group">
       <label for="fechaDesdeNovedad">Fecha Desde Novedad</label>
@@ -73,7 +73,7 @@ if (isset($_POST['eliminar_novedad'])) {
       </select>
     </div>
     <button type="submit" class="btn btn-primary btn-block">Buscar Novedades</button>
-    <a href="../../public/home.php" class="btn btn-secondary btn-block mt-3">Volver al Inicio</a>
+
   </form>
 
   <?php if ($message_type == 'success'): ?>
@@ -136,4 +136,4 @@ if (isset($_POST['eliminar_novedad'])) {
 
 
 <?php
-include ("../includes/footer.php"); ?>
+include("../includes/footer.php"); ?>
