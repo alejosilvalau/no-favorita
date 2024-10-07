@@ -42,11 +42,12 @@ include("../includes/header.php");
             <div class="dropdown-item">
               Tipo de Usuario: <strong><?php echo htmlspecialchars($_SESSION['tipoUsuario']); ?></strong>
             </div>
-            <div class="dropdown-divider"></div>
+
             <?php if ($_SESSION['categoriaCliente'] && (($_SESSION['tipoUsuario'] == "Cliente") || ($_SESSION['tipoUsuario'] == "Dueño de local"))): ?>
               <div class="dropdown-item">
-                Categoría: <?php echo htmlspecialchars($_SESSION['categoriaCliente']); ?>
+                Categoría: <strong><?php echo htmlspecialchars($_SESSION['categoriaCliente']); ?></strong>
               </div>
+              <div class="dropdown-divider"></div>
               <div>
                 <a class="dropdown-item" href="../public/modificacion_perfil.php">Modificación Perfil</a>
               </div>
@@ -66,9 +67,10 @@ include("../includes/header.php");
               <div>
                 <a class="dropdown-item" href="../private/reportes.php">Reportes</a>
               </div>
-            <?php elseif ($_SESSION['tipoUsuario'] == 'Dueño de local'): ?>
+            <?php endif; ?>
+            <?php if ($_SESSION['categoriaCliente'] && (($_SESSION['tipoUsuario'] == "Dueño de local"))): ?>
               <div>
-                <a class="dropdown-item" href="../duenio/gestion_promocion.php">Gestionar Promociones</a>
+                <a class="dropdown-item" href="../private/gestion_promocion.php">Gestionar Promociones</a>
               </div>
               <div>
                 <a class="dropdown-item" href="../private/reportes.php">Reportes</a>

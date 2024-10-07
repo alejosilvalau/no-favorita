@@ -1,6 +1,6 @@
 <?php
 $page = 'gestionar_solicitud';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 // Verificar que el usuario sea dueño de local
 if ($_SESSION['tipoUsuario'] !== 'Dueño de local') {
@@ -154,5 +154,5 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
 mysqli_free_result($resultPromociones);
 unset($message);
 mysqli_close($link);
-include ("../includes/footer.php");
+include("../includes/footer.php");
 ?>

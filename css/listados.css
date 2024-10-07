@@ -135,17 +135,32 @@ p {
 
 .pagination {
   margin-top: 20px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .pagination .page-item {
   display: inline-block;
   margin-right: 5px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .pagination .page-link {
   color: var(--color-secundario);
   background-color: transparent;
   padding: 6px 12px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .pagination .page-link:hover {
