@@ -54,8 +54,8 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
 
 ?>
 
-<div class="container d-flex flex-column justify-content-center align-items-center">
-  <h2 class="mt-3 text-center">BAJA DE PROMOCIONES</h2>
+<div class="container d-flex flex-column justify-content-center align-items-center promo-tabla">
+  <h2 class="mt-3 text-center">BAJA PROMOCIÓN</h2>
   <div class="row mt-4">
     <div class="col-md-12 mx-auto">
       <table class="table table-striped table-responsive">

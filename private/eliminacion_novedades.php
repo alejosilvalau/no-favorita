@@ -53,7 +53,7 @@ if (isset($_POST['eliminar_novedad'])) {
 
 
 <div class="container">
-  <h2 class="mt-5 text-center">ELIMINAR NOVEDAD</h2>
+  <h2 class="mt-5 text-center">BAJA NOVEDAD</h2>
   <form action="eliminacion_novedades.php" method="POST">
     <div class="form-group">
       <label for="fechaDesdeNovedad">Fecha Desde Novedad</label>

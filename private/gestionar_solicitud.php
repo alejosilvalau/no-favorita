@@ -67,7 +67,7 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
 ?>
 
 <div class="container">
-  <h2 class="my-5 text-center">GESTIÓN DE PROMOCIONES</h2>
+  <h2 class="my-5 text-center">GESTIÓN SOLICITUD</h2>
   <div class="table-container mt-50">
     <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
       <table class="table table-striped table-hover">
