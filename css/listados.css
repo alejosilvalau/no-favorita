@@ -13,29 +13,29 @@
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
-
+  color: white;
  
 }
 
 .promo-container {
   padding: 15px;
   margin-bottom: 20px;
-  background-color: #f9f9f9;
-  
+  background-color: var(--color-secundario);
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
+  color: white;
+  font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
 }
 
-.promo-container h3 {
-  color: var(--color-principal);
-}
+
 
 .promo-container p {
   margin-bottom: 10px;
-  font-size: 16px;
 }
 
 .btn-seleccionar {
@@ -60,24 +60,7 @@
   color: var(--color-secundario);
 }
 
-.btn-filtrar {
-  display: block;
-  width: 100%;
-  max-width: 200px;
-  margin: 10px auto;
-  padding: 10px 15px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #4c057e;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-.btn-filtrar:hover {
-  background-color: #4c057e;
-}
 
 .alert {
   padding: 15px;
@@ -160,22 +143,20 @@ p {
 }
 
 .pagination .page-link {
-  color: #6a11cb;
+  color: var(--color-secundario);
   background-color: transparent;
-  border: 1px solid #6a11cb;
   padding: 6px 12px;
 }
 
 .pagination .page-link:hover {
-  background-color: #6a11cb;
+  background-color: black;
   color: white;
-  border-color: #6a11cb;
 }
 
 .pagination .page-item.active .page-link {
-  background-color: #6a11cb;
+  background-color: var(--color-secundario);
   color: white;
-  border-color: #6a11cb;
+
 }
 
 
@@ -184,23 +165,24 @@ p {
   margin: 0 5px;
   padding: 6px 12px;
   font-size: 16px;
-  color: #6a11cb;
+  color: var(--color-secundario);
   background-color: transparent;
-  border: 1px solid #6a11cb;
-  border-radius: 5px;
   text-decoration: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .pagination a:hover {
-  background-color: #6a11cb;
+  background-color: black;
   color: white;
-  border-color: #6a11cb;
 }
 
 .pagination .active a {
-  background-color: #6a11cb;
+  background-color: var(--color-secundario);
   color: white;
-  border-color: #6a11cb;
 }
 
 
@@ -247,7 +229,7 @@ p {
 }
 
 .buscar > input {
-  padding: 12px;
+  padding: 13px;
   flex: 1;
   border-radius: 0;
   -webkit-border-radius: 0;
@@ -270,4 +252,51 @@ p {
 .buscar > button:hover {
   background-color: black;
   color: white;
+}
+
+.filtrar {
+  display: block;
+  width: 100%;
+  background-color: var(--color-secundario);
+  border: none;
+  margin-bottom: 10px;
+  font-family: "avenir-lt-w01_35-light1475496", "avenir-lt-w05_35-light", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+.filtrar:hover {
+  background-color: black;
+  color: white;
+}
+
+.form-control {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+.rubro {
+  font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  color: white;
+}
+
+.promo-aprobada {
+  font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: white;
+  text-align: center;
 }

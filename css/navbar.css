@@ -81,7 +81,7 @@ body {
   text-align: center;
 }
 
-strong {
+.dropdown strong {
   color: var(--color-principal);
 }
 

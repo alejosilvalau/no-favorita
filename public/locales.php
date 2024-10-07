@@ -41,7 +41,7 @@ $resultado = mysqli_query($link, $busca_locales);
     <div class="col-md-3">
       <form method="get" action="locales.php">
         <div class="form-group">
-          <label for="rubro">Rubro:</label>
+          <label for="rubro" class="rubro">RUBRO:</label>
           <select class="form-control" name="rubro" id="rubro">
             <option value="">Todos</option>
             <option value="Indumentaria" <?php if ($rubro == 'Indumentaria')
@@ -66,7 +66,7 @@ $resultado = mysqli_query($link, $busca_locales);
 
           </select>
         </div>
-        <button type="submit" class="btn btn-filtrar">Filtrar</button>
+        <button type="submit" class="btn filtrar">Filtrar</button>
       </form>
     </div>
     <div class="col-md-9">

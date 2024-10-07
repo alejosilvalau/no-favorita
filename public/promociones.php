@@ -110,31 +110,31 @@ $resultado = mysqli_query($link, $busca_promociones);
 
 
 <div class="container mt-4">
-  <form class="form-inline my-2 my-lg-0" method="get"
+  <form class="form-inline my-2 my-lg-0 buscar" method="get"
     action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <input class="form-control mr-sm-2" type="search" name="search" placeholder="Buscar" aria-label="Buscar">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
   </form>
-  <div class="row">
+  <div class="row my-4">
     <div class="col-md-3">
       <form method="get" action="promociones.php">
         <div class="form-group">
-          <label for="fecha_desde">Fecha desde:</label>
+          <label for="fecha_desde">FECHA DESDE:</label>
           <input type="date" class="form-control" name="fecha_desde" id="fecha_desde"
             value="<?php echo htmlspecialchars($fecha_desde); ?>">
         </div>
         <div class="form-group">
-          <label for="fecha_hasta">Fecha hasta:</label>
+          <label for="fecha_hasta">FECHA HASTA:</label>
           <input type="date" class="form-control" name="fecha_hasta" id="fecha_hasta"
             value="<?php echo htmlspecialchars($fecha_hasta); ?>">
         </div>
         <div class="form-group">
-          <label for="local">Código o nombre del local:</label>
+          <label for="local">ID O NOMBRE DE LOCAL:</label>
           <input type="text" class="form-control" name="local" id="local"
             value="<?php echo htmlspecialchars($local); ?>">
         </div>
         <div class="form-group">
-          <label for="rubroLocal">Rubro del local:</label>
+          <label for="rubroLocal">RUBRO DE LOCAL:</label>
           <select class="form-control" id="rubroLocal" name="rubroLocal">
             <option value="">Todos</option>
             <option value="Indumentaria">Indumentaria</option>
@@ -149,7 +149,7 @@ $resultado = mysqli_query($link, $busca_promociones);
         </div>
         <?php if ($tipoUsuario == 'No registrado' || $tipoUsuario == 'Cliente' && $categoriaCliente != 'Inicial' || $tipoUsuario == 'Dueño de local' || $tipoUsuario == 'administrador'): ?>
           <div class="form-group">
-            <label for="categoriaPromo">Categoría de la promoción:</label>
+            <label for="categoriaPromo">CATEGORÍA PROMOCIÓN:</label>
             <select class="form-control" name="categoriaPromo" id="categoriaPromo">
               <option value="">Todas</option>
               <option value="Inicial" <?php echo $categoriaPromo == 'Inicial' ? 'selected' : ''; ?>>Inicial</option>
@@ -172,23 +172,23 @@ $resultado = mysqli_query($link, $busca_promociones);
             <input type="checkbox" id="mis_locales" name="mis_locales" value="1" <?php echo $mis_locales ? 'checked' : ''; ?>>
           </div>
         <?php endif; ?>
-        <button type="submit" class="btn-filtrar">Filtrar</button>
+        <button type="submit" class="filtrar">Filtrar</button>
       </form>
     </div>
     <div class="col-md-9">
       <?php if ($resultado && mysqli_num_rows($resultado) > 0): ?>
         <?php while ($row = mysqli_fetch_assoc($resultado)): ?>
           <div class='promo-container'>
-            <h3>ID de la Promoción: <?php echo htmlspecialchars($row["codPromo"]); ?></h3>
-            <p><strong>Descripción:</strong> <?php echo htmlspecialchars($row["textoPromo"]); ?></p>
-            <p><strong>Fecha Desde:</strong> <?php echo htmlspecialchars($row["fechaDesdePromo"]); ?></p>
-            <p><strong>Fecha Hasta:</strong> <?php echo htmlspecialchars($row["fechaHastaPromo"]); ?></p>
-            <p><strong>Categoría del Cliente:</strong> <?php echo htmlspecialchars($row["categoriaCliente"]); ?></p>
-            <p><strong>Días de la Semana:</strong> <?php echo numerosADias($row["diasSemana"]); ?></p>
-            <p><strong>Estado de la Promoción:</strong> <?php echo htmlspecialchars($row["estadoPromo"]); ?></p>
-            <p><strong>Código del Local:</strong> <?php echo htmlspecialchars($row["codLocal"]); ?></p>
-            <p><strong>Nombre del Local:</strong> <?php echo htmlspecialchars($row["nombreLocal"]); ?></p>
-            <p><strong>Rubro del Local:</strong> <?php echo htmlspecialchars($row["rubroLocal"]); ?></p>
+            <h3><strong>ID DE PROMOCIÓN: <?php echo htmlspecialchars($row["codPromo"]); ?></strong></h3>
+            <p>Descripción: <?php echo htmlspecialchars($row["textoPromo"]); ?></p>
+            <p>Fecha Desde: <?php echo htmlspecialchars($row["fechaDesdePromo"]); ?></p>
+            <p>Fecha Hasta: <?php echo htmlspecialchars($row["fechaHastaPromo"]); ?></p>
+            <p>Categoría del Cliente: <?php echo htmlspecialchars($row["categoriaCliente"]); ?></p>
+            <p>Días de la Semana: <?php echo numerosADias($row["diasSemana"]); ?></p>
+            <p>Estado de la Promoción: <?php echo htmlspecialchars($row["estadoPromo"]); ?></p>
+            <p>Código del Local: <?php echo htmlspecialchars($row["codLocal"]); ?></p>
+            <p>Nombre del Local: <?php echo htmlspecialchars($row["nombreLocal"]); ?></p>
+            <p>Rubro del Local: <?php echo htmlspecialchars($row["rubroLocal"]); ?></p>
 
             <?php if ($codUsuario): ?>
               <?php if ($tipoUsuario == 'Dueño de local' && $row['codUsuario'] == $codUsuario): ?>

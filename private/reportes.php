@@ -1,6 +1,6 @@
 <?php
 $page = 'reportes';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 if ($_SESSION['tipoUsuario'] !== 'administrador' && $_SESSION['tipoUsuario'] !== 'Dueño de local') {
   header("Location: ../../public/home.php"); // Redirigir si no es administrador o dueño de local
   exit();
@@ -42,7 +42,7 @@ $result = mysqli_query($link, $query);
 ?>
 
 <div class="container">
-  <h1>Reporte de Promociones Aprobadas</h1>
+  <h1 class="mb-3 promo-aprobada">REPORTE PROMOCIONES APROBADAS</h1>
   <?php
   if ($result) {
     echo "<div class='gestion_descuentos'>";
@@ -81,4 +81,4 @@ $result = mysqli_query($link, $query);
 </div>
 
 <?php
-include ("../includes/footer.php"); ?>
+include("../includes/footer.php"); ?>
