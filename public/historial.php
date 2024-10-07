@@ -1,6 +1,6 @@
 <?php
 $page = 'historial';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 
 function numerosADias($numeros)
 {
@@ -26,79 +26,6 @@ $resultado = mysqli_query($link, $busca_promociones);
 $total_promociones = mysqli_num_rows($resultado);
 ?>
 
-<style>
-  .promo-container {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
-  }
-
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-  }
-
-  .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .local-container {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-
-  .local-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    display: block;
-    margin: 10px auto;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-
-  .btn-seleccionar {
-    display: block;
-    width: 100%;
-    max-width: 200px;
-    margin: 10px auto;
-    padding: 10px 15px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn-seleccionar:hover {
-    background-color: #0056b3;
-  }
-
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  p {
-    margin-bottom: 10px;
-  }
-
-  strong {
-    font-weight: bold;
-  }
-</style>
-
 <div class="container">
   <?php
   if ($total_promociones > 0) {
@@ -122,4 +49,4 @@ $total_promociones = mysqli_num_rows($resultado);
 </div>
 
 <?php
-include ("../includes/footer.php"); ?>
+include("../includes/footer.php"); ?>

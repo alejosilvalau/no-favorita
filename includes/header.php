@@ -26,10 +26,19 @@ include("../includes/sesiones.php");
     echo '<link rel="stylesheet" href="../css/home.css">';
   } elseif ($page == 'locales' || $page == 'baja_descuento' || $page == 'promocion_local' || $page == 'promociones' || $page == 'reportes' || $page == 'historial') {
     echo '<link rel="stylesheet" href="../css/listados.css">';
+    if ($page  == 'historial') {
+      echo '<link rel="stylesheet" href="../css/historial.css">';
+    }
   } elseif ($page == 'promociones') {
     echo '<link rel="stylesheet" href="../css/promociones.css">';
   } elseif ($page == 'alta_local' || $page == 'alta_novedades' || $page == 'eliminacion_local' || $page == 'eliminacion_novedades' || $page == 'gestionar_descuentos' || $page == 'modificacion_local' || $page == 'modificacion_novedades' || $page == 'seccion_administrador' || $page == 'validar_duenio' || $page == 'alta_descuento' || $page == 'gestion_promocion' || $page == 'gestionar_solicitud' || $page == 'modificacion_perfil') {
     echo '<link rel="stylesheet" href="../css/admin_locales.css">';
+    if ($link == 'gestionar_descuentos') {
+      echo '<link rel="stylesheet" href="../css/gestionar_descuentos.css">';
+    } elseif ($page == 'validar_duenio') {
+      echo '<link rel="stylesheet" href="../css/validar_dueño.css">';
+    }
+      
   } elseif ($page == 'login') {
     echo '<link rel="stylesheet" href="../css/login.css">';
   } elseif ($page == 'sign-up') {

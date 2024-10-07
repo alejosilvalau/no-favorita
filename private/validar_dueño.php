@@ -1,6 +1,6 @@
 <?php
 $page = 'validar_duenio';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 if ($_SESSION['tipoUsuario'] !== 'administrador') {
   header("Location: ../public/home.php");
   exit();
@@ -43,89 +43,6 @@ $query = "SELECT * FROM usuarios WHERE tipoUsuario = 'Dueño de local' AND aprob
 $resultado = mysqli_query($link, $query);
 ?>
 
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-  }
-
-  .container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .usuario-container {
-    padding: 15px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    transition: box-shadow 0.3s ease;
-  }
-
-  .usuario-container:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .usuario-container p {
-    margin: 5px 0;
-  }
-
-  .btn-validar,
-  .btn-denegar {
-    padding: 8px 15px;
-    margin-right: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn-validar {
-    background-color: #6a11cb;
-    color: #fff;
-  }
-
-  .btn-denegar {
-    background-color: #dc3545;
-    color: #fff;
-  }
-
-  .btn-validar:hover,
-  .btn-denegar:hover {
-    opacity: 0.8;
-  }
-
-  .alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-  }
-
-  .alert.success {
-    background-color: #28a745;
-    color: #fff;
-  }
-
-  .alert.danger {
-    background-color: #dc3545;
-    color: #fff;
-  }
-</style>
-
 <div class="container">
   <h1>Usuarios Pendientes de Aprobación</h1>
   <?php if (!empty($message)): ?>
@@ -158,5 +75,5 @@ $resultado = mysqli_query($link, $query);
 </div>
 
 <?php
-include ("../includes/footer.php");
+include("../includes/footer.php");
 ?>

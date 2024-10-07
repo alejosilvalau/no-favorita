@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ob_start();
 $page = 'gestionar_descuentos';
-include ("../includes/navbar.php");
+include("../includes/navbar.php");
 if ($_SESSION['tipoUsuario'] !== 'administrador') {
   header("Location: ../public/home.php");
   exit();
@@ -68,128 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ob_end_flush();
 ?>
 
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-  }
-
-  .container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .promo-container {
-    padding: 15px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    transition: box-shadow 0.3s ease;
-  }
-
-  .promo-container:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .promo-container p {
-    margin: 5px 0;
-  }
-
-  .btn-validar,
-  .btn-denegar {
-    padding: 8px 15px;
-    margin-right: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn-validar {
-    background-color: #6a11cb;
-    color: #fff;
-  }
-
-  .btn-denegar {
-    background-color: #dc3545;
-    color: #fff;
-  }
-
-  .btn-validar:hover,
-  .btn-denegar:hover {
-    opacity: 0.8;
-  }
-
-  .alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    color: #fff;
-  }
-
-  .alert-success {
-    background-color: #28a745;
-  }
-
-  .alert-danger {
-    background-color: #dc3545;
-  }
-
-  .text-center a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #6c757d;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-
-  .text-center a:hover {
-    background-color: #5a6268;
-  }
-
-  .pagination {
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .pagination .page-item .page-link {
-    color: #6c757d;
-    background-color: #fff;
-    border: 1px solid #ddd;
-  }
-
-  .pagination .page-item .page-link:hover {
-    color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
-  }
-
-  .pagination .page-item.active .page-link {
-    z-index: 1;
-    color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
-  }
-</style>
-
-
 <div class="container">
   <h1>Promociones Pendientes de Aprobación</h1>
   <?php if (!empty($_GET['message'])): ?>
@@ -248,4 +126,4 @@ ob_end_flush();
   </div>
 </div>
 
-<?php include ("../includes/footer.php"); ?>
+<?php include("../includes/footer.php"); ?>
