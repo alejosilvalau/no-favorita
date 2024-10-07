@@ -32,12 +32,12 @@ $resultado = mysqli_query($link, $busca_locales);
 ?>
 
 <div class="container">
-  <form class="form-inline my-2 my-lg-0" method="get"
+  <form class="form-row my-2 my-lg-1 buscar" method="get"
     action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <input class="form-control mr-sm-2" type="search" name="search" placeholder="Buscar" aria-label="Buscar">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    <button class="btn my-2 my-sm-0 submit" type="submit">Buscar</button>
   </form>
-  <div class="row">
+  <div class="row my-4">
     <div class="col-md-3">
       <form method="get" action="locales.php">
         <div class="form-group">
@@ -78,10 +78,10 @@ $resultado = mysqli_query($link, $busca_locales);
           echo "<img src='" . $row["imagenLocal"] . "' alt='Local Image'>";
           echo "</div>";
           echo "<div class='local-info'>";
-          echo "<p><strong>Código del Local:</strong> " . $row["codLocal"] . "</p>";
-          echo "<p><strong>Nombre del Local:</strong> " . $row["nombreLocal"] . "</p>";
-          echo "<p><strong>Ubicación:</strong> " . $row["ubicacionLocal"] . "</p>";
-          echo "<p><strong>Rubro:</strong> " . $row["rubroLocal"] . "</p>";
+          echo "<p>Código del Local: " . $row["codLocal"] . "</p>";
+          echo "<p>Nombre del Local: " . $row["nombreLocal"] . "</p>";
+          echo "<p>Ubicación: " . $row["ubicacionLocal"] . "</p>";
+          echo "<p>Rubro: " . $row["rubroLocal"] . "</p>";
           echo "</div>";
           echo "<button type='button' class='btn-seleccionar' onclick=\"window.location.href='promocion_local.php?codLocal=" . $row['codLocal'] . "'\">Seleccionar</button>";
           echo "</div>";
