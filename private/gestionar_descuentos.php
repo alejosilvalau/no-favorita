@@ -69,7 +69,7 @@ ob_end_flush();
 ?>
 
 <div class="container">
-  <h1>Promociones Pendientes de Aprobación</h1>
+  <h1><strong>PROMOCIONES PENDIENTES DE APROBACIÓN</strong></h1>
   <?php if (!empty($_GET['message'])): ?>
     <div class="alert <?php echo $_GET['alertClass']; ?> text-center">
       <?php echo urldecode($_GET['message']); ?>
@@ -80,14 +80,14 @@ ob_end_flush();
   if (mysqli_num_rows($resultado) > 0) {
     while ($fila = mysqli_fetch_assoc($resultado)) {
       echo "<div class='promo-container'>";
-      echo "<p><strong>Código de Promoción:</strong> " . $fila["codPromo"] . "</p>";
-      echo "<p><strong>Código de Local:</strong> " . $fila["codLocal"] . "</p>";
-      echo "<p><strong>Texto de la Promoción:</strong> " . $fila["textoPromo"] . "</p>";
-      echo "<p><strong>Fecha Desde Promoción:</strong> " . $fila["fechaDesdePromo"] . "</p>";
-      echo "<p><strong>Fecha Hasta Promoción:</strong> " . $fila["fechaHastaPromo"] . "</p>";
-      echo "<p><strong>Categoría del Cliente:</strong> " . $fila["categoriaCliente"] . "</p>";
-      echo "<p><strong>Días de la Semana:</strong> " . $fila["diasSemana"] . "</p>";
-      echo "<p><strong>Estado de la Promoción:</strong> " . $fila["estadoPromo"] . "</p>";
+      echo "<p>Código de Promoción: " . $fila["codPromo"] . "</p>";
+      echo "<p>Código de Local: " . $fila["codLocal"] . "</p>";
+      echo "<p>Texto de la Promoción: " . $fila["textoPromo"] . "</p>";
+      echo "<p>Fecha Desde Promoción: " . $fila["fechaDesdePromo"] . "</p>";
+      echo "<p>Fecha Hasta Promoción: " . $fila["fechaHastaPromo"] . "</p>";
+      echo "<p>Categoría del Cliente: " . $fila["categoriaCliente"] . "</p>";
+      echo "<p>Días de la Semana: " . $fila["diasSemana"] . "</p>";
+      echo "<p>Estado de la Promoción: " . $fila["estadoPromo"] . "</p>";
       echo "<form action='gestionar_descuentos.php?page=$page' method='POST'>";
       echo "<input type='hidden' name='codPromo' value='" . $fila['codPromo'] . "'>";
       echo "<button type='submit' name='action' value='validar' class='btn btn-validar'>Aprobar</button>";

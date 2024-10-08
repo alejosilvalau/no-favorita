@@ -4,7 +4,7 @@
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 100px auto;
   padding: 20px;
   background-color: var(--color-principal);
@@ -325,4 +325,9 @@ p {
   font-weight: 400;
   font-size: 25px;
   color: white;
+  
+}
+
+.filler {
+  height: 25vh;
 }

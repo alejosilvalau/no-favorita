@@ -1,32 +1,36 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-  margin: 0;
-  padding: 0;
+:root {
+  --color-principal: #111E3F;
+  --color-secundario: #C2AA72;
 }
 
 .container {
   max-width: 800px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-principal);
+  color: white;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  
 }
 
 .promo-container {
   padding: 15px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: var(--color-secundario);
   margin-bottom: 10px;
-  transition: box-shadow 0.3s ease;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .promo-container:hover {
@@ -43,9 +47,13 @@ h1 {
   margin-right: 10px;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
   font-size: 14px;
   transition: background-color 0.3s ease;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .btn-validar {
@@ -66,8 +74,12 @@ h1 {
 .alert {
   padding: 15px;
   margin-bottom: 20px;
-  border-radius: 5px;
   color: #fff;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .alert-success {
@@ -78,19 +90,6 @@ h1 {
   background-color: #dc3545;
 }
 
-.text-center a {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #6c757d;
-  color: #fff;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-.text-center a:hover {
-  background-color: #5a6268;
-}
 
 .pagination {
   justify-content: center;
@@ -98,22 +97,19 @@ h1 {
 }
 
 .pagination .page-item .page-link {
-  color: #6c757d;
+  color: var(--color-secundario);
   background-color: #fff;
-  border: 1px solid #ddd;
 }
 
 .pagination .page-item .page-link:hover {
+  background-color: black;
   color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
 }
 
 .pagination .page-item.active .page-link {
   z-index: 1;
+  background-color: var(--color-secundario);
   color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
 }
 
 .filler {

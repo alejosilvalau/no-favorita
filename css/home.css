@@ -219,3 +219,24 @@ hr {
   height: 100%;
   /* Asegura que el card-body ocupe todo el espacio disponible en .card */
 }
+
+.parallax {
+  background-image: url('../assets/patio-comidas.jpg');
+  height: 50vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  filter: brightness(75%);
+  -webkit-filter: brightness(75%);
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}

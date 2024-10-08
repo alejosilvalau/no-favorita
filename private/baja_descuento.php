@@ -55,18 +55,18 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
 ?>
 
 <div class="container d-flex flex-column justify-content-center align-items-center promo-tabla">
-  <h2 class="mt-3 text-center">BAJA PROMOCIÓN</h2>
+  <h2 class="mt-3 text-center"><strong>BAJA PROMOCIÓN</strong></h2>
   <div class="row mt-4">
     <div class="col-md-12 mx-auto">
       <table class="table table-striped table-responsive">
         <thead>
           <tr>
-            <th>Código</th>
-            <th>Nombre del Local</th>
-            <th>Texto</th>
-            <th>Fecha Desde</th>
-            <th>Fecha Hasta</th>
-            <th>Acciones</th>
+            <th class="text-center">Código</th>
+            <th class="text-center">Nombre del Local</th>
+            <th class="text-center">Texto</th>
+            <th class="text-center">Fecha Desde</th>
+            <th class="text-center">Fecha Hasta</th>
+            <th class="text-center">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -184,5 +184,9 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
 <?php endif; ?>
 
 <?php
+if ($totalPromociones <= 0) {
+  echo "<div class='filler'></div>";
+}
+
 include("../includes/footer.php");
 ?>

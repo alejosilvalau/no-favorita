@@ -6,7 +6,7 @@
 
 .container {
   max-width: 1000px;
-  margin: 20px auto;
+  margin: 50px auto;
   padding: 20px;
 }
 
@@ -20,4 +20,8 @@
   color: white;
   text-align: center;
   text-anchor: start;
+}
+
+.filler {
+  height: 25vh;
 }
