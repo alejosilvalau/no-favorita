@@ -123,6 +123,16 @@ if ($resultadoEliminar) {
     </div>
   </div>
 </div>
+<div class="container-estacionamiento d-flex flex-column">
+  <div class="texto-estacionamiento">
+    <h2><strong>SARMIENTO 942</strong></h2>
+    <h3><strong>1 hora de estacionamiento gratis <br>
+        con tu ticket de compra</strong></h3>
+    <p>No te olvides de sellar tu ticket de estacionamiento en el puesto de atención al cliente <br> ubicado en el 2do piso al lado de los ascensores.</p>
+    <p class="my-5">Horarios estacionamiento: <br>
+      Lunes a Miércoles de 8 a 20hs - Jueves a Sábado de 8 a 21hs</p>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <?php

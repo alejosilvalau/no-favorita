@@ -30,12 +30,6 @@
         </form>
       </div>
       <div class="col-md-2">
-        <h5>DÓNDE ESTAMOS</h5>
-        <p>
-          Bv. Oroño 3000, Rosario / S2000<br>
-          Santa Fé / Argentina<br>
-          Tel: 341 111 1122
-        </p>
       </div>
       <div class="col-md-2">
         <h5>AUTORIDADES Y CONTACTOS IMPORTANTES DE LA ORGANIZACIÓN</h5>

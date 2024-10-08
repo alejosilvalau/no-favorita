@@ -226,7 +226,7 @@ hr {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.584); /* Dark overlay */
+  background: rgba(0, 0, 0, 0.584);
   z-index: 1;
 }
 
@@ -271,6 +271,7 @@ hr {
 
 }
 
+
 .horarios {
   margin-left: 1px;
   margin-bottom: 40px;
@@ -287,4 +288,53 @@ hr {
 
 .locales h3 {
   margin-bottom: -5px;
+}
+
+.container-estacionamiento {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  background-image: url('../assets/estacionamiento.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--fuente);
+  text-align: center;
+  font-weight: 500;
+  font-size:19px;
+  z-index: 1;
+}
+
+.container-estacionamiento::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.441);
+  z-index: 1;
+}
+
+.texto-estacionamiento {
+  color: white;
+  z-index: 2;
+}
+
+
+.container-estacionamiento p {
+  color: white;
+  font-family: sans-serif;
+}
+
+.container-estacionamiento h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.container-estacionamiento h3 {
+  font-size: 69px;
 }
