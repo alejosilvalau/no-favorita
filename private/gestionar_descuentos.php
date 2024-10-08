@@ -119,11 +119,19 @@ ob_end_flush();
   } else {
     echo "<p>No hay promociones pendientes de aprobación.</p>";
   }
+
+
+
   ?>
 
-  <div class="text-center">
+  <!-- <div class="text-center">
     <a href="../../public/home.php">Volver al Inicio</a>
-  </div>
+  </div> -->
 </div>
 
-<?php include("../includes/footer.php"); ?>
+<?php
+if (mysqli_num_rows($resultado) <= 0) {
+  echo "<div class='filler'></div>";
+}
+include("../includes/footer.php");
+?>

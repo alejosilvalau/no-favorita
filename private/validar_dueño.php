@@ -44,7 +44,7 @@ $resultado = mysqli_query($link, $query);
 ?>
 
 <div class="container">
-  <h1>Usuarios Pendientes de Aprobación</h1>
+  <h1><strong>USUARIOS PENDIENTES DE APROBACIÓN</strong></h1>
   <?php if (!empty($message)): ?>
     <div class="<?php echo $alertClass; ?> text-center">
       <?php echo $message; ?>
@@ -54,9 +54,9 @@ $resultado = mysqli_query($link, $query);
   if (mysqli_num_rows($resultado) > 0) {
     while ($fila = mysqli_fetch_assoc($resultado)) {
       echo "<div class='usuario-container'>";
-      echo "<p><strong>Codigo de Usuario:</strong> " . $fila["codUsuario"] . "</p>";
-      echo "<p><strong>Email:</strong> " . $fila["nombreUsuario"] . "</p>";
-      echo "<p><strong>Tipo de Usuario:</strong> " . $fila["tipoUsuario"] . "</p>";
+      echo "<p>Codigo de Usuario: " . $fila["codUsuario"] . "</p>";
+      echo "<p>Email: " . $fila["nombreUsuario"] . "</p>";
+      echo "<p>Tipo de Usuario: " . $fila["tipoUsuario"] . "</p>";
       echo "<form action='validar_dueño.php' method='POST'>";
       echo "<input type='hidden' name='codUsuario' value='" . $fila['codUsuario'] . "'>";
       echo "<button type='submit' name='action' value='validar' class='btn-validar'>Validar</button>";
@@ -70,10 +70,9 @@ $resultado = mysqli_query($link, $query);
   mysqli_close($link);
   ?>
 </div>
-<div class="text-center">
-  <a href="../public/home.php" class="btn btn-secondary mt-3">Volver al Home</a>
-</div>
-
 <?php
+if (mysqli_num_rows($resultado) <= 0) {
+  echo "<div class='filler'></div>";
+}
 include("../includes/footer.php");
 ?>

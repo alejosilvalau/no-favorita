@@ -40,7 +40,7 @@ include("../includes/header.php");
               <strong><?php echo htmlspecialchars($_SESSION['nombreUsuario']); ?></strong>
             </div>
             <div class="dropdown-item">
-              Tipo de Usuario: <strong><?php echo htmlspecialchars($_SESSION['tipoUsuario']); ?></strong>
+              Tipo de Usuario: <strong><?php echo ucfirst(htmlspecialchars($_SESSION['tipoUsuario'])); ?></strong>
             </div>
 
             <?php if ($_SESSION['categoriaCliente'] && (($_SESSION['tipoUsuario'] == "Cliente") || ($_SESSION['tipoUsuario'] == "Dueño de local"))): ?>

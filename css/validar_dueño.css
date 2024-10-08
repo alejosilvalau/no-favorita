@@ -1,18 +1,20 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-  margin: 0;
-  padding: 0;
+:root {
+  --color-principal: #111E3F;
+  --color-secundario: #C2AA72;
 }
+
 
 .container {
   max-width: 800px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-principal);
+  color: white;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 h1 {
@@ -22,11 +24,14 @@ h1 {
 
 .usuario-container {
   padding: 15px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: var(--color-secundario);
   margin-bottom: 10px;
   transition: box-shadow 0.3s ease;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .usuario-container:hover {
@@ -43,9 +48,13 @@ h1 {
   margin-right: 10px;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
-  font-size: 14px;
+  font-size: 25px;
   transition: background-color 0.3s ease;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .btn-validar {
@@ -66,7 +75,11 @@ h1 {
 .alert {
   padding: 15px;
   margin-bottom: 20px;
-  border-radius: 5px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .alert.success {
@@ -77,4 +90,8 @@ h1 {
 .alert.danger {
   background-color: #dc3545;
   color: #fff;
+}
+
+.filler {
+  height: 25vh;
 }
