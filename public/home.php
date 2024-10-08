@@ -35,7 +35,7 @@ if ($resultadoEliminar) {
 ?>
 
 <div class="video">
-  <iframe class="video-embed" src="https://player.vimeo.com/video/1015628916?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autoplay=1&amp;loop=1&amp;autopause=0&amp;muted=1&amp;controls=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="no-favorita-video"></iframe>
+  <iframe class="video-embed" src="https://player.vimeo.com/video/1017660487?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autoplay=1&amp;loop=1&amp;autopause=0&amp;muted=1&amp;controls=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="no-favorita-video"></iframe>
   <script src="https://player.vimeo.com/api/player.js"></script>
   <div class="video-text">
     <h1 class="text-center video-title">
@@ -133,6 +133,44 @@ if ($resultadoEliminar) {
       Lunes a Miércoles de 8 a 20hs - Jueves a Sábado de 8 a 21hs</p>
   </div>
 </div>
+<div class="formulario">
+  <div class="container container-formulario">
+    <div class="col-md-5">
+      <h2>CONTACTO</h2>
+      <p>Para consultas comerciales, contactarse a: <br><a href="mailto: nofavorita2@gmail.com" target="_self">nofavorita2@gmail.com</a></p>
+      <p>Oportunidades Laborales: <br>No hay vacantes disponibles</p>
+      <p>Por otras consultas, por favor completar <br>el formulario.</p>
+    </div>
+    <div class="col-md-7 formulario-input">
+      <form method="POST" action="../includes/footer_contact.php" name="contactar">
+        <input type="hidden" name="redirect_to" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>">
+        <div class="form-group">
+          <input title="Nombre" type="text" class="form-control" placeholder="Nombre" name="name"
+            autocomplete="given-name" value="<?php echo isset($_SESSION['nombre']) ? $_SESSION['nombre'] : ''; ?>"
+            required>
+        </div>
+        <div class="form-group">
+          <input title="Apellido" type="text" class="form-control" placeholder="Apellido" name="apellido"
+            autocomplete="family-name"
+            value="<?php echo isset($_SESSION['apellido']) ? $_SESSION['apellido'] : ''; ?>" required>
+        </div>
+        <div class="form-group">
+          <input title="E-mail" type="email" class="form-control" placeholder="E-mail" name="mailUsuario"
+            autocomplete="email"
+            value="<?php echo isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : ''; ?>" required>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" title="Consulta" placeholder="Consulta" rows="3" name="consulta"
+            required></textarea>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary formulario-button">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <?php

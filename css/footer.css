@@ -19,15 +19,6 @@
   margin-bottom: 15px;
 }
 
-.btn-primary {
-  background-color: #6a11cb;
-  border: none;
-}
-
-.btn-primary:hover {
-  background-color: #4c057e;
-}
-
 .container-footer {
   margin: 50px auto;
   padding: 0 20px;

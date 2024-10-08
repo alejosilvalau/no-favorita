@@ -1,6 +1,7 @@
 :root {
   --color-principal: #111E3F;
   --color-principal-claro: rgb(11, 47, 91);
+  --color-secundario: #C2AA72;
   --fuente: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
 }
 
@@ -337,4 +338,102 @@ hr {
 
 .container-estacionamiento h3 {
   font-size: 69px;
+}
+
+.formulario {
+  background-color: var(--color-secundario);
+  width: 100%;
+  height: 67vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-formulario {
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 70px;
+}
+
+.container-formulario input, .container-formulario textarea {
+  margin-bottom: 25px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  
+}
+
+.container-formulario input:focus, .container-formulario textarea:focus  {
+  box-shadow: inset 0 0 0 2px black;
+}
+
+.container-formulario input:hover, .container-formulario textarea:hover  {
+  box-shadow: inset 0 0 0 2px black;
+}
+
+.container-formulario input {
+  height: 50px;
+}
+
+.container-formulario textarea {
+  height: 125px;
+}
+
+.container-formulario p, .container-formulario h2 {
+  color: white;
+}
+
+.container-formulario h2 {
+  font-family: var(--fuente);
+  font-weight: 700;
+  font-size: 40px;
+
+  margin-bottom: 40px;
+}
+
+.container-formulario p {
+  font-family: var(--fuente);
+  font-weight: 500;
+  font-size: 25px;
+  margin-bottom: 20px;
+
+}
+
+.container-formulario button {
+  background-color: var(--color-principal);
+  border: none;
+  margin-bottom: 10px;
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 15px 75px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+.container-formulario button:hover {
+  background-color: white;
+  color: var(--color-secundario);
+}
+
+.container-formulario a {
+  color: white;
+  text-decoration: underline;
+}
+
+.container-formulario a:hover {
+  color: var(--color-principal-claro);
+  text-decoration: underline;
+}
+
+.formulario-input {
+  margin-top: 60px;
 }

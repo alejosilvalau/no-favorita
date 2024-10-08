@@ -2,32 +2,7 @@
   <div class="container-footer">
     <div class="row-footer">
       <div class="col-md-4">
-        <h5>ESCRIBINOS</h5>
-        <form method="POST" action="/includes/footer_contact.php" name="contactar">
-          <input type="hidden" name="redirect_to" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <input title="Nombre" type="text" class="form-control" placeholder="Nombre" name="name"
-                autocomplete="given-name" value="<?php echo isset($_SESSION['nombre']) ? $_SESSION['nombre'] : ''; ?>"
-                required>
-            </div>
-            <div class="form-group col-md-6">
-              <input title="Apellido" type="text" class="form-control" placeholder="Apellido" name="apellido"
-                autocomplete="family-name"
-                value="<?php echo isset($_SESSION['apellido']) ? $_SESSION['apellido'] : ''; ?>" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <input title="E-mail" type="email" class="form-control" placeholder="E-mail" name="mailUsuario"
-              autocomplete="email"
-              value="<?php echo isset($_SESSION['nombreUsuario']) ? $_SESSION['nombreUsuario'] : ''; ?>" required>
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" title="Consulta" placeholder="Consulta" rows="3" name="consulta"
-              required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
+
       </div>
       <div class="col-md-2">
       </div>
