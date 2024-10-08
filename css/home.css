@@ -1,22 +1,8 @@
 :root {
   --color-principal: #111E3F;
+  --color-principal-claro: rgb(11, 47, 91);
   --fuente: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
 }
-
-/* .carousel-item img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  max-height: 500px;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  border-style: none;
-  border-color: transparent;
-  background-color: black;
-  max-width: 100px;
-} */
 
 html {
   scroll-behavior: smooth;
@@ -222,14 +208,26 @@ hr {
 
 .parallax {
   background-image: url('../assets/patio-comidas.jpg');
-  height: 50vh;
+  width: 100%;
+  height: 75vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  filter: brightness(75%);
-  -webkit-filter: brightness(75%);
+  z-index: 1;
+
+}
+
+.parallax::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.584); /* Dark overlay */
+  z-index: 1;
 }
 
 .overlay {
@@ -239,4 +237,54 @@ hr {
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.overlay h2 {
+  font-family: var(--fuente);
+  color: white;
+  font-weight: 700;
+  font-size: 69px;
+}
+
+.overlay p {
+  font-family: sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 19px;
+}
+
+.container-horarios {
+  display: flex;
+  height: 35vh;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 1200px;
+  margin-left: 20vw;
+  
+  font-family: var(--fuente);
+  color: var(--color-principal-claro);
+  font-weight: 500;
+  font-size:25px;
+
+}
+
+.horarios {
+  margin-left: 1px;
+  margin-bottom: 40px;
+}
+
+.horarios h2 {
+  font-size: 40px;
+}
+
+.container-horarios p {
+  color: var(--color-principal-claro);
+  text-wrap: nowrap;
+}
+
+.locales h3 {
+  margin-bottom: -5px;
 }

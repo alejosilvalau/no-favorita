@@ -96,7 +96,30 @@ if ($resultadoEliminar) {
 <div>
   <div class="parallax">
     <div class="overlay">
-      <h1>Your Text Here</h1>
+      <h2>Disfrutá el Patio De Comidas</h2>
+      <p>Desayunos, Almuerzos, Meriendas, Happy Hours y Cena.</p>
+      <p class="mt-5">Domingos a Jueves de 10:00 a 00:00hs <br>
+        Viernes, Sábados y vísperas de feriado de 10 a 01hs</p>
+    </div>
+  </div>
+</div>
+<div class="container container-horarios">
+  <div class="row d-flex flex-column horarios">
+    <h2><strong>HORARIOS</strong></h2>
+    <p>ABIERTO DE LUNES A DOMINGO</p>
+  </div>
+  <div class="row d-flex flex-row mt-1 locales">
+    <div class="col-md-4">
+      <h3><strong>COMERCIOS</strong></h3>
+      <p>10 a 21hs</p>
+    </div>
+    <div class="col-md-4">
+      <h3><strong>CINES</strong></h3>
+      <p>13:30 a 23hs</p>
+    </div>
+    <div class="col-md-4">
+      <h3><strong>FARMACIA</strong></h3>
+      <p>L-V. 8:30 a 20:30hs | S. 9 A 20:30hs</p>
     </div>
   </div>
 </div>

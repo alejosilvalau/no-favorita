@@ -36,12 +36,6 @@
           Santa Fé / Argentina<br>
           Tel: 341 111 1122
         </p>
-        <p><strong>HORARIOS:</strong><br>
-          <strong>Locales comerciales:</strong> 10 a 21 hs.<br>
-          <strong>Patio de Comidas:</strong> Domingos a Jueves de 10:00 a 00:00 hs. Viernes, Sábados y vísperas de
-          feriado de 10 a 01 hs.<br>
-          <strong>Cines:</strong> Lunes a Domingos de 13:30 a 23 hs.
-        </p>
       </div>
       <div class="col-md-2">
         <h5>AUTORIDADES Y CONTACTOS IMPORTANTES DE LA ORGANIZACIÓN</h5>
