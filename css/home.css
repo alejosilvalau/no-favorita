@@ -127,6 +127,11 @@ p {
 
 .novedades {
   position: relative;
+  
+  @media (max-width: 1125px) {
+    top: -150px;
+    
+  }
   @media (max-width: 992px) {
     top: -100px;
   }
