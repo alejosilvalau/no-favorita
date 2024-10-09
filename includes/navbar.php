@@ -26,7 +26,6 @@ include("../includes/header.php");
       <li class="nav-item">
         <a href="../public/mapa_sitio.php" class="nav-link">MAPA DEL SITIO</a>
       </li>
-
       <?php if ($_SESSION['tipoUsuario'] == 'No registrado'): ?>
         <li class="nav-item"><a href="login.php" class="nav-link">INICIAR SESIÓN</a></li>
       <?php elseif (isset($_SESSION['tipoUsuario'])): ?>
@@ -81,6 +80,7 @@ include("../includes/header.php");
           </div>
         </li>
       <?php endif; ?>
+
     </ul>
   </div>
 
