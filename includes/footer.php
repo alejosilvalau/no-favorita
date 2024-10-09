@@ -4,13 +4,13 @@
       <div class="col-md-2">
         <img src="../assets/fav-logo-transparent.png" alt="no-favorita-logo">
       </div>
-      <div class="col-md-5 d-flex align-items-center justify-content-center">
+      <div class="col-md-5 d-flex align-items-center justify-content-center ">
         <p class="text-right px-1 my-2">Seguinos en redes</p>
         <a class="px-1" href="https://www.instagram.com/lafavoritaros"><img src="../assets/instagram-logo.webp" alt="logo-de-instagram"></a>
         <a class="px-1" href="https://www.facebook.com/lafavoritaros"><img src="../assets/facebook-logo.webp" alt="logo-de-facebook"></a>
       </div>
-      <div class="col-md-5 d-flex align-items-center justify-content-end">
-        <p class="my-2 text-right">Córdoba 1101, Rosario, Santa Fe</p>
+      <div class="col-md-5 d-flex align-items-center justify-content-end texto-cordoba">
+        <p class="my-2 text-right text-sm-center">Córdoba 1101, Rosario, Santa Fe</p>
       </div>
     </div>
     <div class="row my-5 d-flex align-items-center justify-content-between">

@@ -47,8 +47,8 @@ if ($resultadoEliminar) {
     </a>
   </div>
 </div>
-<div class="d-flex justify-content-center my-5">
-  <div class="container" id="novedades">
+<div class="d-flex justify-content-center my-5 novedades" id="novedades">
+  <div class="container">
     <h2 class="services-title text-center"><strong>NOVEDADES</strong></h2>
     <div class="row justify-content-center">
       <?php

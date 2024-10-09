@@ -13,11 +13,20 @@
   flex-direction: row;
   height: 475px;
 
+  @media (max-width: 992px) {
+    height: 75vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
 }
 
 .container-footer {
   margin-top: 50px;
   max-width: 1200px;
+
 }
 
 .footer p {
@@ -25,4 +34,25 @@
   font-size: 16px;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+
+  @media (max-width: 992px) {
+    text-align: center !important;
+  }
+}
+
+.footer div {
+  @media (max-width: 992px) {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 992px) {
+  .texto-cordoba {
+    justify-content: center !important;
+  }
+
+  img {
+    margin: 20px auto;
+  }
 }

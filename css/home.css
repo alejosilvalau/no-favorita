@@ -38,18 +38,18 @@ p {
   filter: brightness(0.3);
   -webkit-filter: brightness(0.3);
   overflow-x: hidden;
-  top: -300px;
+  top: -250px;
   
   
   @media (max-width: 992px) {
     width: 175vw;
     height: 175vh;
-    top: -450px;
+    top: -400px;
   }
   @media (max-width: 668px) {
     width: 200vw;
     height: 200vh;
-    top: -650px;
+    top: -550px;
   }
   
   @media (max-width: 525px) {
@@ -68,7 +68,7 @@ p {
 
 .video-text {
   display: flex;
-  
+  position: absolute;
   z-index: 100;
   align-items: center;
   justify-content: center;
@@ -76,14 +76,14 @@ p {
 }
 
 .video-title {
-
+  position: relative;
   font-family: var(--fuente);
   color: white;
   font-weight: 700;
   font-size: 98px;
   z-index: 2;
   line-height: 85px;
-  
+  top: -50px;
 
   @media (max-width: 992px) {
     top: -100px;
@@ -91,25 +91,52 @@ p {
 
   }
   @media (max-width: 668px) {
-    top: -110px;
-    font-size: 98px;
+    top: -200px;
+    font-size: 80px;
   }
   
   @media (max-width: 525px) {
-    top: -120px;
+    top: -225px;
     font-size: 70px;
   }
 }
 
 .video-button {
-
-  top: 250px;
+  position: relative;
+  top: -30px;
 
   img {
     width: 65px;
     height: 65px;
     filter: invert(100%);
     -webkit-filter: invert(100%);
+  }
+
+  @media (max-width: 992px) {
+    top: -75px;
+  }
+  @media (max-width: 668px) {
+    top: -175px;
+  }
+  
+  @media (max-width: 525px) {
+    top: -225px;
+  }
+}
+
+
+.novedades {
+  position: relative;
+  @media (max-width: 992px) {
+    top: -100px;
+  }
+  @media (max-width: 668px) {
+    top: -150px;
+  }
+  
+  @media (max-width: 525px) {
+    top: -200px;
+    
   }
 }
 
@@ -136,6 +163,11 @@ hr {
   font-size: 40px;
   line-height: 56px;
   margin-bottom: 40px;
+
+  @media (max-width: 992px) {
+    text-align: center;
+  }
+
 }
 
 .marcas-logos {
@@ -273,6 +305,10 @@ hr {
   color: white;
   font-weight: 700;
   font-size: 69px;
+
+  @media (max-width: 992px) {
+    font-size: 59px;
+  }
 }
 
 .overlay p {
@@ -295,6 +331,11 @@ hr {
   color: var(--color-principal-claro);
   font-weight: 500;
   font-size:25px;
+  @media (max-width: 992px) {
+    margin: 150px auto;
+    text-align: center;
+    align-items: center;
+  }
 
 }
 
@@ -302,10 +343,15 @@ hr {
 .horarios {
   margin-left: 1px;
   margin-bottom: 40px;
+  
+  @media (max-width: 992px) {
+    margin-left: 0;
+  }
 }
 
 .horarios h2 {
   font-size: 40px;
+  
 }
 
 .container-horarios p {
@@ -364,6 +410,10 @@ hr {
 
 .container-estacionamiento h3 {
   font-size: 69px;
+  
+  @media (max-width: 992px) {
+    font-size: 45px;
+  }
 }
 
 .formulario {
@@ -373,6 +423,10 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
+    
+  @media (max-width: 992px) {
+    height: 125vh;
+  }
 }
 
 .container-formulario {
@@ -382,6 +436,11 @@ hr {
   align-items: center;
   flex-direction: row;
   margin-bottom: 70px;
+  
+  @media (max-width: 992px) {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .container-formulario input, .container-formulario textarea {
