@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 
 include("conexion.inc");
 include("sesiones.php");
+include_once("../config.php");
 
 // Incluyendo las clases de PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->Host = 'smtp.gmail.com';  // Servidor SMTP de tu dominio
     $mail->SMTPAuth = true;
     $mail->Username = 'nofavorita2@gmail.com';  // Cuenta válida para autenticación
-    $mail->Password = 'wujt eiuo ywnm lcoc';
+    $mail->Password = MAIL_PASS; 
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 

@@ -47,20 +47,18 @@ if ($resultadoEliminar) {
     </a>
   </div>
 </div>
-<div class="d-flex justify-content-center mt-5">
+<div class="d-flex justify-content-center my-5">
   <div class="container" id="novedades">
-    <h2 class="services-title text-center">Novedades</h2>
+    <h2 class="services-title text-center"><strong>NOVEDADES</strong></h2>
     <div class="row justify-content-center">
       <?php
       if ($resultado) {
         while ($novedad = mysqli_fetch_assoc($resultado)) {
       ?>
-          <div class="col-md-4 mb-4">
+          <div class="col-md-4">
             <div class='card'>
-              <div class='card-body'>
-                <h5 class='card-title'><?php echo $novedad['textoNovedad']; ?></h5>
-                <p class='card-text'>Desde: <?php echo $novedad['fechaDesdeNovedad']; ?><br>Hasta: <?php echo $novedad['fechaHastaNovedad']; ?></p>
-              </div>
+              <h5 class='card-title'><?php echo strtoupper($novedad['textoNovedad']); ?></h5>
+              <p class='card-text'>Desde: <?php echo $novedad['fechaDesdeNovedad']; ?><br>Hasta: <?php echo $novedad['fechaHastaNovedad']; ?></p>
             </div>
           </div>
       <?php
@@ -170,6 +168,57 @@ if ($resultadoEliminar) {
     </div>
   </div>
 </div>
+
+<?php
+if (isset($_SESSION['message_footer'])) {
+  $message_footer = $_SESSION['message_footer'];
+  $message_type_footer = $_SESSION['message_type_footer'];
+  unset($_SESSION['message_footer']);
+  unset($_SESSION['message_type_footer']);
+}
+?>
+<!-- Modal de éxito -->
+<?php if (isset($message_type_footer) && $message_type_footer == 'success'): ?>
+  <div class="modal fade show" id="successModal" tabindex="-1" aria-labelledby="successModalLabel"
+    style="display: block; background: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Éxito</h5>
+        </div>
+        <div class="modal-body">
+          <?php echo $message_footer; ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" onclick="window.location.reload();">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php endif; ?>
+
+<!-- Modal de error -->
+<?php if (isset($message_type_footer) && $message_type_footer == 'error'): ?>
+  <div class="modal fade show" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel"
+    style="display: block; background: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Error</h5>
+        </div>
+        <div class="modal-body">
+          <?php echo $message_footer; ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="window.location.reload();">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php endif; ?>
+
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

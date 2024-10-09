@@ -5,7 +5,7 @@
 
 .container {
   max-width: 1200px;
-  margin: 100px auto;
+  margin: 150px auto;
   padding: 20px;
   background-color: var(--color-principal);
   border-radius: 0;
@@ -329,5 +329,5 @@ p {
 }
 
 .filler {
-  height: 25vh;
+  height: 35vh;
 }

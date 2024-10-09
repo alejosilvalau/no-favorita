@@ -5,6 +5,7 @@ include("../includes/navbar.php");
 
 include('../includes/sesiones.php');
 include('../includes/conexion.inc');
+include_once("../config.php");
 
 require '../libs/PHPMailer-master/src/Exception.php';
 require '../libs/PHPMailer-master/src/PHPMailer.php';
@@ -47,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $mail->Host = 'smtp.gmail.com';
           $mail->SMTPAuth = true;
           $mail->Username = 'nofavorita2@gmail.com';
-          $mail->Password = 'wujt eiuo ywnm lcoc';
+          $mail->Password = MAIL_PASS;
           $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
           $mail->Port = 587;
 

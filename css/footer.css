@@ -3,43 +3,26 @@
 }
 
 .footer {
+  display: flex;
+  align-items: space-between;
+  justify-content: center;
+  flex-wrap: nowrap;
   background-color: var(--color-principal);
   color: white;
   padding: 40px 0;
-  text-align: left;
+  flex-direction: row;
+  height: 475px;
 
-}
-
-.footer h5 {
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.footer .form-control {
-  margin-bottom: 15px;
 }
 
 .container-footer {
-  margin: 50px auto;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.row-footer {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.footer .col-md-4,
-.footer .col-md-2 {
-  margin-bottom: 30px;
+  margin-top: 50px;
+  max-width: 1200px;
 }
 
 .footer p {
-  margin: 0 0 10px;
+  color: white;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }

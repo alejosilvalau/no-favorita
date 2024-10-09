@@ -297,4 +297,5 @@ $resultado = mysqli_query($link, $busca_promociones);
 </div>
 
 
-<?php include("../includes/footer.php"); ?>
+<?php
+include("../includes/footer.php"); ?>

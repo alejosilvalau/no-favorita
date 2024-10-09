@@ -20,6 +20,7 @@ h2 {
 .container {
   max-width: 800px;
   margin: 50px auto;
+  margin-bottom: 100px;
 }
 
 .card {

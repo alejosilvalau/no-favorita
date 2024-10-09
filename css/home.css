@@ -156,18 +156,36 @@ hr {
   background-color: rgba(255, 255, 255, 0.868);
 }
 
+.services-title {
+  margin-bottom: 50px;
+  margin-bottom: 30px;
+  font-family: var(--fuente);
+  color: var(--color-principal);
+  font-weight: 700;
+  font-size: 45px;
+}
+
 
 .card {
   border-style: solid;
-  border-color: black;
-  transition: transform 0.2s;
-  height: 250px;
-  /* Altura fija para todas las cartas */
+  background-color: var(--color-secundario);
+  height: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  /* Espacio entre el título y el texto */
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  font-family: var(--fuente);
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
+  -ms-transition: transform 0.2s;
+  -o-transition: transform 0.2s;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 .card:hover {
@@ -175,13 +193,21 @@ hr {
 }
 
 .card-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 1rem 0;
+  font-size: 35px;
+  font-weight: 700;
+  
+  margin-bottom: 20px;
+  padding: 0;
+  font-size: 30px;
+  color: white;
 }
 
 .card-text {
-  margin-bottom: 1rem;
+  color: white;
+  font-family: sans-serif;
+  font-size: 19px;
+  margin-bottom: 40px;
+  padding: 0;
 }
 
 .btn-primary {
