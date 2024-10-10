@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           $mail->isHTML(true);
           $mail->Subject = 'Confirmacion de Registro';
-          $mail->Body = "Haz clic en el siguiente enlace para confirmar tu registro: <a href='http://localhost/no-favorita/public/confirmar.php?token=$token'>Confirmar Registro</a>";
+          $mail->Body = "Haz clic en el siguiente enlace para confirmar tu registro: <a href='https://no-favorita-2b4640a66f13.herokuapp.com/public/confirmar.php?token=$token'>Confirmar Registro</a>";
 
           $mail->send();
         } catch (Exception $e) {
