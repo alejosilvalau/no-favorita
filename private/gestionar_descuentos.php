@@ -19,16 +19,16 @@ $offset = ($page - 1) * $limit;
 $hoy = date('Y-m-d');
 $query = "SELECT * FROM promociones WHERE estadoPromo = 'pendiente' AND fechaDesdePromo >= '$hoy'";
 
-$total_result = mysqli_query($link, $query);
+$total_result = pg_query($link, $query);
 if (!$total_result) {
-  die('Error en la consulta: ' . mysqli_error($link));
+  die('Error en la consulta: ' . pg_last_error($link));
 }
-$total_promociones = mysqli_num_rows($total_result);
+$total_promociones = pg_num_rows($total_result);
 
 $query .= " LIMIT $limit OFFSET $offset";
-$resultado = mysqli_query($link, $query);
+$resultado = pg_query($link, $query);
 if (!$resultado) {
-  die('Error en la consulta con límite: ' . mysqli_error($link));
+  die('Error en la consulta con límite: ' . pg_last_error($link));
 }
 $total_pages = ceil($total_promociones / $limit);
 
@@ -46,19 +46,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (isset($query_update)) {
-      if ($stmt = mysqli_prepare($link, $query_update)) {
-        mysqli_stmt_bind_param($stmt, "i", $codPromocion);
-        if (mysqli_stmt_execute($stmt)) {
+      $stmt = pg_prepare($link, "my_query", $query_update);
+
+      if ($stmt) {
+        $result = pg_execute($link, "my_query", array($newValue, $codPromocion));
+
+        if ($result) {
           $message = "La solicitud de promoción cuyo código es $codPromocion ha sido $accion correctamente.";
         } else {
           $message = "Error al realizar la acción para la promoción cuyo código es $codPromocion.";
           $alertClass = 'alert-danger';
         }
-        mysqli_stmt_close($stmt);
       } else {
         $message = 'Error al preparar la consulta.';
         $alertClass = 'alert-danger';
       }
+
+      pg_close($link);
     }
     // Redirigir a la misma página con los parámetros GET actualizados
     header("Location: gestionar_descuentos.php?page=$page&message=" . urlencode($message) . "&alertClass=$alertClass");
@@ -77,8 +81,8 @@ ob_end_flush();
   <?php endif; ?>
 
   <?php
-  if (mysqli_num_rows($resultado) > 0) {
-    while ($fila = mysqli_fetch_assoc($resultado)) {
+if (pg_num_rows($resultado) > 0) {
+  while ($fila = pg_fetch_assoc($resultado)) {
       echo "<div class='promo-container'>";
       echo "<p>Código de Promoción: " . $fila["codPromo"] . "</p>";
       echo "<p>Código de Local: " . $fila["codLocal"] . "</p>";
@@ -130,7 +134,7 @@ ob_end_flush();
 </div>
 
 <?php
-if (mysqli_num_rows($resultado) <= 0) {
+if (pg_num_rows($resultado) <= 0) {
   echo "<div class='filler'></div>";
 }
 include("../includes/footer.php");

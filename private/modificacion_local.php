@@ -47,16 +47,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($idLocal) {
       $qryBuscarLocal = "SELECT * FROM locales WHERE codLocal = '$idLocal'";
-      $resultBuscarLocal = mysqli_query($link, $qryBuscarLocal);
-      $local = mysqli_fetch_array($resultBuscarLocal);
+      $resultBuscarLocal = pg_query($link, $qryBuscarLocal);
+      $local = pg_fetch_array($resultBuscarLocal);
       if (!$local) {
         $message = 'No existe un local con ese ID.';
         $message_type = 'error';
       }
     } elseif ($nombreLocal) {
       $qryBuscarLocal = "SELECT * FROM locales WHERE nombreLocal LIKE '%$nombreLocal%'";
-      $resultBuscarLocal = mysqli_query($link, $qryBuscarLocal);
-      while ($row = mysqli_fetch_array($resultBuscarLocal)) {
+      $resultBuscarLocal = pg_query($link, $qryBuscarLocal);
+      while ($row = pg_fetch_array($resultBuscarLocal)) {
         $locales[] = $row;
       }
 
@@ -70,8 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } elseif (isset($_POST["seleccionarLocal"])) {
     $idLocal = trim($_POST["codLocal"]);
     $qryBuscarLocal = "SELECT * FROM locales WHERE codLocal = '$idLocal'";
-    $resultBuscarLocal = mysqli_query($link, $qryBuscarLocal);
-    $local = mysqli_fetch_array($resultBuscarLocal);
+    $resultBuscarLocal = pg_query($link, $qryBuscarLocal);
+    $local = pg_fetch_array($resultBuscarLocal);
   } elseif (isset($_POST["modificarLocal"])) {
     $idLocal = trim($_POST["codLocal"]);
     $nombreLocal = trim($_POST["nombreLocal"]);
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($message_type !== 'error') {
       // Actualizar los datos del local
       $qryModificarLocal = "UPDATE locales SET nombreLocal = '$nombreLocal', ubicacionLocal = '$ubicacionLocal', rubroLocal = '$rubro', imagenLocal = '$imagenLocal' WHERE codLocal = '$idLocal'";
-      $resultModificarLocal = mysqli_query($link, $qryModificarLocal);
+      $resultModificarLocal = pg_query($link, $qryModificarLocal);
 
       if ($resultModificarLocal) {
         $message = "Local modificado exitosamente.";
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
-  mysqli_close($link);
+  pg_close($link);
 }
 ?>
 

@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['message_type'] = 'error';
   } else {
     $busca_usuario = "SELECT * FROM usuarios WHERE nombreUsuario = '$email'";
-    $resultado = mysqli_query($link, $busca_usuario);
-    $usuario = mysqli_fetch_assoc($resultado);
+    $resultado = pg_query($link, $busca_usuario);
+    $usuario = pg_fetch_assoc($resultado);
 
     if ($usuario) {
       if (password_verify($password, $usuario['claveUsuario'])) {
@@ -40,10 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['message'] = 'No existe un usuario con ese nombre.';
       $_SESSION['message_type'] = 'error';
     }
-    mysqli_free_result($resultado);
+    pg_free_result($resultado);
   }
 
-  mysqli_close($link);
+  pg_close($link);
 }
 ?>
 

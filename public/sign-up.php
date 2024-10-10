@@ -34,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password_hash = password_hash($clave, PASSWORD_DEFAULT);
 
     $qry = "SELECT * FROM usuarios WHERE nombreUsuario = '$email'";
-    $result = mysqli_query($link, $qry) or die(mysqli_error($link));
-    $vResult = mysqli_fetch_array($result);
+    $result = pg_query($link, $qry) or die(pg_last_error($link));
+    $vResult = pg_fetch_array($result);
 
     if ($vResult) {
       $message = 'El correo ya está registrado';
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
       $token = bin2hex(random_bytes(50));
       $insert_qry = "INSERT INTO usuarios (nombreUsuario, claveUsuario, tipoUsuario, categoriaCliente, validation_token, is_validated) VALUES ('$email', '$password_hash', '$tipoUsuario', 'Inicial', '$token', 0)";
-      if (mysqli_query($link, $insert_qry)) {
+      if (pg_query($link, $insert_qry)) {
         $message = 'Registro exitoso. Revisa tu correo para confirmar tu registro';
         $alertClass = 'alert success';
         $mail = new PHPMailer(true);
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $alertClass = 'alert danger';
       }
     }
-    mysqli_close($link);
+    pg_close($link);
   }
 }
 ?>

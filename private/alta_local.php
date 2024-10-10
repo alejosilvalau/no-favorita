@@ -39,12 +39,12 @@ $message_type = "";
 $usuarios = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["buscarUsuario"])) {
-  $query = mysqli_real_escape_string($link, trim($_POST["buscarUsuario"]));
+  $query = pg_escape_string($link, trim($_POST["buscarUsuario"]));
   $sql = "SELECT codUsuario, nombreUsuario FROM usuarios WHERE codUsuario = '$query' OR nombreUsuario LIKE '%$query%' AND tipoUsuario = 'Dueño de local'";
-  $result = mysqli_query($link, $sql);
+  $result = pg_query($link, $sql);
 
   if ($result) {
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = pg_fetch_assoc($result)) {
       $usuarios[] = $row;
     }
     if (empty($usuarios)) {
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["buscarUsuario"])) {
       $message_type = 'error';
     }
   } else {
-    $message = "Error al ejecutar la búsqueda: " . mysqli_error($link);
+    $message = "Error al ejecutar la búsqueda: " . pg_last_error($link);
     $message_type = 'error';
   }
 }
@@ -71,21 +71,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["buscarUsuario"])) {
     $imagenLocal = $imagenResult["success"];
 
     $buscarUsuario = "SELECT * FROM usuarios WHERE codUsuario = '$usuarioLocal'";
-    $result = mysqli_query($link, $buscarUsuario);
-    $vResult = mysqli_fetch_array($result);
+    $result = pg_query($link, $buscarUsuario);
+    $vResult = pg_fetch_array($result);
     if (!$vResult) {
       $message = 'No existe un usuario con ese código';
       $message_type = 'error';
     } else {
       $busquedaLocal = "SELECT * FROM locales WHERE nombreLocal = '$nombreLocal' AND ubicacionLocal = '$ubicacionLocal'";
-      $result2 = mysqli_query($link, $busquedaLocal);
-      $vResult2 = mysqli_fetch_array($result2);
+      $result2 = pg_query($link, $busquedaLocal);
+      $vResult2 = pg_fetch_array($result2);
       if ($vResult2) {
         $message = 'El local ya existe';
         $message_type = 'error';
       } else {
         $query = "INSERT INTO locales (nombreLocal, ubicacionLocal, rubroLocal, codUsuario, imagenLocal) VALUES ('$nombreLocal', '$ubicacionLocal', '$rubro', '$usuarioLocal', '$imagenLocal')";
-        if (mysqli_query($link, $query)) {
+        if (pg_query($link, $query)) {
           $message = "Local agregado exitosamente.";
           $message_type = 'success';
         } else {
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["buscarUsuario"])) {
         }
       }
     }
-    mysqli_close($link);
+    pg_close($link);
   }
 }
 ?>

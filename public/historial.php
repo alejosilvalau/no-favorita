@@ -22,14 +22,14 @@ if (isset($_SESSION['tipoUsuario'])) {
   $busca_promociones = "SELECT * FROM uso_promociones up INNER JOIN promociones p where p.codPromo = up.codPromo AND codCliente = '$codUsuario'";
 }
 
-$resultado = mysqli_query($link, $busca_promociones);
-$total_promociones = mysqli_num_rows($resultado);
+$resultado = pg_query($link, $busca_promociones);
+$total_promociones = pg_num_rows($resultado);
 ?>
 
 <div class="container">
   <?php
   if ($total_promociones > 0) {
-    while ($row = mysqli_fetch_assoc($resultado)) {
+    while ($row = pg_fetch_assoc($resultado)) {
       echo "<div class='promo-container'>";
       echo "<h3><strong>ID DE PROMOCIÓN: " . $row["codPromo"] . "</strong></h3>";
       echo "<p>Texto de la Promoción: " . $row["textoPromo"] . "</p>";
@@ -44,7 +44,7 @@ $total_promociones = mysqli_num_rows($resultado);
   } else {
     echo "No adquiriste ninguna promoción.";
   }
-  mysqli_close($link);
+pg_close($link);
   ?>
 </div>
 <?php

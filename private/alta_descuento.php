@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     // Verificar si la promoción ya existe con esas fechas y texto
     $buscarPromo = "SELECT * FROM promociones WHERE textoPromo = '$textoPromo' AND fechaDesdePromo = '$fechaDesdePromo' AND fechaHastaPromo = '$fechaHastaPromo'";
-    $result = mysqli_query($link, $buscarPromo);
-    if (mysqli_num_rows($result) > 0) {
+    $result = pg_query($link, $buscarPromo);
+    if (pg_num_rows($result) > 0) {
       $message = "Ya existe una promoción con ese texto y esas fechas.";
       $message_type = "error";
     } else {
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $query = "INSERT INTO promociones (textoPromo, fechaDesdePromo, fechaHastaPromo, categoriaCliente, diasSemana, estadoPromo, codLocal, cantUsadas) 
                 VALUES ('$textoPromo', '$fechaDesdePromo', '$fechaHastaPromo', '$categoriaCliente', '$diasSemana', '$estadoPromo', '$codLocal', 0)";
 
-      if (mysqli_query($link, $query)) {
+      if (pg_query($link, $query)) {
         $message = "Promoción agregada exitosamente.";
         $message_type = "success";
       } else {
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
-  mysqli_close($link);
+  pg_close($link);
 }
 ?>
 
@@ -142,8 +142,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           // Obtener los locales del usuario actual
           $codUsuario = $_SESSION['codUsuario'];
           $queryLocales = "SELECT * FROM locales WHERE codUsuario = '$codUsuario'";
-          $resultLocales = mysqli_query($link, $queryLocales);
-          while ($row = mysqli_fetch_assoc($resultLocales)) {
+    $resultLocales = pg_query($link, $queryLocales);
+    while ($row = pg_fetch_assoc($resultLocales)) {
             echo "<option value='" . $row['codLocal'] . "'>" . $row['codLocal'] . " - " . $row['nombreLocal'] . "</option>";
           }
           ?>

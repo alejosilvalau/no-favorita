@@ -10,23 +10,23 @@ if (isset($_GET['token'])) {
 
   // Verificar si la conexión se establece correctamente
   if ($link === false) {
-    die("ERROR: No se pudo conectar a la base de datos. " . mysqli_connect_error());
+    die("ERROR: No se pudo conectar a la base de datos. " . pg_last_error());
   }
 
   // Buscar el usuario con el token dado
   $qry = "SELECT * FROM usuarios WHERE validation_token = '$token'";
-  $result = mysqli_query($link, $qry);
+  $result = pg_query($link, $qry);
 
   if (!$result) {
-    die("ERROR: No se pudo ejecutar la consulta. " . mysqli_error($link));
+    die("ERROR: No se pudo ejecutar la consulta. " . pg_last_error($link));
   }
 
-  $user = mysqli_fetch_array($result);
+  $user = pg_fetch_array($result);
   // Si se encuentra el usuario
   if ($user) {
     // Actualizar el estado del token a confirmado
     $update_qry = "UPDATE usuarios SET is_validated = 1 WHERE validation_token = '$token'";
-    if (mysqli_query($link, $update_qry)) {
+    if (pg_query($link, $update_qry)) {
       $_SESSION['message'] = "Registro confirmado exitosamente. Puedes iniciar sesión ahora.";
       $_SESSION['message_type'] = "success";
       header("Location: login.php");
@@ -39,7 +39,7 @@ if (isset($_GET['token'])) {
     $_SESSION['message'] = "Token inválido o expirado.";
     $_SESSION['message_type'] = "error";
   }
-  mysqli_close($link);
+  pg_close($link);
 } else {
   $_SESSION['message'] = "No se proporcionó un token.";
   $_SESSION['message_type'] = "error";

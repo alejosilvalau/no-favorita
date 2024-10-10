@@ -18,10 +18,10 @@ $message_type = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminarPromo'])) {
   $codPromocion = $_POST["codPromo"];
   $queryEliminarUsos = "DELETE FROM uso_promociones WHERE codPromo = '$codPromocion'";
-  if (mysqli_query($link, $queryEliminarUsos)) {
+  if (pg_query($link, $queryEliminarUsos)) {
     // Query para eliminar la promoción
     $queryEliminar = "DELETE FROM promociones WHERE codPromo = '$codPromocion'";
-    if (mysqli_query($link, $queryEliminar)) {
+    if (pg_query($link, $queryEliminar)) {
       $message = "Promoción eliminada correctamente.";
       $message_type = "success";
     } else {
@@ -39,8 +39,8 @@ $offset = ($pagina - 1) * $registrosPorPagina;
 // Obtener todas las promociones del local actual con paginación
 $codUsuario = $_SESSION['codUsuario'];
 $queryTotal = "SELECT COUNT(*) AS total FROM promociones WHERE codLocal IN (SELECT codLocal FROM locales WHERE codUsuario = '$codUsuario')";
-$resultTotal = mysqli_query($link, $queryTotal);
-$totalPromociones = mysqli_fetch_assoc($resultTotal)['total'];
+$resultTotal = pg_query($link, $queryTotal);
+$totalPromociones = pg_fetch_assoc($resultTotal)['total'];
 
 $totalPaginas = ceil($totalPromociones / $registrosPorPagina);
 
@@ -50,7 +50,7 @@ $queryPromociones = "SELECT p.codPromo, p.textoPromo, p.fechaDesdePromo, p.fecha
                      WHERE p.codLocal IN (SELECT codLocal FROM locales WHERE codUsuario = '$codUsuario') 
                      ORDER BY p.codPromo DESC 
                      LIMIT $offset, $registrosPorPagina";
-$resultPromociones = mysqli_query($link, $queryPromociones);
+$resultPromociones = pg_query($link, $queryPromociones);
 
 ?>
 
@@ -70,7 +70,7 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
           </tr>
         </thead>
         <tbody>
-          <?php while ($row = mysqli_fetch_assoc($resultPromociones)): ?>
+          <?php while ($row = pg_fetch_assoc($resultPromociones)): ?>
             <tr>
               <td><?php echo $row['codPromo']; ?></td>
               <td><?php echo $row['nombreLocal']; ?></td>

@@ -8,8 +8,8 @@ $pagina = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 $offset = ($pagina - 1) * $registrosPorPagina;
 
 // Obtener parámetros de búsqueda y filtros
-$search = isset($_GET['search']) ? mysqli_real_escape_string($link, $_GET['search']) : '';
-$rubro = isset($_GET['rubro']) ? mysqli_real_escape_string($link, $_GET['rubro']) : '';
+$search = isset($_GET['search']) ? pg_escape_string($link, $_GET['search']) : '';
+$rubro = isset($_GET['rubro']) ? pg_escape_string($link, $_GET['rubro']) : '';
 
 $busca_locales = "SELECT * FROM locales WHERE 1=1";
 
@@ -22,13 +22,13 @@ if ($rubro) {
 }
 
 $queryTotal = $busca_locales; // Query sin límite ni offset para contar total de registros
-$resultTotal = mysqli_query($link, $queryTotal);
-$total_locales = mysqli_num_rows($resultTotal);
+$resultTotal = pg_query($link, $queryTotal);
+$total_locales = pg_num_rows($resultTotal);
 
 // Agregar paginación a la consulta principal
 $busca_locales .= " LIMIT $offset, $registrosPorPagina";
 
-$resultado = mysqli_query($link, $busca_locales);
+$resultado = pg_query($link, $busca_locales);
 ?>
 
 <div class="container">
@@ -72,7 +72,7 @@ $resultado = mysqli_query($link, $busca_locales);
     <div class="col-md-9">
       <?php
       if ($total_locales > 0) {
-        while ($row = mysqli_fetch_assoc($resultado)) {
+        while ($row = pg_fetch_assoc($resultado)) {
           echo "<div class='local-container'>";
           echo "<div class='local-image'>";
           echo "<img src='" . $row["imagenLocal"] . "' alt='Local Image'>";
@@ -112,7 +112,7 @@ $resultado = mysqli_query($link, $busca_locales);
       } else {
         echo "No hay locales disponibles.";
       }
-      mysqli_close($link);
+      pg_close($link);
       ?>
     </div>
   </div>

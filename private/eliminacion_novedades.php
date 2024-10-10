@@ -18,16 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipoUsuario = trim($_POST["categoriaCliente"]);
 
     $buscarNovedades = "SELECT * FROM novedades WHERE fechaDesdeNovedad >= '$fechaD' AND fechaHastaNovedad <= '$fechaH' AND categoriaCliente = '$tipoUsuario'";
-    $result = mysqli_query($link, $buscarNovedades);
+    $result = pg_query($link, $buscarNovedades);
 
-    if (mysqli_num_rows($result) > 0) {
-      $novedades = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    if (pg_num_rows($result) > 0) {
+      $novedades = pg_fetch_all($result, PGSQL_ASSOC);
     } else {
       $message = "No se encontraron novedades con los criterios especificados.";
       $message_type = 'error';
     }
 
-    mysqli_close($link);
+    pg_close($link);
   }
 }
 
@@ -37,7 +37,7 @@ if (isset($_POST['eliminar_novedad'])) {
 
   // Consulta SQL para eliminar la novedad seleccionada
   $eliminarNovedad = "DELETE FROM novedades WHERE codNovedad = '$idNovedad'";
-  $result = mysqli_query($link, $eliminarNovedad);
+  $result = pg_query($link, $eliminarNovedad);
 
   if ($result) {
     $message = "Novedad eliminada correctamente.";
@@ -47,7 +47,7 @@ if (isset($_POST['eliminar_novedad'])) {
     $message_type = 'error';
   }
 
-  mysqli_close($link);
+  pg_close($link);
 }
 ?>
 

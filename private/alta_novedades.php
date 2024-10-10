@@ -27,15 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
 
     $buscarNovedad = "select * from novedades where textoNovedad = '$descripcion' and fechaDesdeNovedad = '$fechaD' and fechaHastaNovedad = '$fechaH' and categoriaCliente = '$tipoUsuario'";
-    $result = mysqli_query($link, $buscarNovedad);
-    $vResult = mysqli_fetch_array($result);
+    $result = pg_query($link, $buscarNovedad);
+    $vResult = pg_fetch_array($result);
     if ($vResult) {
       $message = 'Ya existe esa novedad';
       $message_type = 'error';
     } else {
 
       $altaNovedad = "insert into novedades (textoNovedad, fechaDesdeNovedad, fechaHastaNovedad, categoriaCliente) values('$descripcion', '$fechaD', '$fechaH', '$tipoUsuario')";
-      $result2 = mysqli_query($link, $altaNovedad);
+      $result2 = pg_query($link, $altaNovedad);
       if ($result2) {
         $message = "Novedad generada exitosamente.";
         $message_type = 'success';
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
     }
   }
-  mysqli_close($link);
+  pg_close($link);
 }
 ?>
 

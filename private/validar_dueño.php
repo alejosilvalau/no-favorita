@@ -21,26 +21,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $alertClass = 'alert danger'; // Clase de alerta para error
     }
 
-    if ($stmt = mysqli_prepare($link, $query)) {
-      mysqli_stmt_bind_param($stmt, "i", $idUsuario);
+    $stmt = pg_prepare($link, "my_query", $query);
 
-      if (mysqli_stmt_execute($stmt)) {
+    if ($stmt) {
+      // Execute the prepared statement with parameters
+      $result = pg_execute($link, "my_query", array($newValue, $idUsuario));
+
+      if ($result) {
         $message = "La solicitud del usuario con ID $idUsuario ha sido $accion correctamente.";
       } else {
         $message = "Error al realizar la acción para el usuario con ID $idUsuario.";
-        $alertClass = 'alert danger'; // Asegurar que la clase de alerta sea de error en caso de fallo
+        $alertClass = 'alert-danger';
       }
-      mysqli_stmt_close($stmt);
     } else {
       $message = 'Error al preparar la consulta.';
-      $alertClass = 'alert danger'; // Asegurar que la clase de alerta sea de error en caso de fallo
+      $alertClass = 'alert-danger'; 
     }
   }
 }
 
 // Consulta actualizada para asegurarse de que se seleccionen solo usuarios no aprobados
 $query = "SELECT * FROM usuarios WHERE tipoUsuario = 'Dueño de local' AND aprobado = false";
-$resultado = mysqli_query($link, $query);
+$resultado = pg_query($link, $query);
 ?>
 
 <div class="container">
@@ -51,8 +53,8 @@ $resultado = mysqli_query($link, $query);
     </div>
   <?php endif; ?>
   <?php
-  if (mysqli_num_rows($resultado) > 0) {
-    while ($fila = mysqli_fetch_assoc($resultado)) {
+if (pg_num_rows($resultado) > 0) {
+  while ($fila = pg_fetch_assoc($resultado)) {
       echo "<div class='usuario-container'>";
       echo "<p>Codigo de Usuario: " . $fila["codUsuario"] . "</p>";
       echo "<p>Email: " . $fila["nombreUsuario"] . "</p>";
@@ -67,11 +69,11 @@ $resultado = mysqli_query($link, $query);
   } else {
     echo "No se encontraron usuarios que cumplan los criterios.";
   }
-  mysqli_close($link);
+pg_close($link);
   ?>
 </div>
 <?php
-if (mysqli_num_rows($resultado) <= 0) {
+if (pg_num_rows($resultado) <= 0) {
   echo "<div class='filler'></div>";
 }
 include("../includes/footer.php");

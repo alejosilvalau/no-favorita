@@ -21,16 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $nuevoEstado = ($accion == 'aprobar') ? 'aceptada' : 'rechazada';
   $queryActualizar = "UPDATE uso_promociones SET estado = '$nuevoEstado' WHERE codCliente = '$codUsuario' AND codPromo = '$codPromo'";
 
-  if (mysqli_query($link, $queryActualizar)) {
+  if (pg_query($link, $queryActualizar)) {
     if ($accion == 'aprobar') {
       // Sumar 1 al atributo cantUsadas en la tabla promociones
       $querySumar = "UPDATE promociones SET cantUsadas = cantUsadas + 1 WHERE codPromo = '$codPromo'";
-      mysqli_query($link, $querySumar);
+      pg_query($link, $querySumar);
 
       // Obtener el contadorCategoria actual del cliente
       $queryContador = "SELECT contadorCategoria FROM usuarios WHERE codUsuario = '$codUsuario'";
-      $resultContador = mysqli_query($link, $queryContador);
-      $rowContador = mysqli_fetch_assoc($resultContador);
+      $resultContador = pg_query($link, $queryContador);
+      $rowContador = pg_fetch_assoc($resultContador);
       $contadorActual = $rowContador['contadorCategoria'];
 
       // Incrementar el contador
@@ -38,15 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       // Actualizar el contadorCategoria del cliente
       $queryActualizarContador = "UPDATE usuarios SET contadorCategoria = '$contadorNuevo' WHERE codUsuario = '$codUsuario'";
-      mysqli_query($link, $queryActualizarContador);
+      pg_query($link, $queryActualizarContador);
 
       // Verificar si el contador alcanza los umbrales para actualizar la categoría del cliente
       if ($contadorNuevo == 10) {
         $queryActualizarCategoria = "UPDATE usuarios SET categoriaCliente = 'Medium' WHERE codUsuario = '$codUsuario'";
-        mysqli_query($link, $queryActualizarCategoria);
+        pg_query($link, $queryActualizarCategoria);
       } elseif ($contadorNuevo == 20) {
         $queryActualizarCategoria = "UPDATE usuarios SET categoriaCliente = 'Premium' WHERE codUsuario = '$codUsuario'";
-        mysqli_query($link, $queryActualizarCategoria);
+        pg_query($link, $queryActualizarCategoria);
       }
     }
     $message = "La promoción ha sido " . (($accion == 'aprobar') ? 'aceptada' : 'rechazada') . " correctamente.";
@@ -63,7 +63,7 @@ $queryPromociones = "SELECT u.codCliente, u.codPromo, u.fechaUsoPromo, u.estado,
                      FROM uso_promociones u
                      INNER JOIN promociones p ON u.codPromo = p.codPromo
                      WHERE u.estado = 'Enviada' AND p.codLocal IN (SELECT codLocal FROM locales WHERE codUsuario = '$codUsuario')";
-$resultPromociones = mysqli_query($link, $queryPromociones);
+$resultPromociones = pg_query($link, $queryPromociones);
 ?>
 
 <div class="container">
@@ -81,7 +81,7 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
           </tr>
         </thead>
         <tbody>
-          <?php while ($row = mysqli_fetch_assoc($resultPromociones)): ?>
+          <?php while ($row = pg_fetch_assoc($resultPromociones)): ?>
             <tr>
               <td><?php echo $row['codCliente']; ?></td>
               <td><?php echo $row['codPromo']; ?></td>
@@ -150,8 +150,8 @@ $resultPromociones = mysqli_query($link, $queryPromociones);
 <?php endif; ?>
 
 <?php
-mysqli_free_result($resultPromociones);
+pg_free_result($resultPromociones);
 unset($message);
-mysqli_close($link);
+pg_close($link);
 include("../includes/footer.php");
 ?>

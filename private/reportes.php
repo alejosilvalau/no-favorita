@@ -35,10 +35,10 @@ if ($_SESSION['tipoUsuario'] == 'Dueño de local') {
   $query = "SELECT * FROM promociones WHERE estadoPromo = 'aprobada' LIMIT $limit OFFSET $offset";
 }
 
-$total_result = mysqli_query($link, $total_query);
-$total_rows = mysqli_fetch_array($total_result)[0];
+$total_result = pg_query($link, $total_query);
+$total_rows = pg_fetch_array($total_result)[0];
 $total_pages = ceil($total_rows / $limit);
-$result = mysqli_query($link, $query);
+$result = pg_query($link, $query);
 ?>
 
 <div class="container">
@@ -46,7 +46,7 @@ $result = mysqli_query($link, $query);
   <?php
   if ($result) {
     echo "<div class='gestion_descuentos'>";
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = pg_fetch_assoc($result)) {
       echo "<div class='promo-container'>";
       //echo "<h3>" . $row['titulo'] . "</h3>";
       echo "<p>Descripción de la promoción: " . $row['textoPromo'] . "</p>";
@@ -56,8 +56,8 @@ $result = mysqli_query($link, $query);
       echo "<p>Dias de la semana disponibles: " . numerosADias($row['diasSemana']) . "</p>";
       $codLocal = $row['codLocal'];
       $query = "SELECT * FROM locales WHERE codLocal = $codLocal";
-      $resultado = mysqli_query($link, $query);
-      $local = mysqli_fetch_array($resultado);
+      $resultado = pg_query($link, $query);
+      $local = pg_fetch_array($resultado);
       echo "<p>Nombre del local al cual pertenece: " . $local['nombreLocal'] . "</p>";
       echo "<p>Cantidad de veces que se utilizó la promoción: " . $row['cantUsadas'] . "</p>";
       echo "</div>";
@@ -74,9 +74,9 @@ $result = mysqli_query($link, $query);
       echo "</ul></nav>";
     }
   } else {
-    echo "Failed to fetch promotions: " . mysqli_error($conexion);
+    echo "Failed to fetch promotions: " . pg_last_error($conexion);
   }
-  mysqli_close($link);
+pg_close($link);
   ?>
 </div>
 

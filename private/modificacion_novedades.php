@@ -20,8 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipoUsuario = trim($_POST["categoriaCliente"]);
 
     $buscarNovedades = "SELECT * FROM novedades WHERE fechaDesdeNovedad >= '$fechaD' AND fechaHastaNovedad <= '$fechaH' AND categoriaCliente = '$tipoUsuario'";
-    $result = mysqli_query($link, $buscarNovedades);
-    while ($row = mysqli_fetch_assoc($result)) {
+    $result = pg_query($link, $buscarNovedades);
+    while ($row = pg_fetch_assoc($result)) {
       $novedades[] = $row;
     }
 
@@ -33,8 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $codNovedad = $_POST["codNovedad"];
     $buscarNovedad = "SELECT * FROM novedades WHERE codNovedad = '$codNovedad'";
-    $result = mysqli_query($link, $buscarNovedad);
-    $selectedNovedad = mysqli_fetch_assoc($result);
+    $result = pg_query($link, $buscarNovedad);
+    $selectedNovedad = pg_fetch_assoc($result);
   } elseif (isset($_POST["modificar"])) {
 
     $codNovedad = $_POST["codNovedad"];
@@ -46,13 +46,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($descripcion)) {
       $buscarDescripcionOriginal = "SELECT textoNovedad FROM novedades WHERE codNovedad = '$codNovedad'";
-      $result = mysqli_query($link, $buscarDescripcionOriginal);
-      $row = mysqli_fetch_assoc($result);
+      $result = pg_query($link, $buscarDescripcionOriginal);
+      $row = pg_fetch_assoc($result);
       $descripcion = $row['textoNovedad'];
     }
 
     $modificarNovedad = "UPDATE novedades SET textoNovedad = '$descripcion', fechaDesdeNovedad = '$fechaD', fechaHastaNovedad = '$fechaH', categoriaCliente = '$tipoUsuario' WHERE codNovedad = '$codNovedad'";
-    $result2 = mysqli_query($link, $modificarNovedad);
+    $result2 = pg_query($link, $modificarNovedad);
     if ($result2) {
       $message = "Novedad modificada exitosamente.";
       $message_type = 'success';
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $message_type = 'error';
     }
   }
-  mysqli_close($link);
+  pg_close($link);
 }
 ?>
 

@@ -18,14 +18,14 @@ if (isset($_SESSION['tipoUsuario'])) {
 }
 
 if (!empty($consulta)) {
-  $resultado = mysqli_query($link, $consulta);
+  $resultado = pg_query($link, $consulta);
 } else {
   $resultado = false;
 }
 
 $hoy = date('Y-m-d');
 $eliminarNovedadesQuery = "DELETE FROM novedades WHERE fechaHastaNovedad < '$hoy'";
-$resultadoEliminar = mysqli_query($link, $eliminarNovedadesQuery);
+$resultadoEliminar = pg_query($link, $eliminarNovedadesQuery);
 
 if ($resultadoEliminar) {
   $message = "Novedades vencidas han sido eliminadas automáticamente.";
@@ -53,7 +53,7 @@ if ($resultadoEliminar) {
     <div class="row justify-content-center">
       <?php
       if ($resultado) {
-        while ($novedad = mysqli_fetch_assoc($resultado)) {
+        while ($novedad = pg_fetch_assoc($resultado)) {
       ?>
           <div class="col-md-4">
             <div class='card'>

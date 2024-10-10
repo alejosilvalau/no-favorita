@@ -4,8 +4,8 @@ include("../includes/navbar.php");
 
 $codUsuario = $_SESSION['codUsuario'];
 $busca_usuario = "SELECT * FROM usuarios WHERE codUsuario = '$codUsuario'";
-$resultado = mysqli_query($link, $busca_usuario);
-$usuario = mysqli_fetch_array($resultado);
+$resultado = pg_query($link, $busca_usuario);
+$usuario = pg_fetch_array($resultado);
 $message = "";
 $message_type = "";
 
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $qryModificarLocal = "UPDATE usuarios SET nombreUsuario = '$nombreUsuario' WHERE codUsuario = '$codUsuario'";
       }
       if (!empty($qryModificarLocal)) {
-        $resultModificarLocal = mysqli_query($link, $qryModificarLocal);
+        $resultModificarLocal = pg_query($link, $qryModificarLocal);
         if ($resultModificarLocal) {
           $message = "Datos modificados exitosamente.";
           $message_type = 'success';

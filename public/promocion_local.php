@@ -30,15 +30,15 @@ $tipoMensaje = '';
 $esDuenio = false;
 if ($codUsuario && $tipoUsuario == 'Dueño de local') {
   $query_duenio = "SELECT * FROM locales WHERE codLocal = $codLocal AND codUsuario = $codUsuario";
-  $resultado_duenio = mysqli_query($link, $query_duenio);
-  $esDuenio = mysqli_num_rows($resultado_duenio) > 0;
+  $resultado_duenio = pg_query($link, $query_duenio);
+  $esDuenio = pg_num_rows($resultado_duenio) > 0;
 }
 
 // Procesar solicitud de uso de la promoción
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['solicitar_promo']) && $codUsuario) {
-  $codPromo = mysqli_real_escape_string($link, $_POST['codPromo']);
+  $codPromo = pg_escape_string($link, $_POST['codPromo']);
   $insert_query = "INSERT INTO uso_promociones (codCliente, codPromo, fechaUsoPromo, estado) VALUES ('$codUsuario', '$codPromo', '$hoy', 'enviada')";
-  if (mysqli_query($link, $insert_query)) {
+  if (pg_query($link, $insert_query)) {
     $mensaje = 'Solicitud de promoción exitosa.';
     $tipoMensaje = 'success';
   } else {
@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['solicitar_promo']) &&
 }
 
 // Obtener parámetros de búsqueda y filtros
-$search = isset($_GET['search']) ? mysqli_real_escape_string($link, $_GET['search']) : '';
-$fecha_desde = isset($_GET['fecha_desde']) ? mysqli_real_escape_string($link, $_GET['fecha_desde']) : '';
-$fecha_hasta = isset($_GET['fecha_hasta']) ? mysqli_real_escape_string($link, $_GET['fecha_hasta']) : '';
+$search = isset($_GET['search']) ? pg_escape_string($link, $_GET['search']) : '';
+$fecha_desde = isset($_GET['fecha_desde']) ? pg_escape_string($link, $_GET['fecha_desde']) : '';
+$fecha_hasta = isset($_GET['fecha_hasta']) ? pg_escape_string($link, $_GET['fecha_hasta']) : '';
 
 // Construir consulta base para las promociones
 $busca_promociones = "SELECT * FROM promociones
@@ -60,7 +60,7 @@ $busca_promociones = "SELECT * FROM promociones
 
 // Aplicar filtro de categoría de cliente si es un cliente registrado
 if ($codUsuario && $tipoUsuario == 'Cliente') {
-  $categoriaCliente = mysqli_real_escape_string($link, $_SESSION['categoriaCliente']);
+  $categoriaCliente = pg_escape_string($link, $_SESSION['categoriaCliente']);
   if ($categoriaCliente == 'Inicial') {
     $busca_promociones .= " AND estadoPromo = 'aprobada' AND categoriaCliente = 'Inicial'";
   } elseif ($categoriaCliente == 'Medium') {
@@ -89,13 +89,13 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int) $_GET['page'] 
 $records_per_page = 5; // Número de registros por página
 $offset = ($page - 1) * $records_per_page;
 $count_query = "SELECT COUNT(*) AS total_records FROM ($busca_promociones) AS count_promos";
-$count_result = mysqli_query($link, $count_query);
-$total_records = mysqli_fetch_assoc($count_result)['total_records'];
+$count_result = pg_query($link, $count_query);
+$total_records = pg_fetch_assoc($count_result)['total_records'];
 $total_pages = ceil($total_records / $records_per_page);
 
 $busca_promociones .= " LIMIT $offset, $records_per_page";
 
-$resultado = mysqli_query($link, $busca_promociones);
+$resultado = pg_query($link, $busca_promociones);
 ?>
 
 <div class="container">
@@ -118,8 +118,8 @@ $resultado = mysqli_query($link, $busca_promociones);
     </div>
     <div class="col-md-9">
       <?php
-      if (mysqli_num_rows($resultado) > 0) {
-        while ($row = mysqli_fetch_assoc($resultado)) {
+      if (pg_num_rows($resultado) > 0) {
+        while ($row = pg_fetch_assoc($resultado)) {
           echo "<div class='promo-container'>";
           echo "<h3>ID de la Promoción: " . $row["codPromo"] . "</h3>";
           echo "<p><strong>Texto de la Promoción:</strong> " . $row["textoPromo"] . "</p>";
@@ -132,9 +132,9 @@ $resultado = mysqli_query($link, $busca_promociones);
           if ($codUsuario && $row["fechaDesdePromo"] <= $hoy) {
             // Verificar si el usuario ya utilizó esta promoción
             $consulta_uso = "SELECT * FROM uso_promociones WHERE codCliente = $codUsuario AND codPromo = " . $row['codPromo'];
-            $resultado_uso = mysqli_query($link, $consulta_uso);
+            $resultado_uso = pg_query($link, $consulta_uso);
 
-            if (mysqli_num_rows($resultado_uso) > 0) {
+            if (pg_num_rows($resultado_uso) > 0) {
               echo "<div class='alert warning'>No puedes volver a utilizar esta promoción.</div>";
             } else {
               if ($tipoUsuario == 'No registrado') {
@@ -178,7 +178,7 @@ $resultado = mysqli_query($link, $busca_promociones);
       } else {
         echo "<div class='alert info'>No hay promociones disponibles para este local.</div>";
       }
-      mysqli_close($link);
+      pg_close($link);
       ?>
     </div>
   </div>

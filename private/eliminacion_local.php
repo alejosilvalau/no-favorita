@@ -20,16 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($idLocal) {
       $qryBuscarLocal = "SELECT * FROM locales WHERE codLocal = '$idLocal'";
-      $resultBuscarLocal = mysqli_query($link, $qryBuscarLocal);
-      $local = mysqli_fetch_array($resultBuscarLocal);
+      $resultBuscarLocal = pg_query($link, $qryBuscarLocal);
+      $local = pg_fetch_array($resultBuscarLocal);
       if (!$local) {
         $message = 'No existe un local con ese ID.';
         $message_type = 'error';
       }
     } elseif ($nombreLocal) {
       $qryBuscarLocal = "SELECT * FROM locales WHERE nombreLocal LIKE '%$nombreLocal%'";
-      $resultBuscarLocal = mysqli_query($link, $qryBuscarLocal);
-      while ($row = mysqli_fetch_array($resultBuscarLocal)) {
+      $resultBuscarLocal = pg_query($link, $qryBuscarLocal);
+      while ($row = pg_fetch_array($resultBuscarLocal)) {
         $locales[] = $row;
       }
 
@@ -43,21 +43,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } elseif (isset($_POST["seleccionarLocal"])) {
     $idLocal = trim($_POST["codLocal"]);
     $qryBuscarLocal = "SELECT * FROM locales WHERE codLocal = '$idLocal'";
-    $resultBuscarLocal = mysqli_query($link, $qryBuscarLocal);
-    $local = mysqli_fetch_array($resultBuscarLocal);
+    $resultBuscarLocal = pg_query($link, $qryBuscarLocal);
+    $local = pg_fetch_array($resultBuscarLocal);
   } elseif (isset($_POST["confirmar_eliminar"])) {
     $idLocal = trim($_POST["codLocal"]);
 
     $qryEliminarUsoPromociones = "DELETE uso FROM uso_promociones uso INNER JOIN promociones promo ON uso.codPromo = promo.codPromo WHERE promo.codLocal = '$idLocal'";
-    $resultEliminarUsoPromociones = mysqli_query($link, $qryEliminarUsoPromociones);
+    $resultEliminarUsoPromociones = pg_query($link, $qryEliminarUsoPromociones);
 
     $qryEliminarPromociones = "DELETE FROM promociones WHERE codLocal = '$idLocal'";
-    $resultEliminarPromociones = mysqli_query($link, $qryEliminarPromociones);
+    $resultEliminarPromociones = pg_query($link, $qryEliminarPromociones);
 
     if ($resultEliminarPromociones && $resultEliminarUsoPromociones) {
 
       $qryEliminarLocal = "DELETE FROM locales WHERE codLocal = '$idLocal'";
-      $resultEliminarLocal = mysqli_query($link, $qryEliminarLocal);
+      $resultEliminarLocal = pg_query($link, $qryEliminarLocal);
 
       if ($resultEliminarLocal) {
         $message = "Local y todas las promociones asociadas eliminadas correctamente.";
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
-  mysqli_close($link);
+  pg_close($link);
 }
 ?>
 
