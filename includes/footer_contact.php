@@ -4,7 +4,12 @@ ini_set('display_errors', 1);
 
 include("conexion.inc");
 include("sesiones.php");
-include_once("../config.php");
+
+
+require_once '../vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
 
 // Incluyendo las clases de PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
@@ -14,6 +19,8 @@ require '../libs/PHPMailer-master/src/Exception.php';
 require '../libs/PHPMailer-master/src/PHPMailer.php';
 require '../libs/PHPMailer-master/src/SMTP.php';
 
+$dotenv = Dotenv::createImmutable('../');
+$dotenv->load();
 
 $message_footer = '';
 $message_type_footer = '';
@@ -33,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->Host = 'smtp.gmail.com';  // Servidor SMTP de tu dominio
     $mail->SMTPAuth = true;
     $mail->Username = 'nofavorita2@gmail.com';  // Cuenta válida para autenticación
-    $mail->Password = MAIL_PASS; 
+    $mail->Password = $_ENV['MAIL_PASS'];
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 

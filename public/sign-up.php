@@ -5,7 +5,10 @@ include("../includes/navbar.php");
 
 include('../includes/sesiones.php');
 include('../includes/conexion.inc');
-include_once("../config.php");
+
+require_once '../vendor/autoload.php';
+
+use Dotenv\Dotenv;
 
 require '../libs/PHPMailer-master/src/Exception.php';
 require '../libs/PHPMailer-master/src/PHPMailer.php';
@@ -14,7 +17,8 @@ require '../libs/PHPMailer-master/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
+$dotenv = Dotenv::createImmutable('../');
+$dotenv->load();
 $message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -48,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $mail->Host = 'smtp.gmail.com';
           $mail->SMTPAuth = true;
           $mail->Username = 'nofavorita2@gmail.com';
-          $mail->Password = MAIL_PASS;
+          $mail->Password = $_ENV['MAIL_PASS'];
           $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
           $mail->Port = 587;
 
