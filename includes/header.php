@@ -1,5 +1,4 @@
 <?php
-echo $_ENV['DATABASE_URL'];
 include("../includes/conexion.inc");
 include("../includes/sesiones.php");
 ?>
