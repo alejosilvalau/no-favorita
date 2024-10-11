@@ -26,7 +26,7 @@ $resultTotal = pg_query($link, $queryTotal);
 $total_locales = pg_num_rows($resultTotal);
 
 // Agregar paginación a la consulta principal
-$busca_locales .= " LIMIT $offset, $registrosPorPagina";
+$busca_locales .= " LIMIT $registrosPorPagina OFFSET $offset";
 
 $resultado = pg_query($link, $busca_locales);
 ?>
@@ -75,15 +75,15 @@ $resultado = pg_query($link, $busca_locales);
         while ($row = pg_fetch_assoc($resultado)) {
           echo "<div class='local-container'>";
           echo "<div class='local-image'>";
-          echo "<img src='" . $row["imagenLocal"] . "' alt='Local Image'>";
+          echo "<img src='" . $row["imagenlocal"] . "' alt='Local Image'>";
           echo "</div>";
           echo "<div class='local-info'>";
-          echo "<p>Código del Local: " . $row["codLocal"] . "</p>";
-          echo "<p>Nombre del Local: " . $row["nombreLocal"] . "</p>";
-          echo "<p>Ubicación: " . $row["ubicacionLocal"] . "</p>";
-          echo "<p>Rubro: " . $row["rubroLocal"] . "</p>";
+          echo "<p>Código del Local: " . $row["codlocal"] . "</p>";
+          echo "<p>Nombre del Local: " . $row["nombrelocal"] . "</p>";
+          echo "<p>Ubicación: " . $row["ubicacionlocal"] . "</p>";
+          echo "<p>Rubro: " . $row["rubrolocal"] . "</p>";
           echo "</div>";
-          echo "<button type='button' class='btn-seleccionar' onclick=\"window.location.href='promocion_local.php?codLocal=" . $row['codLocal'] . "'\">Seleccionar</button>";
+          echo "<button type='button' class='btn-seleccionar' onclick=\"window.location.href='promocion_local.php?codLocal=" . $row['codlocal'] . "'\">Seleccionar</button>";
           echo "</div>";
         }
         // Mostrar paginación si hay más de una página
