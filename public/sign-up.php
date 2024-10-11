@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $password_hash = password_hash($clave, PASSWORD_DEFAULT);
 
-    $qry = "SELECT * FROM usuarios WHERE nombreUsuario = '$email'";
+    $qry = "SELECT * FROM usuarios WHERE \"nombreUsuario\" = '$email'";
     $result = pg_query($link, $qry) or die(pg_last_error($link));
     $vResult = pg_fetch_array($result);
 
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $alertClass = 'alert danger';
     } else {
       $token = bin2hex(random_bytes(50));
-      $insert_qry = "INSERT INTO usuarios (nombreUsuario, claveUsuario, tipoUsuario, categoriaCliente, validation_token, is_validated) VALUES ('$email', '$password_hash', '$tipoUsuario', 'Inicial', '$token', 0)";
+      $insert_qry = "INSERT INTO usuarios (\"nombreUsuario\", \"claveUsuario\", \"tipoUsuario\", \"categoriaCliente\", validation_token, is_validated) VALUES ('$email', '$password_hash', '$tipoUsuario', 'Inicial', '$token', 0)";
       if (pg_query($link, $insert_qry)) {
         $message = 'Registro exitoso. Revisa tu correo para confirmar tu registro';
         $alertClass = 'alert success';
