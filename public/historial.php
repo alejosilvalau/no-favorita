@@ -19,7 +19,7 @@ function numerosADias($numeros)
 
 if (isset($_SESSION['tipoUsuario'])) {
   $codUsuario = $_SESSION['codUsuario'];
-  $busca_promociones = "SELECT * FROM uso_promociones up INNER JOIN promociones p where p.codPromo = up.codPromo AND codCliente = '$codUsuario'";
+  $busca_promociones = "SELECT * FROM uso_promociones up INNER JOIN promociones p ON p.\"codPromo\" = up.\"codPromo\" AND \"codCliente\" = '$codUsuario'";
 }
 
 $resultado = pg_query($link, $busca_promociones);
