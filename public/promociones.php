@@ -29,7 +29,7 @@ $message_type = "";
 // Procesar solicitud de promoción
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['solicitar_promo'])) {
   $codPromo = pg_escape_string($link, $_POST['codPromo']);
-  $insert_query = "INSERT INTO uso_promociones (codCliente, codPromo, fechaUsoPromo, estado) VALUES ('$codUsuario', '$codPromo', '$hoy', 'enviada')";
+  $insert_query = "INSERT INTO uso_promociones (\"codCliente\", \"codPromo\", \"fechaUsoPromo\", estado) VALUES ('$codUsuario', '$codPromo', '$hoy', 'enviada')";
   if (pg_query($link, $insert_query)) {
     $message = 'Solicitud de promoción enviada correctamente.';
     $message_type = 'success';
@@ -50,47 +50,55 @@ $promociones_solicitadas = isset($_GET['promociones_solicitadas']) ? $_GET['prom
 $mis_locales = isset($_GET['mis_locales']) ? $_GET['mis_locales'] : '';
 
 // Construir consulta base para las promociones
-$busca_promociones = "SELECT p.*, l.nombreLocal, l.rubroLocal, l.codUsuario FROM promociones p INNER JOIN locales l ON l.codLocal = p.codLocal WHERE p.estadoPromo = 'aprobada'";
+$busca_promociones = "SELECT p.*, l.\"nombreLocal\", l.\"rubroLocal\", l.\"codUsuario\" FROM promociones p INNER JOIN locales l ON l.\"codLocal\" = p.\"codLocal\" WHERE p.\"estadoPromo\" = 'aprobada'";
 
 // Aplicar filtros
 if ($search) {
-  $busca_promociones .= " AND (p.textoPromo LIKE '%$search%' OR p.codPromo LIKE '%$search%')";
+  if (is_numeric($search)) {
+    $busca_promociones .= " AND p.\"codPromo\" = '$search'";
+  } else {
+    $busca_promociones .= " AND (p.\"textoPromo\" LIKE '%$search%'";
+  }
 }
 
 if ($fecha_desde) {
-  $busca_promociones .= " AND p.fechaDesdePromo >= '$fecha_desde'";
+  $busca_promociones .= " AND p.\"fechaDesdePromo\" >= '$fecha_desde'";
 }
 
 if ($fecha_hasta) {
-  $busca_promociones .= " AND p.fechaHastaPromo <= '$fecha_hasta'";
+  $busca_promociones .= " AND p.\"fechaHastaPromo\" <= '$fecha_hasta'";
 }
 
 if ($local) {
-  $busca_promociones .= " AND (p.codLocal = '$local' OR l.nombreLocal LIKE '%$local%')";
+  if (is_numeric($local)) {
+    $busca_promociones .= " AND p.\"codLocal\" = '$local'";
+  } else {
+    $busca_promociones .= " AND l.\"nombreLocal\" LIKE '%$local%'";
+  }
 }
 
 if ($rubroLocal) {
-  $busca_promociones .= " AND l.rubroLocal = '$rubroLocal'";
+  $busca_promociones .= " AND l.\"rubroLocal\" = '$rubroLocal'";
 }
 
 if ($categoriaPromo) {
-  $busca_promociones .= " AND p.categoriaCliente = '$categoriaPromo'";
+  $busca_promociones .= " AND p.\"categoriaCliente\" = '$categoriaPromo'";
 }
 
 if ($promociones_solicitadas && $codUsuario) {
-  $busca_promociones .= " AND p.codPromo IN (SELECT codPromo FROM uso_promociones WHERE codCliente = '$codUsuario')";
+  $busca_promociones .= " AND p.\"codPromo\" IN (SELECT \"codPromo\" FROM uso_promociones WHERE \"codCliente\" = '$codUsuario')";
 }
 
 if ($mis_locales && $tipoUsuario == 'Dueño de local') {
-  $busca_promociones .= " AND l.codUsuario = '$codUsuario'";
+  $busca_promociones .= " AND l.\"codUsuario\" = '$codUsuario'";
 }
 
 // Filtrar por categoría de cliente
 if ($tipoUsuario == 'Cliente') {
   if ($categoriaCliente == 'Inicial') {
-    $busca_promociones .= " AND p.categoriaCliente = 'Inicial'";
+    $busca_promociones .= " AND p.\"categoriaCliente\" = 'Inicial'";
   } elseif ($categoriaCliente == 'Medium') {
-    $busca_promociones .= " AND (p.categoriaCliente = 'Inicial' OR p.categoriaCliente = 'Medium')";
+    $busca_promociones .= " AND (p.\"categoriaCliente\" = 'Inicial' OR p.\"categoriaCliente\" = 'Medium')";
   }
 }
 
@@ -203,7 +211,7 @@ $resultado = pg_query($link, $busca_promociones);
                 <?php if ($tipoUsuario == 'Cliente'): ?>
                   <?php if ($row['fechaDesdePromo'] <= date('Y-m-d')): ?>
                     <?php
-                    $consulta_uso = "SELECT * FROM uso_promociones WHERE codCliente = '$codUsuario' AND codPromo = '" . $row['codPromo'] . "'";
+                    $consulta_uso = "SELECT * FROM uso_promociones WHERE \"codCliente\" = '$codUsuario' AND \"codPromo\" = '" . $row['codPromo'] . "'";
                     $resultado_uso = pg_query($link, $consulta_uso);
                     ?>
                     <?php if (pg_num_rows($resultado_uso) > 0): ?>
@@ -222,7 +230,7 @@ $resultado = pg_query($link, $busca_promociones);
                 <?php elseif ($tipoUsuario == 'Dueño de local'): ?>
                   <?php if ($row['codUsuario'] != $codUsuario): ?>
                     <?php
-                    $consulta_uso = "SELECT * FROM uso_promociones WHERE codCliente = '$codUsuario' AND codPromo = '" . $row['codPromo'] . "'";
+                    $consulta_uso = "SELECT * FROM uso_promociones WHERE \"codCliente\" = '$codUsuario' AND \"codPromo\" = '" . $row['codPromo'] . "'";
                     $resultado_uso = pg_query($link, $consulta_uso);
                     ?>
                     <?php if (pg_num_rows($resultado_uso) > 0): ?>
