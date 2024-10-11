@@ -58,8 +58,8 @@ if ($resultadoEliminar) {
       ?>
           <div class="col-md-4">
             <div class='card'>
-              <h5 class='card-title'><?php echo strtoupper($novedad['textonovedad']); ?></h5>
-              <p class='card-text'>Desde: <?php echo $novedad['fechadesdenovedad']; ?><br>Hasta: <?php echo $novedad['fechahastanovedad']; ?></p>
+              <h5 class='card-title'><?php echo strtoupper($novedad['textoNovedad']); ?></h5>
+              <p class='card-text'>Desde: <?php echo $novedad['fechaDesdeNovedad']; ?><br>Hasta: <?php echo $novedad['fechaHastaNovedad']; ?></p>
             </div>
           </div>
       <?php

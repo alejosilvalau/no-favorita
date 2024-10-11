@@ -103,7 +103,7 @@ $count_result = pg_query($link, $count_query);
 $total_records = $count_result ? pg_fetch_assoc($count_result)['total_records'] : 0;
 $total_pages = ceil($total_records / $records_per_page);
 
-$busca_promociones .= " LIMIT $offset, $records_per_page";
+$busca_promociones .= " LIMIT $records_per_page OFFSET $offset";
 $resultado = pg_query($link, $busca_promociones);
 ?>
 
