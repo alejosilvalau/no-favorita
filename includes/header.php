@@ -1,7 +1,3 @@
-<?php
-include("../includes/conexion.inc");
-include("../includes/sesiones.php");
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,6 +20,8 @@ include("../includes/sesiones.php");
   <link rel="stylesheet" href="../css/footer.css">
 
   <?php
+  include("../includes/conexion.inc");
+  include("../includes/sesiones.php");
   // Incluir hojas de estilo específicas para cada página
   if ($page == 'home') {
     echo '<link rel="stylesheet" href="../css/home.css">';
