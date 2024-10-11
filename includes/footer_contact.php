@@ -19,8 +19,10 @@ require '../libs/PHPMailer-master/src/Exception.php';
 require '../libs/PHPMailer-master/src/PHPMailer.php';
 require '../libs/PHPMailer-master/src/SMTP.php';
 
-$dotenv = Dotenv::createImmutable('../');
-$dotenv->load();
+if ($_SERVER['HTTP_HOST'] == 'localhost') {
+  $dotenv = Dotenv::createImmutable('../');
+  $dotenv->load();
+}
 
 $message_footer = '';
 $message_type_footer = '';

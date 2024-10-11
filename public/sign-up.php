@@ -6,19 +6,21 @@ include("../includes/navbar.php");
 include('../includes/sesiones.php');
 include('../includes/conexion.inc');
 
-require_once '../vendor/autoload.php';
 
-use Dotenv\Dotenv;
+require_once '../vendor/autoload.php';
 
 require '../libs/PHPMailer-master/src/Exception.php';
 require '../libs/PHPMailer-master/src/PHPMailer.php';
 require '../libs/PHPMailer-master/src/SMTP.php';
 
+use Dotenv\Dotenv;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+if ($_SERVER['HTTP_HOST'] == 'localhost') {
 $dotenv = Dotenv::createImmutable('../');
 $dotenv->load();
+}
 $message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
