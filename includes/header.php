@@ -1,3 +1,9 @@
+<?php
+echo $_ENV['DATABASE_URL'];
+include("../includes/conexion.inc");
+include("../includes/sesiones.php");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -20,8 +26,6 @@
   <link rel="stylesheet" href="../css/footer.css">
 
   <?php
-  include("../includes/conexion.inc");
-  include("../includes/sesiones.php");
   // Incluir hojas de estilo específicas para cada página
   if ($page == 'home') {
     echo '<link rel="stylesheet" href="../css/home.css">';
