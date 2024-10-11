@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['message'] = 'Todos los campos son obligatorios.';
     $_SESSION['message_type'] = 'error';
   } else {
-    $busca_usuario = "SELECT * FROM usuarios WHERE nombreUsuario = '$email'";
+    $busca_usuario = "SELECT * FROM usuarios WHERE \"nombreUsuario\" = '$email'";
     $resultado = pg_query($link, $busca_usuario);
     $usuario = pg_fetch_assoc($resultado);
 
