@@ -3,7 +3,7 @@ $page = 'modificacion_perfil';
 include("../includes/navbar.php");
 
 $codUsuario = $_SESSION['codUsuario'];
-$busca_usuario = "SELECT * FROM usuarios WHERE codUsuario = '$codUsuario'";
+$busca_usuario = "SELECT * FROM usuarios WHERE \"codUsuario\" = '$codUsuario'";
 $resultado = pg_query($link, $busca_usuario);
 $usuario = pg_fetch_array($resultado);
 $message = "";
@@ -18,16 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nombreUsuario = $_POST["nombreUsuario"];
         $clave = $_POST["claveUsuario"];
         $password_hash = password_hash($clave, PASSWORD_DEFAULT);
-        $qryModificarLocal = "UPDATE usuarios SET nombreUsuario = '$nombreUsuario', claveUsuario = '$password_hash' WHERE codUsuario = '$codUsuario'";
+        $qryModificarLocal = "UPDATE usuarios SET \"nombreUsuario\" = '$nombreUsuario', \"claveUsuario\" = '$password_hash' WHERE \"codUsuario\" = '$codUsuario'";
       } elseif (!empty($_POST["claveUsuario"])) {
 
         $clave = $_POST["claveUsuario"];
         $password_hash = password_hash($clave, PASSWORD_DEFAULT);
-        $qryModificarLocal = "UPDATE usuarios SET claveUsuario = '$password_hash' WHERE codUsuario = '$codUsuario'";
+        $qryModificarLocal = "UPDATE usuarios SET \"claveUsuario\" = '$password_hash' WHERE \"codUsuario\" = '$codUsuario'";
       } elseif (!empty($_POST["nombreUsuario"])) {
 
         $nombreUsuario = $_POST["nombreUsuario"];
-        $qryModificarLocal = "UPDATE usuarios SET nombreUsuario = '$nombreUsuario' WHERE codUsuario = '$codUsuario'";
+        $qryModificarLocal = "UPDATE usuarios SET \"nombreUsuario\" = '$nombreUsuario' WHERE \"codUsuario\" = '$codUsuario'";
       }
       if (!empty($qryModificarLocal)) {
         $resultModificarLocal = pg_query($link, $qryModificarLocal);
