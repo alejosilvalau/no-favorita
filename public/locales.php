@@ -14,11 +14,15 @@ $rubro = isset($_GET['rubro']) ? pg_escape_string($link, $_GET['rubro']) : '';
 $busca_locales = "SELECT * FROM locales WHERE 1=1";
 
 if ($search) {
-  $busca_locales .= " AND (nombreLocal LIKE '%$search%' OR codLocal = '$search')";
+  if (is_numeric($search)) {
+    $busca_locales .= " AND \"codLocal\" = '$search'";
+  } else {
+    $busca_locales .= " AND \"nombreLocal\" LIKE '%$search%'";
+  }
 }
 
 if ($rubro) {
-  $busca_locales .= " AND rubroLocal = '$rubro'";
+  $busca_locales .= " AND \"rubroLocal\" = '$rubro'";
 }
 
 $queryTotal = $busca_locales; // Query sin límite ni offset para contar total de registros
@@ -50,7 +54,7 @@ $resultado = pg_query($link, $busca_locales);
                                       echo 'selected'; ?>>Comida</option>
             <option value="Óptica" <?php if ($rubro == 'Óptica')
                                       echo 'selected'; ?>>Óptica</option>
-            <option value="Perfumería" <?php if ($rubro == 'Perfumería')
+            <option value="Perfumeria" <?php if ($rubro == 'Perfumeria')
                                           echo 'selected'; ?>>Perfumería</option>
             <option value="Cine" <?php if ($rubro == 'Cine')
                                     echo 'selected'; ?>>Cine</option>
