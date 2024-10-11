@@ -29,7 +29,7 @@ $tipoMensaje = '';
 
 $esDuenio = false;
 if ($codUsuario && $tipoUsuario == 'Dueño de local') {
-  $query_duenio = "SELECT * FROM locales WHERE codLocal = $codLocal AND codUsuario = $codUsuario";
+  $query_duenio = "SELECT * FROM locales WHERE \"codLocal\" = $codLocal AND \"codUsuario\" = $codUsuario";
   $resultado_duenio = pg_query($link, $query_duenio);
   $esDuenio = pg_num_rows($resultado_duenio) > 0;
 }
@@ -37,7 +37,7 @@ if ($codUsuario && $tipoUsuario == 'Dueño de local') {
 // Procesar solicitud de uso de la promoción
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['solicitar_promo']) && $codUsuario) {
   $codPromo = pg_escape_string($link, $_POST['codPromo']);
-  $insert_query = "INSERT INTO uso_promociones (codCliente, codPromo, fechaUsoPromo, estado) VALUES ('$codUsuario', '$codPromo', '$hoy', 'enviada')";
+  $insert_query = "INSERT INTO uso_promociones (\"codCliente\", \"codPromo\", \"fechaUsoPromo\", estado) VALUES ('$codUsuario', '$codPromo', '$hoy', 'enviada')";
   if (pg_query($link, $insert_query)) {
     $mensaje = 'Solicitud de promoción exitosa.';
     $tipoMensaje = 'success';
@@ -54,34 +54,34 @@ $fecha_hasta = isset($_GET['fecha_hasta']) ? pg_escape_string($link, $_GET['fech
 
 // Construir consulta base para las promociones
 $busca_promociones = "SELECT * FROM promociones
-                          WHERE codLocal = $codLocal
-                          AND fechaHastaPromo >= '$hoy'
-                          AND FIND_IN_SET('$diaSemana', diasSemana) > 0";
+                          WHERE \"codLocal\" = $codLocal
+                          AND \"fechaHastaPromo\" >= '$hoy'
+                          AND FIND_IN_SET('$diaSemana', \"diasSemana\") > 0";
 
 // Aplicar filtro de categoría de cliente si es un cliente registrado
 if ($codUsuario && $tipoUsuario == 'Cliente') {
   $categoriaCliente = pg_escape_string($link, $_SESSION['categoriaCliente']);
   if ($categoriaCliente == 'Inicial') {
-    $busca_promociones .= " AND estadoPromo = 'aprobada' AND categoriaCliente = 'Inicial'";
+    $busca_promociones .= " AND \"estadoPromo\" = 'aprobada' AND \"categoriaCliente\" = 'Inicial'";
   } elseif ($categoriaCliente == 'Medium') {
-    $busca_promociones .= " AND estadoPromo = 'aprobada' AND (categoriaCliente = 'Inicial' OR categoriaCliente = 'Medium')";
+    $busca_promociones .= " AND \"estadoPromo\" = 'aprobada' AND (\"categoriaCliente\" = 'Inicial' OR \"categoriaCliente\" = 'Medium')";
   } elseif ($categoriaCliente == 'Premium') {
-    $busca_promociones .= " AND estadoPromo = 'aprobada'";
+    $busca_promociones .= " AND \"estadoPromo\" = 'aprobada'";
   }
 }
 
 
 // Aplicar filtros adicionales
 if ($search) {
-  $busca_promociones .= " AND (textoPromo LIKE '%$search%' OR codPromo LIKE '%$search%')";
+  $busca_promociones .= " AND (\"textoPromo\" LIKE '%$search%' OR \"codPromo\" LIKE '%$search%')";
 }
 
 if ($fecha_desde) {
-  $busca_promociones .= " AND fechaDesdePromo >= '$fecha_desde'";
+  $busca_promociones .= " AND \"fechaDesdePromo\" >= '$fecha_desde'";
 }
 
 if ($fecha_hasta) {
-  $busca_promociones .= " AND fechaHastaPromo <= '$fecha_hasta'";
+  $busca_promociones .= " AND \"fechaHastaPromo\" <= '$fecha_hasta'";
 }
 
 // Implementación de paginación
@@ -93,7 +93,7 @@ $count_result = pg_query($link, $count_query);
 $total_records = pg_fetch_assoc($count_result)['total_records'];
 $total_pages = ceil($total_records / $records_per_page);
 
-$busca_promociones .= " LIMIT $offset, $records_per_page";
+$busca_promociones .= " LIMIT $records_per_page OFFSET $offset";
 
 $resultado = pg_query($link, $busca_promociones);
 ?>
@@ -131,7 +131,7 @@ $resultado = pg_query($link, $busca_promociones);
 
           if ($codUsuario && $row["fechaDesdePromo"] <= $hoy) {
             // Verificar si el usuario ya utilizó esta promoción
-            $consulta_uso = "SELECT * FROM uso_promociones WHERE codCliente = $codUsuario AND codPromo = " . $row['codPromo'];
+            $consulta_uso = "SELECT * FROM uso_promociones WHERE \"codCliente\" = $codUsuario AND \"codPromo\" = " . $row['codPromo'];
             $resultado_uso = pg_query($link, $consulta_uso);
 
             if (pg_num_rows($resultado_uso) > 0) {
