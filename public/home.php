@@ -8,12 +8,12 @@ if (isset($_SESSION['tipoUsuario'])) {
   $categoriaCliente = $_SESSION['categoriaCliente'];
   $tipoUsuario = $_SESSION['tipoUsuario'];
 
-  if ($categoriaCliente == 'Premium' || $tipoUsuario == 'Dueño de local' || $tipoUsuario == 'administrador') {
+  if ($categoriaCliente == 'Premium' || $tipoUsuario == 'Dueño de local' || $tipoUsuario == 'administrador' || $tipoUsuario == 'No registrado') {
     $consulta = "SELECT * FROM novedades";
   } elseif ($categoriaCliente == 'Medium') {
-    $consulta = "SELECT * FROM novedades WHERE categoriaCliente IN ('Medium', 'Inicial')";
+    $consulta = "SELECT * FROM novedades WHERE \"categoriaCliente\" IN ('Medium', 'Inicial')";
   } elseif ($categoriaCliente == 'Inicial') {
-    $consulta = "SELECT * FROM novedades WHERE categoriaCliente = 'Inicial'";
+    $consulta = "SELECT * FROM novedades WHERE \"categoriaCliente\" = 'Inicial'";
   }
 }
 
@@ -24,7 +24,7 @@ if (!empty($consulta)) {
 }
 
 $hoy = date('Y-m-d');
-$eliminarNovedadesQuery = "DELETE FROM novedades WHERE fechaHastaNovedad < '$hoy'";
+$eliminarNovedadesQuery = "DELETE FROM novedades WHERE \"fechaHastaNovedad\" < '$hoy'";
 $resultadoEliminar = pg_query($link, $eliminarNovedadesQuery);
 
 if ($resultadoEliminar) {
