@@ -57,7 +57,7 @@ if ($search) {
   if (is_numeric($search)) {
     $busca_promociones .= " AND p.\"codPromo\" = '$search'";
   } else {
-    $busca_promociones .= " AND (p.\"textoPromo\" LIKE '%$search%'";
+    $busca_promociones .= " AND p.\"textoPromo\" LIKE '%$search%'";
   }
 }
 
