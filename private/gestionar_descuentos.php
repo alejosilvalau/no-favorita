@@ -17,7 +17,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
 $hoy = date('Y-m-d');
-$query = "SELECT * FROM promociones WHERE estadoPromo = 'pendiente' AND fechaDesdePromo >= '$hoy'";
+$query = "SELECT * FROM promociones WHERE \"estadoPromo\" = 'pendiente' AND \"fechaDesdePromo\" >= '$hoy'";
 
 $total_result = pg_query($link, $query);
 if (!$total_result) {
@@ -36,11 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $codPromocion = $_POST['codPromo'];
   if (isset($_POST['action'])) {
     if ($_POST['action'] == 'validar') {
-      $query_update = "UPDATE promociones SET estadoPromo = 'aprobada' WHERE codPromo = ?";
+      $query_update = "UPDATE promociones SET \"estadoPromo\" = 'aprobada' WHERE \"codPromo\" = $1";
       $accion = 'aprobada';
       $alertClass = 'alert-success';
     } elseif ($_POST['action'] == 'denegar') {
-      $query_update = "UPDATE promociones SET estadoPromo = 'denegada' WHERE codPromo = ?";
+      $query_update = "UPDATE promociones SET \"estadoPromo\" = 'denegada' WHERE \"codPromo\" = $1";
       $accion = 'denegada';
       $alertClass = 'alert-danger';
     }
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $stmt = pg_prepare($link, "my_query", $query_update);
 
       if ($stmt) {
-        $result = pg_execute($link, "my_query", array($newValue, $codPromocion));
+        $result = pg_execute($link, "my_query", array($codPromocion));
 
         if ($result) {
           $message = "La solicitud de promoción cuyo código es $codPromocion ha sido $accion correctamente.";
@@ -61,9 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $message = 'Error al preparar la consulta.';
         $alertClass = 'alert-danger';
       }
-
-      pg_close($link);
     }
+    pg_close($link);
     // Redirigir a la misma página con los parámetros GET actualizados
     header("Location: gestionar_descuentos.php?page=$page&message=" . urlencode($message) . "&alertClass=$alertClass");
     exit();
