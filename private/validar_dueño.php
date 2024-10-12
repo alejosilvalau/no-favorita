@@ -12,11 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $idUsuario = $_POST['codUsuario'];
   if (isset($_POST['action'])) {
     if ($_POST['action'] == 'validar') {
-      $query = "UPDATE usuarios SET aprobado = true WHERE codUsuario = ?";
+      $query = "UPDATE usuarios SET aprobado = 1 WHERE \"codUsuario\" = $1";
       $accion = 'validada';
       $alertClass = 'alert success'; // Clase de alerta para éxito
     } elseif ($_POST['action'] == 'denegar') {
-      $query = "UPDATE usuarios SET aprobado = 2 WHERE codUsuario = ?";
+      $query = "UPDATE usuarios SET aprobado = 2 WHERE \"codUsuario\" = $1";
       $accion = 'denegada';
       $alertClass = 'alert danger'; // Clase de alerta para error
     }
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt) {
       // Execute the prepared statement with parameters
-      $result = pg_execute($link, "my_query", array($newValue, $idUsuario));
+      $result = pg_execute($link, "my_query", array($idUsuario));
 
       if ($result) {
         $message = "La solicitud del usuario con ID $idUsuario ha sido $accion correctamente.";
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Consulta actualizada para asegurarse de que se seleccionen solo usuarios no aprobados
-$query = "SELECT * FROM usuarios WHERE tipoUsuario = 'Dueño de local' AND aprobado = false";
+$query = "SELECT * FROM usuarios WHERE \"tipoUsuario\" = 'Dueño de local' AND aprobado = 0";
 $resultado = pg_query($link, $query);
 ?>
 
