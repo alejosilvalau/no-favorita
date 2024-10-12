@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fechaH = trim($_POST["fechaHastaNovedad"]);
     $tipoUsuario = trim($_POST["categoriaCliente"]);
 
-    $buscarNovedades = "SELECT * FROM novedades WHERE fechaDesdeNovedad >= '$fechaD' AND fechaHastaNovedad <= '$fechaH' AND categoriaCliente = '$tipoUsuario'";
+    $buscarNovedades = "SELECT * FROM novedades WHERE \"fechaDesdeNovedad\" >= '$fechaD' AND \"fechaHastaNovedad\" <= '$fechaH' AND \"categoriaCliente\" = '$tipoUsuario'";
     $result = pg_query($link, $buscarNovedades);
     while ($row = pg_fetch_assoc($result)) {
       $novedades[] = $row;
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } elseif (isset($_POST["seleccionar"])) {
 
     $codNovedad = $_POST["codNovedad"];
-    $buscarNovedad = "SELECT * FROM novedades WHERE codNovedad = '$codNovedad'";
+    $buscarNovedad = "SELECT * FROM novedades WHERE \"codNovedad\" = '$codNovedad'";
     $result = pg_query($link, $buscarNovedad);
     $selectedNovedad = pg_fetch_assoc($result);
   } elseif (isset($_POST["modificar"])) {
@@ -45,13 +45,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (empty($descripcion)) {
-      $buscarDescripcionOriginal = "SELECT textoNovedad FROM novedades WHERE codNovedad = '$codNovedad'";
+      $buscarDescripcionOriginal = "SELECT \"textoNovedad\" FROM novedades WHERE \"codNovedad\" = '$codNovedad'";
       $result = pg_query($link, $buscarDescripcionOriginal);
       $row = pg_fetch_assoc($result);
       $descripcion = $row['textoNovedad'];
     }
 
-    $modificarNovedad = "UPDATE novedades SET textoNovedad = '$descripcion', fechaDesdeNovedad = '$fechaD', fechaHastaNovedad = '$fechaH', categoriaCliente = '$tipoUsuario' WHERE codNovedad = '$codNovedad'";
+    $modificarNovedad = "UPDATE novedades SET \"textoNovedad\" = '$descripcion', \"fechaDesdeNovedad\" = '$fechaD', \"fechaHastaNovedad\" = '$fechaH', \"categoriaCliente\" = '$tipoUsuario' WHERE \"codNovedad\" = '$codNovedad'";
     $result2 = pg_query($link, $modificarNovedad);
     if ($result2) {
       $message = "Novedad modificada exitosamente.";
