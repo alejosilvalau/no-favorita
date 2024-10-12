@@ -40,7 +40,19 @@ $usuarios = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["buscarUsuario"])) {
   $query = pg_escape_string($link, trim($_POST["buscarUsuario"]));
-  $sql = "SELECT codUsuario, nombreUsuario FROM usuarios WHERE codUsuario = '$query' OR nombreUsuario LIKE '%$query%' AND tipoUsuario = 'Dueño de local'";
+
+  if (is_numeric($query)) {
+    $sql = "SELECT \"codUsuario\", \"nombreUsuario\" 
+            FROM usuarios 
+            WHERE \"codUsuario\" = '$query' 
+            AND \"tipoUsuario\" = 'Dueño de local'";
+  } else {
+    $sql = "SELECT \"codUsuario\", \"nombreUsuario\" 
+            FROM usuarios 
+            WHERE \"nombreUsuario\" LIKE '%$query%' 
+            AND \"tipoUsuario\" = 'Dueño de local'";
+  }
+
   $result = pg_query($link, $sql);
 
   if ($result) {
@@ -70,21 +82,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["buscarUsuario"])) {
   } else {
     $imagenLocal = $imagenResult["success"];
 
-    $buscarUsuario = "SELECT * FROM usuarios WHERE codUsuario = '$usuarioLocal'";
+    $buscarUsuario = "SELECT * FROM usuarios WHERE \"codUsuario\" = '$usuarioLocal'";
     $result = pg_query($link, $buscarUsuario);
     $vResult = pg_fetch_array($result);
     if (!$vResult) {
       $message = 'No existe un usuario con ese código';
       $message_type = 'error';
     } else {
-      $busquedaLocal = "SELECT * FROM locales WHERE nombreLocal = '$nombreLocal' AND ubicacionLocal = '$ubicacionLocal'";
+      $busquedaLocal = "SELECT * FROM locales WHERE \"nombreLocal\" = '$nombreLocal' AND \"ubicacionLocal\" = '$ubicacionLocal'";
       $result2 = pg_query($link, $busquedaLocal);
       $vResult2 = pg_fetch_array($result2);
       if ($vResult2) {
         $message = 'El local ya existe';
         $message_type = 'error';
       } else {
-        $query = "INSERT INTO locales (nombreLocal, ubicacionLocal, rubroLocal, codUsuario, imagenLocal) VALUES ('$nombreLocal', '$ubicacionLocal', '$rubro', '$usuarioLocal', '$imagenLocal')";
+        $query = "INSERT INTO locales (\"nombreLocal\", \"ubicacionLocal\", \"rubroLocal\", \"codUsuario\", \"imagenLocal\") VALUES ('$nombreLocal', '$ubicacionLocal', '$rubro', '$usuarioLocal', '$imagenLocal')";
         if (pg_query($link, $query)) {
           $message = "Local agregado exitosamente.";
           $message_type = 'success';

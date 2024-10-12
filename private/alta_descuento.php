@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $fechaDesdePromo = $_POST["fechaDesdePromo"];
   $fechaHastaPromo = $_POST["fechaHastaPromo"];
   $categoriaCliente = $_POST["categoriaCliente"];
-  $diasSemana = isset($_POST["diasSemana"]) ? implode(",", $_POST["diasSemana"]) : "";
+  $diasSemana = isset($_POST["diasSemana"]) ? '{' . implode(",", $_POST["diasSemana"]) . '}' : '{}';
   $estadoPromo = "pendiente";
 
   $codLocal = $_POST["codLocal"];
