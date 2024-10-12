@@ -26,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message_type = 'error';
   } else {
 
-    $buscarNovedad = "select * from novedades where textoNovedad = '$descripcion' and fechaDesdeNovedad = '$fechaD' and fechaHastaNovedad = '$fechaH' and categoriaCliente = '$tipoUsuario'";
+    $buscarNovedad = "SELECT * FROM novedades WHERE \"textoNovedad\" = '$descripcion' AND
+    \"fechaDesdeNovedad\" = '$fechaD' AND \"fechaHastaNovedad\" = '$fechaH' AND \"categoriaCliente\" = '$tipoUsuario'";
     $result = pg_query($link, $buscarNovedad);
     $vResult = pg_fetch_array($result);
     if ($vResult) {
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $message_type = 'error';
     } else {
 
-      $altaNovedad = "insert into novedades (textoNovedad, fechaDesdeNovedad, fechaHastaNovedad, categoriaCliente) values('$descripcion', '$fechaD', '$fechaH', '$tipoUsuario')";
+      $altaNovedad = "INSERT INTO novedades (\"textoNovedad\", \"fechaDesdeNovedad\", \"fechaHastaNovedad\", \"categoriaCliente\") values('$descripcion', '$fechaD', '$fechaH', '$tipoUsuario')";
       $result2 = pg_query($link, $altaNovedad);
       if ($result2) {
         $message = "Novedad generada exitosamente.";
