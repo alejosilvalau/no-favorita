@@ -10,10 +10,7 @@ function numerosADias($numeros)
   $nombresDias = [];
 
   foreach ($numerosArray as $numero) {
-    // Trim whitespace and convert to integer
     $numero = intval(trim($numero));
-
-    // Adjust the index by subtracting 1 (so 1 maps to index 0)
     if ($numero >= 0 && $numero <= 6) {
       $nombresDias[] = $diasSemana[$numero];
     }

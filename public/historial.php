@@ -4,17 +4,18 @@ include("../includes/navbar.php");
 
 function numerosADias($numeros)
 {
-  $diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-  $numerosArray = explode(',', $numeros); // Asume que los días están separados por comas
+  $diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  $numerosArray = explode(',', $numeros);
   $nombresDias = [];
 
   foreach ($numerosArray as $numero) {
-    if (isset($diasSemana[$numero])) {
+    $numero = intval(trim($numero));
+    if ($numero >= 0 && $numero <= 6) {
       $nombresDias[] = $diasSemana[$numero];
     }
   }
 
-  return implode(', ', $nombresDias); // Devuelve los nombres de los días separados por comas
+  return implode(', ', $nombresDias);
 }
 
 if (isset($_SESSION['tipoUsuario'])) {

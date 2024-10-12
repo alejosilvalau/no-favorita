@@ -8,17 +8,18 @@ if ($_SESSION['tipoUsuario'] !== 'administrador' && $_SESSION['tipoUsuario'] !==
 
 function numerosADias($numeros)
 {
-  $diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-  $numerosArray = explode(',', $numeros); // Asume que los días están separados por comas
+  $diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  $numerosArray = explode(',', $numeros);
   $nombresDias = [];
 
   foreach ($numerosArray as $numero) {
-    if (isset($diasSemana[$numero])) {
+    $numero = intval(trim($numero));
+    if ($numero >= 0 && $numero <= 6) {
       $nombresDias[] = $diasSemana[$numero];
     }
   }
 
-  return implode(', ', $nombresDias); // Devuelve los nombres de los días separados por comas
+  return implode(', ', $nombresDias);
 }
 
 $limit = 5; // Límite de promociones por página
@@ -28,11 +29,11 @@ $offset = ($page - 1) * $limit;
 // Verifica si el usuario es un dueño
 if ($_SESSION['tipoUsuario'] == 'Dueño de local') {
   $idDueño = $_SESSION['codUsuario'];
-  $total_query = "SELECT COUNT(*) FROM promociones WHERE estadoPromo = 'aprobada' AND codLocal IN (SELECT codLocal FROM locales WHERE codUsuario = '$idDueño')";
-  $query = "SELECT * FROM promociones WHERE estadoPromo = 'aprobada' AND codLocal IN (SELECT codLocal FROM locales WHERE codUsuario = '$idDueño') LIMIT $limit OFFSET $offset";
+  $total_query = "SELECT COUNT(*) FROM promociones WHERE \"estadoPromo\" = 'aprobada' AND \"codLocal\" IN (SELECT \"codLocal\" FROM locales WHERE \"codUsuario\" = '$idDueño')";
+  $query = "SELECT * FROM promociones WHERE \"estadoPromo\" = 'aprobada' AND \"codLocal\" IN (SELECT \"codLocal\" FROM locales WHERE \"codUsuario\" = '$idDueño') LIMIT $limit OFFSET $offset";
 } else {
-  $total_query = "SELECT COUNT(*) FROM promociones WHERE estadoPromo = 'aprobada'";
-  $query = "SELECT * FROM promociones WHERE estadoPromo = 'aprobada' LIMIT $limit OFFSET $offset";
+  $total_query = "SELECT COUNT(*) FROM promociones WHERE \"estadoPromo\" = 'aprobada'";
+  $query = "SELECT * FROM promociones WHERE \"estadoPromo\" = 'aprobada' LIMIT $limit OFFSET $offset";
 }
 
 $total_result = pg_query($link, $total_query);
@@ -55,7 +56,7 @@ $result = pg_query($link, $query);
       echo "<p>Categoria Destinada: " . $row['categoriaCliente'] . "</p>";
       echo "<p>Dias de la semana disponibles: " . numerosADias($row['diasSemana']) . "</p>";
       $codLocal = $row['codLocal'];
-      $query = "SELECT * FROM locales WHERE codLocal = $codLocal";
+      $query = "SELECT * FROM locales WHERE \"codLocal\" = $codLocal";
       $resultado = pg_query($link, $query);
       $local = pg_fetch_array($resultado);
       echo "<p>Nombre del local al cual pertenece: " . $local['nombreLocal'] . "</p>";
