@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreLocal = trim($_POST["nombreLocal"]);
 
     if ($idLocal) {
-      $qryBuscarLocal = "SELECT * FROM locales WHERE codLocal = '$idLocal'";
+      $qryBuscarLocal = "SELECT * FROM locales WHERE \"codLocal\" = '$idLocal'";
       $resultBuscarLocal = pg_query($link, $qryBuscarLocal);
       $local = pg_fetch_array($resultBuscarLocal);
       if (!$local) {
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message_type = 'error';
       }
     } elseif ($nombreLocal) {
-      $qryBuscarLocal = "SELECT * FROM locales WHERE nombreLocal LIKE '%$nombreLocal%'";
+      $qryBuscarLocal = "SELECT * FROM locales WHERE \"nombreLocal\" LIKE '%$nombreLocal%'";
       $resultBuscarLocal = pg_query($link, $qryBuscarLocal);
       while ($row = pg_fetch_array($resultBuscarLocal)) {
         $locales[] = $row;
@@ -42,21 +42,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   } elseif (isset($_POST["seleccionarLocal"])) {
     $idLocal = trim($_POST["codLocal"]);
-    $qryBuscarLocal = "SELECT * FROM locales WHERE codLocal = '$idLocal'";
+    $qryBuscarLocal = "SELECT * FROM locales WHERE \"codLocal\" = '$idLocal'";
     $resultBuscarLocal = pg_query($link, $qryBuscarLocal);
     $local = pg_fetch_array($resultBuscarLocal);
   } elseif (isset($_POST["confirmar_eliminar"])) {
     $idLocal = trim($_POST["codLocal"]);
 
-    $qryEliminarUsoPromociones = "DELETE uso FROM uso_promociones uso INNER JOIN promociones promo ON uso.codPromo = promo.codPromo WHERE promo.codLocal = '$idLocal'";
+    $qryEliminarUsoPromociones = "DELETE FROM uso_promociones AS uso USING promociones AS promo WHERE uso.\"codPromo\" = promo.\"codPromo\" AND promo.\"codLocal\" = '$idLocal'";
     $resultEliminarUsoPromociones = pg_query($link, $qryEliminarUsoPromociones);
 
-    $qryEliminarPromociones = "DELETE FROM promociones WHERE codLocal = '$idLocal'";
+    $qryEliminarPromociones = "DELETE FROM promociones WHERE \"codLocal\" = '$idLocal'";
     $resultEliminarPromociones = pg_query($link, $qryEliminarPromociones);
 
     if ($resultEliminarPromociones && $resultEliminarUsoPromociones) {
 
-      $qryEliminarLocal = "DELETE FROM locales WHERE codLocal = '$idLocal'";
+      $qryEliminarLocal = "DELETE FROM locales WHERE \"codLocal\" = '$idLocal'";
       $resultEliminarLocal = pg_query($link, $qryEliminarLocal);
 
       if ($resultEliminarLocal) {
