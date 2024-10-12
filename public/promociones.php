@@ -5,12 +5,16 @@ include("../includes/navbar.php");
 // Función para obtener nombres de días
 function numerosADias($numeros)
 {
-  $diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  $diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
   $numerosArray = explode(',', $numeros);
   $nombresDias = [];
 
   foreach ($numerosArray as $numero) {
-    if (isset($diasSemana[$numero])) {
+    // Trim whitespace and convert to integer
+    $numero = intval(trim($numero));
+
+    // Adjust the index by subtracting 1 (so 1 maps to index 0)
+    if ($numero >= 0 && $numero <= 6) {
       $nombresDias[] = $diasSemana[$numero];
     }
   }
@@ -216,12 +220,12 @@ $resultado = pg_query($link, $busca_promociones);
                     ?>
                     <?php if (pg_num_rows($resultado_uso) > 0): ?>
                       <div class='alert warning'>Ya has utilizado esta promoción.</div>
-                    <?php elseif (!in_array(date('w'), explode(',', $row['diasSemana']))): ?>
+                    <?php elseif (!in_array(date('w') - 1, explode(',', $row['diasSemana']))): ?>
                       <div class='alert info'>Esta promoción no está disponible en este dia.</div>
                     <?php else: ?>
                       <form method="post">
                         <input type="hidden" name="codPromo" value="<?php echo htmlspecialchars($row['codPromo']); ?>">
-                        <button type="submit" name="solicitar_promo" class="btn-seleccionar">Solicitar uso de la promoción</button>
+                        <button type="submit" name="solicitar_promo" class="btn-seleccionar">Quiero la promoción!</button>
                       </form>
                     <?php endif; ?>
                   <?php else: ?>

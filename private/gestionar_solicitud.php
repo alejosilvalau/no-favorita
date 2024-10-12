@@ -19,16 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Query para actualizar el estado del uso de la promoción
   $nuevoEstado = ($accion == 'aprobar') ? 'aceptada' : 'rechazada';
-  $queryActualizar = "UPDATE uso_promociones SET estado = '$nuevoEstado' WHERE codCliente = '$codUsuario' AND codPromo = '$codPromo'";
+  $queryActualizar = "UPDATE uso_promociones SET estado = '$nuevoEstado' WHERE \"codCliente\" = '$codUsuario' AND \"codPromo\" = '$codPromo'";
 
   if (pg_query($link, $queryActualizar)) {
     if ($accion == 'aprobar') {
       // Sumar 1 al atributo cantUsadas en la tabla promociones
-      $querySumar = "UPDATE promociones SET cantUsadas = cantUsadas + 1 WHERE codPromo = '$codPromo'";
+      $querySumar = "UPDATE promociones SET \"cantUsadas\" = \"cantUsadas\" + 1 WHERE \"codPromo\" = '$codPromo'";
       pg_query($link, $querySumar);
 
       // Obtener el contadorCategoria actual del cliente
-      $queryContador = "SELECT contadorCategoria FROM usuarios WHERE codUsuario = '$codUsuario'";
+      $queryContador = "SELECT \"contadorCategoria\" FROM usuarios WHERE \"codUsuario\" = '$codUsuario'";
       $resultContador = pg_query($link, $queryContador);
       $rowContador = pg_fetch_assoc($resultContador);
       $contadorActual = $rowContador['contadorCategoria'];
@@ -37,15 +37,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $contadorNuevo = $contadorActual + 1;
 
       // Actualizar el contadorCategoria del cliente
-      $queryActualizarContador = "UPDATE usuarios SET contadorCategoria = '$contadorNuevo' WHERE codUsuario = '$codUsuario'";
+      $queryActualizarContador = "UPDATE usuarios SET \"contadorCategoria\" = '$contadorNuevo' WHERE \"codUsuario\" = '$codUsuario'";
       pg_query($link, $queryActualizarContador);
 
       // Verificar si el contador alcanza los umbrales para actualizar la categoría del cliente
       if ($contadorNuevo == 10) {
-        $queryActualizarCategoria = "UPDATE usuarios SET categoriaCliente = 'Medium' WHERE codUsuario = '$codUsuario'";
+        $queryActualizarCategoria = "UPDATE usuarios SET \"categoriaCliente\" = 'Medium' WHERE \"codUsuario\" = '$codUsuario'";
         pg_query($link, $queryActualizarCategoria);
       } elseif ($contadorNuevo == 20) {
-        $queryActualizarCategoria = "UPDATE usuarios SET categoriaCliente = 'Premium' WHERE codUsuario = '$codUsuario'";
+        $queryActualizarCategoria = "UPDATE usuarios SET \"categoriaCliente\" = 'Premium' WHERE \"codUsuario\" = '$codUsuario'";
         pg_query($link, $queryActualizarCategoria);
       }
     }
@@ -59,10 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Obtener todos los uso_promociones en estado "Enviada" para el local del dueño
 $codUsuario = $_SESSION['codUsuario'];
-$queryPromociones = "SELECT u.codCliente, u.codPromo, u.fechaUsoPromo, u.estado, p.textoPromo
+$queryPromociones = "SELECT u.\"codCliente\", u.\"codPromo\", u.\"fechaUsoPromo\", u.estado, p.\"textoPromo\"
                      FROM uso_promociones u
-                     INNER JOIN promociones p ON u.codPromo = p.codPromo
-                     WHERE u.estado = 'Enviada' AND p.codLocal IN (SELECT codLocal FROM locales WHERE codUsuario = '$codUsuario')";
+                     INNER JOIN promociones p ON u.\"codPromo\" = p.\"codPromo\"
+                     WHERE u.estado = 'enviada' AND p.\"codLocal\" IN (SELECT \"codLocal\" FROM locales WHERE \"codUsuario\" = '$codUsuario')";
 $resultPromociones = pg_query($link, $queryPromociones);
 ?>
 

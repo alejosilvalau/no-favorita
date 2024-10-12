@@ -107,12 +107,12 @@ $resultado = pg_query($link, $busca_promociones);
         while ($row = pg_fetch_assoc($resultado)) {
           echo "<div class='promo-container'>";
           echo "<h3>ID de la Promoción: " . $row["codPromo"] . "</h3>";
-          echo "<p><strong>Texto de la Promoción:</strong> " . $row["textoPromo"] . "</p>";
-          echo "<p><strong>Fecha Desde:</strong> " . $row["fechaDesdePromo"] . "</p>";
-          echo "<p><strong>Fecha Hasta:</strong> " . $row["fechaHastaPromo"] . "</p>";
-          echo "<p><strong>Categoría del Cliente:</strong> " . $row["categoriaCliente"] . "</p>";
-          echo "<p><strong>Días de la Semana:</strong> " . numerosADias($row["diasSemana"]) . "</p>";
-          echo "<p><strong>Estado de la Promoción:</strong> " . $row["estadoPromo"] . "</p>";
+          echo "<p>Texto de la Promoción: " . $row["textoPromo"] . "</p>";
+          echo "<p>Fecha Desde: " . $row["fechaDesdePromo"] . "</p>";
+          echo "<p>Fecha Hasta: " . $row["fechaHastaPromo"] . "</p>";
+          echo "<p>Categoría del Cliente: " . $row["categoriaCliente"] . "</p>";
+          echo "<p>Días de la Semana: " . numerosADias($row["diasSemana"]) . "</p>";
+          echo "<p>Estado de la Promoción: " . $row["estadoPromo"] . "</p>";
           if ($codUsuario && $row["fechaDesdePromo"] <= $hoy) {
             // Verificar si el usuario ya utilizó esta promoción
             $consulta_uso = "SELECT * FROM uso_promociones WHERE \"codCliente\" = $codUsuario AND \"codPromo\" = " . $row['codPromo'];
