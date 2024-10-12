@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fechaH = trim($_POST["fechaHastaNovedad"]);
     $tipoUsuario = trim($_POST["categoriaCliente"]);
 
-    $buscarNovedades = "SELECT * FROM novedades WHERE fechaDesdeNovedad >= '$fechaD' AND fechaHastaNovedad <= '$fechaH' AND categoriaCliente = '$tipoUsuario'";
+    $buscarNovedades = "SELECT * FROM novedades WHERE \"fechaDesdeNovedad\" >= '$fechaD' AND \"fechaHastaNovedad\" <= '$fechaH' AND \"categoriaCliente\" = '$tipoUsuario'";
     $result = pg_query($link, $buscarNovedades);
 
     if (pg_num_rows($result) > 0) {
@@ -36,7 +36,7 @@ if (isset($_POST['eliminar_novedad'])) {
   $idNovedad = $_POST['eliminar_novedad'];
 
   // Consulta SQL para eliminar la novedad seleccionada
-  $eliminarNovedad = "DELETE FROM novedades WHERE codNovedad = '$idNovedad'";
+  $eliminarNovedad = "DELETE FROM novedades WHERE \"codNovedad\" = '$idNovedad'";
   $result = pg_query($link, $eliminarNovedad);
 
   if ($result) {
