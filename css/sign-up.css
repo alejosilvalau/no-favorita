@@ -2,12 +2,18 @@
   --color-principal: #111E3F;
   --color-secundario: #C2AA72;
 }
-  
+
+html {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--color-secundario);
   font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
   font-weight: 400;
   font-size: 25px;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .container {

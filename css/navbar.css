@@ -3,7 +3,12 @@
   --color-secundario: #FFF;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
+  position: relative;
   overflow-x: hidden;
   padding-top: 107px;
 }
@@ -27,6 +32,7 @@ body {
   }
 
 }
+
 
 .navbar-nav .nav-link {
   color: var(--color-secundario);

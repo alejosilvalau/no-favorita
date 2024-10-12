@@ -3,6 +3,15 @@
   --color-secundario: #C2AA72;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
 .container {
   font-family: "Nimbus Sans TW01Con", "Nimbus Sans TW05Con", sans-serif;
   font-weight: 400;

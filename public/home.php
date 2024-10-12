@@ -57,7 +57,7 @@ if ($resultadoEliminar) {
 
       ?>
           <div class="col-md-4">
-            <div class='card'>
+            <div class='card my-2'>
               <h5 class='card-title'><?php echo strtoupper($novedad['textoNovedad']); ?></h5>
               <p class='card-text'>Desde: <?php echo $novedad['fechaDesdeNovedad']; ?><br>Hasta: <?php echo $novedad['fechaHastaNovedad']; ?></p>
             </div>
@@ -107,7 +107,7 @@ if ($resultadoEliminar) {
     <h2><strong>HORARIOS</strong></h2>
     <p>ABIERTO DE LUNES A DOMINGO</p>
   </div>
-  <div class="row d-flex flex-row mt-1 locales">
+  <div class="row d-flex mt-1 locales">
     <div class="col-md-4">
       <h3><strong>COMERCIOS</strong></h3>
       <p>10 a 21hs</p>

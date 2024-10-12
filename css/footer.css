@@ -2,6 +2,15 @@
   --color-principal: #111E3F;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
 .footer {
   display: flex;
   align-items: space-between;
@@ -19,6 +28,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+
+  @media (max-width: 525px) {
+    height: 85vh;
   }
 
 }

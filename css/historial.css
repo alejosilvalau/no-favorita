@@ -2,6 +2,14 @@
   --color-principal: #111E3F;
   --color-secundario: #C2AA72;
 }
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
 
 .container {
   max-width: 800px;

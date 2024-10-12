@@ -4,7 +4,7 @@ include("../includes/header.php");
 
 <nav class="navbar navbar-expand-lg navbar-white">
 
-  <a href="../public/home.php"><img class="navbar-brand" src="../assets/no-favorita-logo-v3.webp" alt="no-favorita-logo"></a>
+  <a href="../public/home.php"><img class="navbar-brand" src="../assets/no-favorita-logo-v3.png" alt="no-favorita-logo"></a>
 
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"

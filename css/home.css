@@ -12,7 +12,7 @@ html {
 
 body {
   overflow-x: hidden;
-  position: relative
+  position: relative;
 }
 
 h5,
@@ -26,7 +26,10 @@ p {
   align-items: center;
   overflow: hidden;
   height: 920px;
-
+  
+  @media (max-width: 525px) {
+    height: 750px;
+  }
 }
 
 .video-embed {
@@ -43,27 +46,31 @@ p {
   top: -250px;
   
   
-  @media (max-width: 992px) {
+  @media (max-width: 1024px) {
     width: 175vw;
     height: 175vh;
-    top: -400px;
+    top: -800px;
   }
-  @media (max-width: 668px) {
+  @media (max-width: 820px) {
     width: 200vw;
     height: 200vh;
-    top: -550px;
+    top: -750px;
+  }
+
+  @media (max-width: 820px) {
+    top: -650px;
   }
   
   @media (max-width: 525px) {
     width: 300vw;
     height: 300vh;
-    top: -1050px;
+    top: -1000px;
   }
 
   @media (max-width: 375px) {
     width: 350vw;
     height: 350vh;
-    top: -1250px;
+    top: -1050px;
   }
 }
 
@@ -98,7 +105,7 @@ p {
   }
   
   @media (max-width: 525px) {
-    top: -225px;
+    top: -100px;
     font-size: 70px;
   }
 }
@@ -122,14 +129,14 @@ p {
   }
   
   @media (max-width: 525px) {
-    top: -225px;
+    top: -110px;
   }
 }
 
 
 .novedades {
   position: relative;
-  
+
   @media (max-width: 1125px) {
     top: -150px;
     
@@ -142,7 +149,7 @@ p {
   }
   
   @media (max-width: 525px) {
-    top: -200px;
+    top: -100px;
     
   }
 }
@@ -161,7 +168,6 @@ hr {
   background-color: var(--color-principal);
   color: white;
   padding: 20px 0;
-
 }
 
 .marcas-title {
@@ -189,6 +195,7 @@ hr {
   object-fit: cover; 
   object-position: 50% 50%;
   margin: 25px;
+  
 }
 
 .marcas-logos:hover {
@@ -282,7 +289,7 @@ hr {
   background-size: cover;
   position: relative;
   z-index: 1;
-
+  
 }
 
 .parallax::before {
@@ -294,6 +301,7 @@ hr {
   height: 100%;
   background: rgba(0, 0, 0, 0.584);
   z-index: 1;
+  
 }
 
 .overlay {
@@ -314,7 +322,11 @@ hr {
   font-size: 69px;
 
   @media (max-width: 992px) {
-    font-size: 59px;
+    font-size: 65px;
+  }
+
+  @media (max-width: 525px) {
+    font-size: 55px;
   }
 }
 
@@ -323,6 +335,14 @@ hr {
   color: white;
   font-weight: 400;
   font-size: 19px;
+
+  @media (max-width: 992px) {
+    font-size: 25px;
+  }
+
+  @media (max-width: 525px) {
+    font-size: 20px;
+  }
 }
 
 .container-horarios {
@@ -364,6 +384,23 @@ hr {
 .container-horarios p {
   color: var(--color-principal-claro);
   text-wrap: nowrap;
+}
+
+.locales {
+  flex-direction: row;
+  @media (max-width: 992px) {
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
 
 .locales h3 {
@@ -420,6 +457,11 @@ hr {
   
   @media (max-width: 992px) {
     font-size: 45px;
+  }
+
+  @media (max-width: 525px) {
+    font-size: 33px;
+    padding-bottom: 10px;
   }
 }
 
@@ -486,6 +528,10 @@ hr {
   font-size: 40px;
 
   margin-bottom: 40px;
+
+  @media (max-width: 992px) {
+    font-size: 50px;
+  }
 }
 
 .container-formulario p {
@@ -493,6 +539,10 @@ hr {
   font-weight: 500;
   font-size: 25px;
   margin-bottom: 20px;
+
+  @media (max-width: 992px) {
+    font-size: 30px;
+  }
 
 }
 
