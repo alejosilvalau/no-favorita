@@ -34,6 +34,11 @@ body {
     height: 85vh;
   }
 
+  
+  @media (max-width: 375px) {
+    height: 105vh;
+  }
+
 }
 
 .container-footer {
