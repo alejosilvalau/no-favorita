@@ -19,7 +19,6 @@ h5,
 p {
   color: black;
 }
-
 .video {
   display: flex;
   justify-content: center;
@@ -70,6 +69,12 @@ p {
     width: 325vw;
     height: 325vh;
     top: -1100px;
+  }
+
+  @media (max-width: 400px) {
+    width: 325vw;
+    height: 325vh;
+    top: -900px;
   }
 
 
