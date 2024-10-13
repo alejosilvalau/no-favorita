@@ -2,6 +2,30 @@
 $page = 'alta_local';
 include("../includes/navbar.php");
 
+require_once '../vendor/autoload.php';
+
+use Cloudinary\Cloudinary;
+use Cloudinary\Api\Upload\UploadApi;
+use Cloudinary\Configuration\Configuration;
+use Dotenv\Dotenv;
+
+if ($_SERVER['HTTP_HOST'] == 'localhost') {
+  $dotenv = Dotenv::createImmutable('../');
+  $dotenv->load();
+}
+
+$cloudinary = Configuration::instance([
+  'cloud' => [
+    'cloud_name' => $_ENV['CLOUD_NAME'],
+    'api_key' => $_ENV['CLOUD_API_KEY'],
+    'api_secret' => $_ENV['CLOUD_API_SECRET'],
+  ],
+  'url' => [
+    'secure' => true
+  ]
+]);
+
+
 if ($_SESSION['tipoUsuario'] !== 'administrador') {
   header("Location: ../public/home.php"); // Redirigir si no es dueño de local
   exit();
@@ -15,28 +39,35 @@ $busquedaPorNombre = false;
 
 function subirImagen($file)
 {
-  $target_dir = '/uploads/';
-  $target_file = $target_dir . basename($file["name"]);
-  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
+  global $cloudinary;
+  // Check if the file is an image
   $check = getimagesize($file["tmp_name"]);
   if ($check === false) {
     return ["error" => "El archivo no es una imagen válida."];
   }
 
+  // Check file size (max 5MB)
   if ($file["size"] > 5000000) {
     return ["error" => "El archivo es demasiado grande. Máximo 5MB."];
   }
 
+  // Allowed formats
   $allowed_formats = ["jpg", "jpeg", "png", "gif"];
+  $imageFileType = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
   if (!in_array($imageFileType, $allowed_formats)) {
     return ["error" => "Sólo se permiten archivos JPG, JPEG, PNG y GIF."];
   }
 
-  if (move_uploaded_file($file["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . $target_file)) {
-    return ["success" => $target_file];
-  } else {
-    return ["error" => "Hubo un error al subir tu archivo."];
+  // Upload to Cloudinary
+  try {
+    $uploadResult = (new UploadApi())->upload($file["tmp_name"], [
+      'folder' => 'no-favorita',  // Folder in Cloudinary
+    ]);
+
+    // Return the URL of the uploaded image
+    return ["success" => $uploadResult['secure_url']];
+  } catch (Exception $e) {
+    return ["error" => "Hubo un error al subir tu archivo a Cloudinary: " . $e->getMessage()];
   }
 }
 
