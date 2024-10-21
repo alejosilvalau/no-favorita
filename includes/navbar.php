@@ -61,7 +61,7 @@ include("../includes/header.php");
                 <a class="dropdown-item" href="../private/gestionar_descuentos.php">Gestión de descuentos</a>
               </div>
               <div>
-                <a class="dropdown-item" href="../private/validar_dueño.php">Validación de dueños</a>
+                <a class="dropdown-item" href="../private/validar_duenio.php">Validación de dueños</a>
               </div>
               <div>
                 <a class="dropdown-item" href="../private/reportes.php">Reportes</a>
