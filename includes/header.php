@@ -40,7 +40,7 @@ include("../includes/sesiones.php");
     if ($page == 'gestionar_descuentos') {
       echo '<link rel="stylesheet" href="../css/gestionar_descuentos.css">';
     } elseif ($page == 'validar_duenio') {
-      echo '<link rel="stylesheet" href="../css/validar_dueño.css">';
+      echo '<link rel="stylesheet" href="../css/validar_duenio.css">';
     } elseif ($page == 'gestionar_solicitud') {
       echo '<link rel="stylesheet" href="../css/gestionar_solicitud.css">';
     }
