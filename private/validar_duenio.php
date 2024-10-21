@@ -59,7 +59,7 @@ if (pg_num_rows($resultado) > 0) {
       echo "<p>Codigo de Usuario: " . $fila["codUsuario"] . "</p>";
       echo "<p>Email: " . $fila["nombreUsuario"] . "</p>";
       echo "<p>Tipo de Usuario: " . $fila["tipoUsuario"] . "</p>";
-      echo "<form action='validar_dueño.php' method='POST'>";
+      echo "<form action='validar_duenio.php' method='POST'>";
       echo "<input type='hidden' name='codUsuario' value='" . $fila['codUsuario'] . "'>";
       echo "<button type='submit' name='action' value='validar' class='btn-validar'>Validar</button>";
       echo "<button type='submit' name='action' value='denegar' class='btn-denegar'>Denegar</button>";
