@@ -67,4 +67,6 @@ Durante el desarrollo de este proyecto, hemos adquirido y fortalecido las siguie
 ---
 ![image](./assets/captura-3.png)
 ---
-## Para más, visitá el sitio: [nofavorita.social](https://www.nofavorita.social)
+<div align="center">
+ <h3>Para más, visitá el sitio: <a href="https://www.nofavorita.social">nofavorita.social</a></h3>
+</div>
