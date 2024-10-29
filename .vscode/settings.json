@@ -1,0 +1,13 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "ccpa7stkruda3o.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com",
+      "driver": "PostgreSQL",
+      "name": "no-favorita",
+      "connectString": "postgres://uc9186ha1r28bm:p3f02590ddc3c7f2bdf2180e31fdd153abb5d0408d64b01740bde64f696be70ab@ccpa7stkruda3o.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dhpugqh204k3r",
+      "database": "dhpugqh204k3r",
+      "username": "uc9186ha1r28bm"
+    }
+  ]
+}
