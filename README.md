@@ -1,7 +1,7 @@
 # no-favorita
-Sitio Web: [nofavorita.social](https://www.nofavorita.social)
-
 Página web diseñada para gestionar locales y promociones del renovado shopping de Rosario.
+
+Sitio Web: [nofavorita.social](https://www.nofavorita.social)
 
 ## Descripción del Proyecto
 
