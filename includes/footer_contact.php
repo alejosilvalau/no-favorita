@@ -5,19 +5,15 @@ ini_set('display_errors', 1);
 include("conexion.inc");
 include("sesiones.php");
 
-
 require_once '../vendor/autoload.php';
-
-use Dotenv\Dotenv;
-
-
-// Incluyendo las clases de PHPMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/phpmailer/phpmailer/src/Exception.php';
 require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+
+use Dotenv\Dotenv;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
   $dotenv = Dotenv::createImmutable('../');
