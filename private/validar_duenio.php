@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $accion = 'validada';
       $alertClass = 'alert success'; // Clase de alerta para éxito
     } elseif ($_POST['action'] == 'denegar') {
-      $query = "UPDATE usuarios SET aprobado = 2 WHERE \"codUsuario\" = $1";
+      $query = "UPDATE usuarios SET aprobado = 2, \"tipoUsuario\" = 'Cliente' WHERE \"codUsuario\" = $1";
       $accion = 'denegada';
       $alertClass = 'alert danger'; // Clase de alerta para error
     }
