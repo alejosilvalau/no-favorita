@@ -9,9 +9,9 @@ include('../includes/conexion.inc');
 
 require_once '../vendor/autoload.php';
 
-require '../libs/PHPMailer-master/src/Exception.php';
-require '../libs/PHPMailer-master/src/PHPMailer.php';
-require '../libs/PHPMailer-master/src/SMTP.php';
+require '../vendor/phpmailer/phpmailer/src/Exception.php';
+require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 
 use Dotenv\Dotenv;
 use PHPMailer\PHPMailer\PHPMailer;

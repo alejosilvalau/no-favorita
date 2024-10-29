@@ -15,9 +15,9 @@ use Dotenv\Dotenv;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../libs/PHPMailer-master/src/Exception.php';
-require '../libs/PHPMailer-master/src/PHPMailer.php';
-require '../libs/PHPMailer-master/src/SMTP.php';
+require '../vendor/phpmailer/phpmailer/src/Exception.php';
+require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
   $dotenv = Dotenv::createImmutable('../');
