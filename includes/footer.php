@@ -15,13 +15,12 @@
     </div>
     <div class="row my-5 d-flex align-items-center justify-content-between">
       <div class="col-md-7 my-5 px-4">
-        <p>Esto es un prototipo para la universidad UTN, <br>la página original
-          es: <a target="_blank" href="https://www.lafavoritarosario.com/">lafavoritarosario.com</a>
-        </p>
+        <p>Atención Al Cliente:<br><a href="mailto:ayuda@nofavorita.social">ayuda@nofavorita.social</a></p>
+        <br>
+        <p>Soporte Técnico:<br><a href="mailto:soporte@nofavorita.social">soporte@nofavorita.social</a></p>
       </div>
       <div class="col-md-4 my-5">
-        <p class="text-right">Código Fuente: <a href="https://github.com/alejosilvalau/no-favorita">github.com/no-favorita</a></p>
-
+        <p class="text-right">Teléfono:<br><a href="callto:+543414563400">+54 341 456 3400</a></p>
       </div>
     </div>
   </div>
