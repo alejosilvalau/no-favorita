@@ -14,10 +14,6 @@ include("../includes/header.php");
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="../public/home.php">INICIO</a>
-      </li>
-
-      <li class="nav-item">
         <a class="nav-link" href="../public/locales.php">LOCALES</a>
       </li>
       <li class="nav-item">
