@@ -188,10 +188,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["buscarUsuario"])) {
         </select>
       </div>
       <div class="form-group">
-        <label for="imagenLocal">Imagen del Local (no habrá cambios en el cuadro luego de su selección):</label>
+        <label for="imagenLocal">Imagen del Local:</label>
         <div class="custom-file">
-          <input type="file" class="custom-file-input" id="imagenLocal" name="imagenLocal">
-          <label class="custom-file-label " for="imagenLocal">Elige una imagen...</label>
+          <input type="file" class="custom-file-input " id="imagenLocal" name="imagenLocal" onChange="previewImage(event)">
+          <label class="custom-file-label d-flex align-items-center" for="imagenLocal">Elige una imagen...</label>
+        </div>
+        <div id="imagePreview" class="d-flex align-items-center justify-content-center" style="margin-top: 10px;">
         </div>
       </div>
       <button type="submit" class="btn btn-primary btn-block">Agregar Local</button>
@@ -240,7 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["buscarUsuario"])) {
   <?php endif; ?>
 </div>
 
-
 <?php
 include("../includes/footer.php");
 ?>
+<script src="../includes/funciones_helpers.js"></script>

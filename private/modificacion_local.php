@@ -204,11 +204,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select>
       </div>
       <div class="form-group">
-        <label for="imagen">Imagen (no habrá cambios en el cuadro luego de su selección): </label>
-
+        <label for="imagen">Imagen del Local:</label>
         <div class="custom-file">
-          <input type="file" class="custom-file-input" id="imagen" name="imagenLocal">
-          <label class="custom-file-label" for="imagen">Elige una imagen...</label>
+          <input type="file" class="custom-file-input" id="imagen" name="imagenLocal" onChange="previewImage(event)">
+          <label class="custom-file-label d-flex align-items-center" for="imagen">Elige una imagen...</label>
+        </div>
+        <div id="imagePreview" class="d-flex align-items-center justify-content-center" style="margin-top: 10px;">
         </div>
         <input type="hidden" name="imagenActual" value="<?php echo $local['imagenLocal']; ?>">
       </div>
@@ -261,3 +262,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 include("../includes/footer.php");
 ?>
+<script src="../includes/funciones_helpers.js"></script>
