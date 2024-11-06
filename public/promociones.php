@@ -1,23 +1,9 @@
 <?php
 $page = 'promociones';
 include("../includes/navbar.php");
-
+include_once("../includes/funciones_helpers.php");
 // Función para obtener nombres de días
-function numerosADias($numeros)
-{
-  $diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-  $numerosArray = explode(',', $numeros);
-  $nombresDias = [];
 
-  foreach ($numerosArray as $numero) {
-    $numero = intval(trim($numero));
-    if ($numero >= 0 && $numero <= 6) {
-      $nombresDias[] = $diasSemana[$numero];
-    }
-  }
-
-  return implode(', ', $nombresDias);
-}
 
 // Variables de sesión y mensaje
 $hoy = date('Y-m-d');

@@ -1,26 +1,13 @@
 <?php
 $page = 'reportes';
 include("../includes/navbar.php");
+include("../includes/funciones_helpers.php");
+
 if ($_SESSION['tipoUsuario'] !== 'administrador' && $_SESSION['tipoUsuario'] !== 'Dueño de local') {
   header("Location: ../../public/home.php"); // Redirigir si no es administrador o dueño de local
   exit();
 }
 
-function numerosADias($numeros)
-{
-  $diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-  $numerosArray = explode(',', $numeros);
-  $nombresDias = [];
-
-  foreach ($numerosArray as $numero) {
-    $numero = intval(trim($numero));
-    if ($numero >= 0 && $numero <= 6) {
-      $nombresDias[] = $diasSemana[$numero];
-    }
-  }
-
-  return implode(', ', $nombresDias);
-}
 
 $limit = 5; // Límite de promociones por página
 $page = isset($_GET['page']) ? $_GET['page'] : 1;

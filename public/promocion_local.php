@@ -1,18 +1,8 @@
 <?php
 $page = 'promocion_local';
 include("../includes/navbar.php");
-function numerosADias($numeros)
-{
-  $diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-  $numerosArray = explode(',', $numeros); // Asume que los días están separados por comas
-  $nombresDias = [];
-  foreach ($numerosArray as $numero) {
-    if (isset($diasSemana[$numero])) {
-      $nombresDias[] = $diasSemana[$numero];
-    }
-  }
-  return implode(', ', $nombresDias); // Devuelve los nombres de los días separados por comas
-}
+include("../includes/funciones_helpers.php");
+
 $hoy = date('Y-m-d'); // Fecha actual en formato yyyy-mm-dd
 $diaSemana = date('w'); // Día de la semana actual (0 para domingo, 1 para lunes, etc.)
 $codLocal = isset($_GET['codLocal']) ? $_GET['codLocal'] : null;

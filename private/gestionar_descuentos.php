@@ -1,4 +1,6 @@
 <?php
+include_once('../includes/funciones_helpers.php');
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -89,7 +91,7 @@ if (pg_num_rows($resultado) > 0) {
       echo "<p>Fecha Desde Promoción: " . $fila["fechaDesdePromo"] . "</p>";
       echo "<p>Fecha Hasta Promoción: " . $fila["fechaHastaPromo"] . "</p>";
       echo "<p>Categoría del Cliente: " . $fila["categoriaCliente"] . "</p>";
-      echo "<p>Días de la Semana: " . $fila["diasSemana"] . "</p>";
+      echo "<p>Días de la Semana: " . numerosADias($fila["diasSemana"]) . "</p>";
       echo "<p>Estado de la Promoción: " . $fila["estadoPromo"] . "</p>";
       echo "<form action='gestionar_descuentos.php?page=$page' method='POST'>";
       echo "<input type='hidden' name='codPromo' value='" . $fila['codPromo'] . "'>";
