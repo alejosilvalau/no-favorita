@@ -1,5 +1,5 @@
 <?php
-include("conexion.inc");
+include("conexion.php");
 include("sesiones.php");
 
 require_once '../vendor/autoload.php';

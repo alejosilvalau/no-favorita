@@ -1,5 +1,5 @@
 <?php
-include("../includes/conexion.inc");
+include("../includes/conexion.php");
 include("../includes/sesiones.php");
 ?>
 

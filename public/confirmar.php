@@ -1,6 +1,6 @@
 <?php
 include ('../includes/sesiones.php');
-include ('../includes/conexion.inc'); // Archivo donde están tus credenciales de conexión a la base de datos
+include('../includes/conexion.php'); // Archivo donde están tus credenciales de conexión a la base de datos
 
 if (isset($_GET['token'])) {
   $token = $_GET['token'];

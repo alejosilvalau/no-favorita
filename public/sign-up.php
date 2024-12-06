@@ -4,7 +4,7 @@ $page = 'sign-up';
 include("../includes/navbar.php");
 
 include('../includes/sesiones.php');
-include('../includes/conexion.inc');
+include('../includes/conexion.php');
 
 
 require_once '../vendor/autoload.php';

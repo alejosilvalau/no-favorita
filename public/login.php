@@ -2,7 +2,7 @@
 $page = 'login';
 include("../includes/navbar.php");
 
-include("../includes/conexion.inc");
+include("../includes/conexion.php");
 include("../includes/sesiones.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
