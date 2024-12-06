@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 include ('../includes/sesiones.php');
 include ('../includes/conexion.inc'); // Archivo donde están tus credenciales de conexión a la base de datos
 
