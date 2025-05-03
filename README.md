@@ -68,5 +68,5 @@ Durante el desarrollo de este proyecto, hemos adquirido y fortalecido las siguie
 ![image](./assets/captura-3.png)
 ---
 <div align="center">
- <h3>Para más, visitá el sitio: <a target="_blank" href="https://www.nofavorita.social">nofavorita.social</a></h3>
+ <h3>Para más, visitá el sitio: <a target="_blank" href="https://no-favorita-1201aaa96f6b.herokuapp.com">https://no-favorita-1201aaa96f6b.herokuapp.com</a></h3>
 </div>
