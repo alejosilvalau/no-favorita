@@ -1,7 +1,7 @@
 # no-favorita
 Página web diseñada para gestionar locales y promociones del renovado shopping de Rosario.
 
-Sitio Web: [nofavorita.social](https://no-favorita-1201aaa96f6b.herokuapp.com)
+Sitio Web: [https://no-favorita-1201aaa96f6b.herokuapp.com](https://no-favorita-1201aaa96f6b.herokuapp.com)
 
 ## Descripción del Proyecto
 
